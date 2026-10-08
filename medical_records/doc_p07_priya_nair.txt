@@ -1,0 +1,35 @@
+METROPOLITAN ENDOCRINE CENTER - CLINICAL SUMMARY
+Patient Name: Priya Nair | Age: 34 | Sex: Female | UHID: END-THYR-2026-1007
+Consulting Endocrinologist: Dr. Raghavendra Iyer, MD, DM (Endocrinology)
+
+CHIEF COMPLAINTS:
+Unintentional weight loss of 7 kg over 2 months despite increased appetite, resting palpitations, heat intolerance, fine hand tremors, and anxiety.
+
+PRIMARY DIAGNOSIS:
+1. Primary Hyperthyroidism secondary to Graves' Disease.
+2. Thyrotoxic Sinus Tachycardia.
+3. Mild Graves' Ophthalmopathy.
+
+CLINICAL INVESTIGATIONS & LAB RESULTS:
+- Serum TSH: <0.01 mIU/L (Markedly suppressed, Ref: 0.4-4.5)
+- Free T4 (fT4): 3.8 ng/dL (Elevated, Ref: 0.8-1.8) | Free T3 (fT3): 11.2 pg/mL (Elevated)
+- TSH Receptor Antibodies (TRAb): Strongly Positive (8.4 IU/L)
+- Resting Heart Rate: 116 bpm | Blood Pressure: 134/76 mmHg
+- Complete Blood Count: WBC 6,800 /mcL, Absolute Neutrophil Count (ANC) 4,100 /mcL (Normal baseline)
+- Liver Function Test: AST 28 U/L, ALT 31 U/L (Normal).
+
+DISCHARGE MEDICATIONS & PRESCRIPTION:
+1. Tab. Carbimazole (Neo-Mercazole) 10 mg - 2 tablets (20 mg) orally twice daily after meals (Antithyroid drug).
+2. Tab. Propranolol 40 mg - 1 tablet orally twice daily morning and evening (Beta-blocker for tachycardia and tremors).
+3. Carboxymethylcellulose 0.5% Eye Drops - 2 drops in both eyes 4 times daily (Lubricating drops for ophthalmopathy).
+4. Tab. Calcium + Vitamin D3 - 1 tablet daily after lunch (Prevents thyrotoxic bone loss).
+
+CONTRAINDICATIONS & MEDICATION ALERTS:
+- AGRANULOCYTOSIS WARNING (CRITICAL): Carbimazole can rarely cause severe drop in white blood cells (agranulocytosis). Stop Carbimazole IMMEDIATELY and check CBC if you develop fever, sore throat, or mouth ulcers.
+- HEPATOTOXICITY ALERT: Monitor liver enzymes; report yellowing of eyes or dark urine.
+- Do not stop Propranolol abruptly as it may trigger rebound tachycardia or thyroid storm.
+
+DIETARY & LIFESTYLE GUIDANCE:
+- Avoid iodinated contrast dyes, kelp, seaweed, and excess iodine supplements.
+- Strictly avoid caffeine, energy drinks, and smoking (smoking worsens Graves' eye disease).
+- Wear UV-protective sunglasses outdoors and elevate head of bed at night.

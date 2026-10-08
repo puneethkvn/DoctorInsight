@@ -1,0 +1,49 @@
+METROPOLITAN GENERAL HOSPITAL
+DEPARTMENT OF NEPHROLOGY & METABOLIC DISORDERS
+
+PATIENT IDENTIFICATION:
+Patient Name: Ramesh Kumar Sharma | Age: 58 | Gender: Male
+UHID: MGH-NEPH-2026-88412 | Admission Date: 2026-09-28 | Discharge Date: 2026-10-04
+Consulting Nephrologist: Dr. Sunita Kulkarni, MD, DM
+
+CHIEF COMPLAINTS:
+Progressive bilateral pitting pedaledema over 3 weeks, uncontrolled home glucose readings (230-290 mg/dL), morning facial puffiness, exertional dyspnea, and blood pressure 170/104 mmHg.
+
+PRIMARY DIAGNOSES:
+1. Type 2 Diabetes Mellitus with Advanced Diabetic Nephropathy.
+2. Stage 3b Chronic Kidney Disease (CKD) with Macroalbuminuria.
+3. Secondary Renovascular Hypertension.
+4. Anemia of Chronic Disease (Hb: 9.3 g/dL).
+
+PERTINENT LABORATORY INVESTIGATIONS:
+- Serum Creatinine: 2.3 mg/dL (Baseline 1.3 mg/dL 8 months ago, indicating acute on chronic renal decline)
+- Estimated GFR (eGFR): 33 mL/min/1.73m² (Stage 3b CKD)
+- Blood Urea Nitrogen (BUN): 54 mg/dL (Elevated)
+- Serum Potassium: 5.2 mEq/L (Borderline Hyperkalemia, Normal 3.5-5.0)
+- Serum Sodium: 137 mEq/L
+- Fasting Blood Sugar: 215 mg/dL | Postprandial: 284 mg/dL | HbA1c: 9.3%
+- Urine Albumin-Creatinine Ratio (UACR): 410 mg/g (Significant macroalbuminuria)
+- Renal Ultrasound: Normal kidney bipolar lengths with bilateral increased cortical parenchymal echogenicity.
+
+IN-HOSPITAL CLINICAL COURSE:
+Metformin was stopped immediately due to severe risk of lactic acidosis in impaired renal function (eGFR <34). Patient was started on subcutaneous basal-bolus insulin protocol. Blood pressure managed with Telmisartan under serial potassium monitoring. Loop diuretic administered with notable clinical resolution of peripheral edema.
+
+DISCHARGE MEDICATIONS & PRESCRIPTION:
+1. Inj. Insulin Glargine (Lantus) - 14 Units Subcutaneously at 10:00 PM Bedtime daily.
+2. Inj. Insulin Lispro (Humalog) - 6 Units Subcutaneously 15 minutes before breakfast and dinner.
+3. Tab. Telmisartan 40 mg - 1 tablet orally once daily after breakfast (Renoprotective & Antihypertensive).
+4. Tab. Torsemide 10 mg - 1 tablet orally once daily morning after food (Diuretic).
+5. Tab. Sodium Bicarbonate 500 mg - 1 tablet orally twice daily with meals (Metabolic acidosis control).
+6. Tab. Calcium Carbonate + Vitamin D3 - 1 tablet daily with lunch (Phosphate binder).
+7. Tab. Ferrous Ascorbate 100 mg - 1 tablet daily night after dinner (Hematinic).
+
+HIGH-PRIORITY SAFETY ALERTS:
+- ABSOLUTELY CONTRAINDICATED: NSAIDs (Ibuprofen, Diclofenac, Aceclofenac). Can precipitate irreversible acute renal failure.
+- AVOID Metformin and SGLT2 inhibitors until authorized by Nephrology.
+- Re-check serum potassium within 14 days due to concurrent Telmisartan and renal impairment.
+
+PATIENT DIETARY & FLUID INSTRUCTIONS:
+- Strict Fluid Restriction: Maximum 1.5 Liters per 24 hours.
+- Renal Diet: Very low sodium (<2 g/day); low potassium (avoid coconut water, citrus fruits, raw leafy greens).
+- Daily self-monitoring of blood pressure and morning fasting capillary blood glucose.
+- Emergency Signs: Sudden breathlessness when lying flat, facial swelling, or urine output dropping below 500 mL/day.

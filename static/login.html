@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In — DoctorInsight</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220%22%20%220%22%20width=%22100%22%20height=%22100%22><text y=%22.9em%22 font-size=%2290%22>🩺</text></svg>">
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <style>
+    body {
+      background: #f4f4f2;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    .login-container {
+      background: #ffffff;
+      border: 1px solid #e5e5e3;
+      border-radius: 1.5rem;
+      width: 100%;
+      max-width: 440px;
+      padding: 2.75rem 2.25rem;
+      box-shadow: 0 20px 40px -15px rgba(0,0,0,0.07);
+      text-align: center;
+    }
+    .login-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.35rem;
+    }
+    .login-brand-title {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #09090b;
+      letter-spacing: -0.5px;
+    }
+    .badge-rag-login {
+      background: #facc15;
+      color: #000000;
+      font-weight: 800;
+      font-size: 0.72rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 0.3rem;
+    }
+    .login-subtitle {
+      font-size: 0.85rem;
+      color: #71717a;
+      margin-bottom: 2rem;
+    }
+    .btn-google-real {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      background: #ffffff;
+      border: 1px solid #dadce0;
+      color: #3c4043;
+      padding: 0.85rem 1.25rem;
+      border-radius: 0.75rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 1px 3px rgba(60,64,67, 0.12);
+      transition: all 0.2s ease;
+      margin-bottom: 1.5rem;
+    }
+    .btn-google-real:hover {
+      background: #f8fafc;
+      border-color: #c2c7d0;
+      box-shadow: 0 2px 6px rgba(60,64,67, 0.2);
+    }
+    .divider-line {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      color: #a1a1aa;
+      font-size: 0.78rem;
+      margin-bottom: 1.5rem;
+    }
+    .divider-line::before, .divider-line::after {
+      content: '';
+      flex: 1;
+      border-bottom: 1px solid #e4e4e7;
+    }
+    .divider-line:not(:empty)::before { margin-right: 0.75em; }
+    .divider-line:not(:empty)::after { margin-left: 0.75em; }
+    .form-field {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid #d4d4d8;
+      border-radius: 0.6rem;
+      font-size: 0.9rem;
+      margin-bottom: 0.85rem;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    .form-field:focus {
+      border-color: #18181b;
+    }
+    .btn-submit-login {
+      width: 100%;
+      background: #18181b;
+      color: #ffffff;
+      border: none;
+      padding: 0.85rem;
+      border-radius: 0.6rem;
+      font-weight: 700;
+      font-size: 0.92rem;
+      cursor: pointer;
+      transition: background 0.15s;
+      margin-top: 0.25rem;
+    }
+    .btn-submit-login:hover {
+      background: #27272a;
+    }
+    .demo-pill {
+      background: #f4f4f5;
+      border: 1px solid #e4e4e7;
+      padding: 0.45rem 0.8rem;
+      border-radius: 9999px;
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: #3f3f46;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .demo-pill:hover {
+      background: #e4e4e7;
+      color: #18181b;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-container">
+    
+    <!-- Branding -->
+    <div class="login-brand">
+      <span class="login-brand-title">DoctorInsight</span>
+      <span class="badge-rag-login">AI RAG</span>
+    </div>
+    <div class="login-subtitle">Medical Document Intelligence Platform</div>
+
+    <!-- Official Style Google Auth Button -->
+    <button class="btn-google-real" onclick="openGooglePicker()">
+      <svg style="width: 20px; height: 20px;" viewBox="0 0 24 24">
+        <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+        <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+        <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+        <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+      </svg>
+      <span>Sign in with Google</span>
+    </button>
+
+    <div class="divider-line">or continue with email</div>
+
+    <!-- Email Login Form -->
+    <form onsubmit="handleEmailLogin(event)">
+      <input type="email" id="emailInput" class="form-field" placeholder="name@example.com" required>
+      <input type="password" id="passwordInput" class="form-field" placeholder="Password" required>
+      <button type="submit" class="btn-submit-login">Sign In / Register</button>
+    </form>
+
+    <!-- Quick Demo Accounts -->
+    <div style="margin-top: 2rem; padding-top: 1.25rem; border-top: 1px solid #f4f4f5;">
+      <div style="font-size: 0.74rem; font-weight: 700; color: #a1a1aa; text-transform: uppercase; margin-bottom: 0.6rem;">Quick 1-Click Access:</div>
+      <div style="display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap;">
+        <button type="button" class="demo-pill" onclick="loginDirect('Puneeth K.V.N.', 'puneeth.kvn@gmail.com')">👤 Puneeth (Patient)</button>
+        <button type="button" class="demo-pill" onclick="loginDirect('Dr. Sarah Vance', 'dr.sarah.vance@hospital.org')">👨‍⚕️ Dr. Vance (Physician)</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Google Account Chooser Modal -->
+  <div class="modal-overlay" id="googlePickerModal">
+    <div class="modal-window">
+      <svg style="width: 32px; height: 32px; margin: 0 auto 0.5rem;" viewBox="0 0 24 24">
+        <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+        <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+        <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+        <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+      </svg>
+      <h3 style="font-size: 1.15rem; font-weight: 800; color: #09090b; margin-bottom: 0.25rem;">Choose a Google Account</h3>
+      <p style="font-size: 0.8rem; color: #71717a; margin-bottom: 1.25rem;">to continue to DoctorInsight</p>
+
+      <div style="display: flex; flex-direction: column; gap: 0.5rem; text-align: left;">
+        <div onclick="loginDirect('Puneeth K.V.N.', 'puneeth.kvn@gmail.com')" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem; border: 1px solid #e4e4e7; border-radius: 0.6rem; cursor: pointer; transition: background 0.15s;" onmouseover="this.style.background='#f4f4f5'" onmouseout="this.style.background='white'">
+          <div style="width: 38px; height: 38px; border-radius: 50%; background: #18181b; color: white; display: flex; align-items: center; justify-content: center; font-weight: 800;">P</div>
+          <div>
+            <div style="font-weight: 700; font-size: 0.88rem; color: #18181b;">Puneeth K.V.N.</div>
+            <div style="font-size: 0.74rem; color: #71717a;">puneeth.kvn@gmail.com</div>
+          </div>
+        </div>
+
+        <div onclick="promptCustomAccount()" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem; border: 1px dashed #cbd5e1; border-radius: 0.6rem; cursor: pointer; transition: background 0.15s;" onmouseover="this.style.background='#f4f4f5'" onmouseout="this.style.background='white'">
+          <div style="width: 38px; height: 38px; border-radius: 50%; background: #f4f4f5; color: #71717a; display: flex; align-items: center; justify-content: center; font-weight: 800;">+</div>
+          <div>
+            <div style="font-weight: 700; font-size: 0.88rem; color: #0284c7;">Use another Google account</div>
+            <div style="font-size: 0.74rem; color: #71717a;">Enter your custom name &amp; gmail</div>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn-demo-data" style="width: 100%; margin-top: 1.25rem; justify-content: center;" onclick="closeGooglePicker()">Cancel</button>
+    </div>
+  </div>
+
+  <script>
+    function openGooglePicker() {
+      document.getElementById('googlePickerModal').style.display = 'flex';
+    }
+    function closeGooglePicker() {
+      document.getElementById('googlePickerModal').style.display = 'none';
+    }
+
+    async function loginDirect(name, email) {
+      closeGooglePicker();
+      const user = {
+        name: name,
+        email: email,
+        avatar_initial: name[0].toUpperCase(),
+        provider: "google",
+        timestamp: Date.now()
+      };
+      localStorage.setItem("DOCTORINSIGHT_GOOGLE_USER", JSON.stringify(user));
+
+      try {
+        await fetch("/api/auth/google", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name, email })
+        });
+      } catch (e) {}
+
+      // Redirect immediately to dashboard
+      window.location.href = "/dashboard";
+    }
+
+    function promptCustomAccount() {
+      closeGooglePicker();
+      const name = prompt("Enter your Name:") || "Google User";
+      const email = prompt("Enter your Gmail address:") || "user@gmail.com";
+      loginDirect(name, email);
+    }
+
+    function handleEmailLogin(e) {
+      e.preventDefault();
+      const email = document.getElementById("emailInput").value.trim();
+      const name = email.split("@")[0].replace(/[^a-zA-Z]/g, " ").trim().toUpperCase();
+      loginDirect(name, email);
+    }
+  </script>
+</body>
+</html>

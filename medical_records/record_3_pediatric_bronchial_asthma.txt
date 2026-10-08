@@ -1,0 +1,41 @@
+CHILDREN'S SPECIALTY HOSPITAL
+EMERGENCY DEPARTMENT ENCOUNTER SUMMARY
+
+PATIENT DETAILS:
+Patient Name: Aarav Joshi | Age: 14 | Gender: Male
+UHID: CSH-PED-2026-6190 | Encounter Date: 2026-10-06
+Attending Pediatrician: Dr. Sanjay Mehra, MD (Pediatrics)
+
+PRESENTING COMPLAINTS:
+Sudden acute breathlessness, audible wheezing, and continuous dry hacking cough following exposure to outdoor dust and cold morning air. Symptoms rapidly worsened with marked tachypnea and inability to speak in complete sentences.
+
+EMERGENCY TRIAGE & VITALS:
+- Respiratory Rate: 30 breaths/min (Marked tachypnea with subcostal retractions)
+- Heart Rate: 118 bpm (Sinus tachycardia)
+- Oxygen Saturation (SpO2): 90% on ambient room air -> Improved to 98% on 2L humidified O2 via nasal cannula
+- Auscultation: Bilateral widespread high-pitched expiratory wheezes
+- Peak Expiratory Flow (PEFR): Initial 180 L/min (40% predicted) -> 330 L/min (73% predicted) post-treatment.
+
+PRIMARY DIAGNOSIS:
+Acute Moderate-to-Severe Exacerbation of Bronchial Asthma triggered by environmental aeroallergens.
+
+ACUTE RESCUE THERAPY GIVEN:
+1. Serial nebulizations with Salbutamol 2.5 mg + Ipratropium Bromide 0.5 mg every 20 minutes x 3 doses.
+2. Intravenous Hydrocortisone 100 mg stat.
+3. Humidified supplemental oxygen.
+
+DISCHARGE PRESCRIPTION:
+1. Budesonide Inhaler (Budecort 200 mcg) - 2 puffs twice daily using spacer chamber (Daily anti-inflammatory controller).
+2. Salbutamol Inhaler (Asthalin 100 mcg) - 2 puffs as needed for acute wheezing/coughing (Quick-relief rescue inhaler).
+3. Tab. Prednisolone 20 mg - 1 tablet daily in the morning with breakfast for 5 days only, then discontinue (Oral steroid burst).
+4. Tab. Montelukast 10 mg - 1 tablet daily at bedtime for 30 days (Leukotriene modifier).
+5. Tab. Cetirizine 5 mg - 1 tablet daily at bedtime for 10 days (Antihistamine).
+
+CRITICAL INHALER & MEDICATION CAUTIONS:
+- Always gargle with water and spit out after using Budesonide inhaler to prevent oral candidiasis (fungal thrush).
+- Keep Salbutamol rescue inhaler accessible in backpack at all times during school and sports.
+
+PARENT & PATIENT GUIDANCE:
+- Avoid identified triggers: Dust mites, damp carpets, tobacco smoke, cold drafts, and pollen.
+- Monitor Peak Expiratory Flow daily: Yellow Zone (50-80%) requires immediate rescue puffs; Red Zone (<50%) requires immediate return to Emergency Room.
+- Follow up in Pediatric Pulmonology Clinic in 1 week.

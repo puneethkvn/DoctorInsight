@@ -1,0 +1,32 @@
+CHEST & THORACIC MEDICINE INSTITUTE - DISCHARGE SUMMARY
+Patient Name: Suresh Babu | Age: 67 | Sex: Male | UHID: PUL-COPD-2026-1014
+Attending Pulmonologist: Dr. Gautam Chatterjee, MD, DM (Pulmonary Medicine)
+
+CHIEF COMPLAINTS:
+Worsening exertional breathlessness (mMRC Grade 3), productive cough with mucopurulent sputum for 5 days, and wheezing. Former 30-pack-year smoker.
+
+PRIMARY DIAGNOSIS:
+1. Chronic Obstructive Pulmonary Disease (COPD - GOLD Stage III, Group E) with Acute Infective Exacerbation.
+2. Mild Secondary Pulmonary Arterial Hypertension.
+
+CLINICAL INVESTIGATIONS & LAB RESULTS:
+- Spirometry (Post-Bronchodilator): FEV1/FVC Ratio: 0.54 | FEV1: 44% Predicted (Severe airflow limitation)
+- Arterial Blood Gas (ABG): pH 7.38, pCO2 46 mmHg, pO2 68 mmHg, SpO2 93% on room air (Target SpO2: 88-92%)
+- Chest X-Ray: Bilateral hyperinflated lung fields, flattened diaphragms, no lobar consolidation.
+- WBC: 11,800 /mcL | CRP: 18 mg/L | Serum Electrolytes & Renal Function: Normal.
+
+DISCHARGE MEDICATIONS & PRESCRIPTION:
+1. Tiotropium 18 mcg + Formoterol 12 mcg Inhaler (Duova) - 2 puffs once daily every morning via spacer (LAMA + LABA Dual Bronchodilator).
+2. Levosalbutamol + Ipratropium Nebulization / Inhaler (Duolin) - 2 puffs every 6 hours as needed for acute dyspnea.
+3. Tab. Azithromycin 500 mg - 1 tablet orally once daily for 3 more days (Completing 5-day course).
+4. Tab. Acebrophylline 100 mg SR - 1 tablet orally twice daily after meals (Mucolytic & bronchodilator).
+5. Tab. N-Acetylcysteine 600 mg Effervescent - 1 tablet dissolved in half glass water twice daily (Sputum clearance).
+
+CONTRAINDICATIONS & MEDICATION ALERTS:
+- OXYGEN TARGET ALERT: In chronic COPD (CO2 retainer risk), titrate supplemental oxygen to maintain SpO2 strictly between 88% and 92%. Excessive high-flow oxygen can depress respiratory drive and cause CO2 narcosis.
+- CONTRAINDICATION: Avoid non-selective Beta-blockers (Propranolol) and sedating antihistamines/cough suppressants (Codeine).
+
+DIETARY & LIFESTYLE GUIDANCE:
+- Practice Pursed-Lip Breathing and diaphragmatic breathing exercises 3 times daily.
+- Annual Influenza vaccine and Pneumococcal vaccination (PCV20) recommended.
+- Complete avoidance of tobacco smoke, biomass fuel fumes, and cold winter smog.

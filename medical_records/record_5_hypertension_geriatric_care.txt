@@ -1,0 +1,48 @@
+CENTRAL CLINICAL GERIATRIC CENTER
+OUTPATIENT CONSULTATION NOTE
+
+PATIENT INFORMATION:
+Patient Name: Ananth Narayan | Age: 74 | Gender: Male
+UHID: CCG-GER-2026-1182 | Consultation Date: 2026-10-07
+Attending Geriatrician: Dr. Malini Sengupta, MD (Medicine), Post-Doc Geriatrics
+
+PRIMARY REASON FOR VISIT:
+Evaluation of recurring morning occipital throbbing headaches, postural dizziness upon standing up quickly, and elevated ambulatory blood pressure readings (165-180 mmHg systolic).
+
+CLINICAL EXAMINATION:
+- Blood Pressure (Sitting): 172/94 mmHg (Right arm)
+- Blood Pressure (Standing after 3 mins): 138/82 mmHg (Orthostatic drop of 34 mmHg systolic)
+- Pulse: 64 bpm, regular
+- Neurological: Alert, oriented x 3, cranial nerves intact, no focal motor deficits, Romberg negative.
+- Gait: Mildly cautious, timed up-and-go (TUG) test 12.8 seconds.
+
+DIAGNOSES:
+1. Stage 2 Essential Hypertension with Orthostatic Hypotension Component.
+2. Benign Prostatic Hyperplasia (BPH) with Lower Urinary Tract Symptoms.
+3. Age-Related Mild Osteopenia.
+
+LABORATORY INVESTIGATIONS:
+- Serum Creatinine: 1.1 mg/dL (Normal) | eGFR: 68 mL/min (Age appropriate)
+- Serum Potassium: 4.4 mEq/L | Serum Sodium: 140 mEq/L
+- Fasting Glucose: 104 mg/dL | HbA1c: 5.6%
+- Lipid Profile: Total Cholesterol 188, LDL 106, HDL 48
+- Brain MRI (Screening): Age-related mild cerebral small vessel ischemic changes, no acute infarct or hemorrhage.
+
+PRESCRIPTION & MEDICATION PLAN:
+1. Tab. Amlodipine 5 mg - 1 tablet orally once daily morning after breakfast (Calcium channel blocker).
+2. Tab. Telmisartan 40 mg - 1 tablet orally once daily morning after food (Angiotensin receptor blocker).
+3. Tab. Silodosin 8 mg - 1 tablet orally once daily at bedtime (Alpha-1 blocker for BPH symptoms).
+4. Tab. Cholecalciferol (Vitamin D3) 60,000 IU - 1 sachet in milk once weekly for 8 weeks.
+
+MEDICATION ALERTS & GERIATRIC PRECAUTIONS:
+- FALL RISK ALERT: Silodosin and antihypertensives can potentiate orthostatic hypotension. Advise patient to sit at edge of bed for 60 seconds before standing up.
+- Avoid over-the-counter decongestants (Pseudoephedrine/Phenylephrine) which sharply elevate blood pressure and worsen urinary retention.
+
+PATIENT & CAREGIVER GUIDANCE:
+- Maintain daily home BP log (record both sitting and standing measurements).
+- Adequate hydration: Drink 1.8 to 2.0 liters of fluids throughout daytime, reduce fluids after 8:00 PM.
+- Remove loose throw rugs, ensure adequate nightlight illumination between bed and bathroom to prevent nocturnal falls.
+- Emergency Signs: Sudden facial droop, arm weakness, slurred speech (TIA/Stroke protocol) or syncopal fall.
+
+FOLLOW-UP:
+Review in Geriatric Clinic in 4 weeks with home BP chart.

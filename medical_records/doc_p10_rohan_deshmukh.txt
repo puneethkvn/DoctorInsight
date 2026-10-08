@@ -1,0 +1,31 @@
+METROPOLITAN NEUROLOGY & HEADACHE CLINIC
+Patient Name: Rohan Deshmukh | Age: 29 | Sex: Male | UHID: NEU-MIG-2026-1010
+Consulting Neurologist: Dr. Ananya Bose, MD, DM (Neurology)
+
+CHIEF COMPLAINTS:
+Severe unilateral throbbing right-sided headaches occurring 10-12 days per month, preceded by 20 minutes of zigzag flickering visual scotoma (aura), photophobia, phonophobia, and nausea.
+
+PRIMARY DIAGNOSIS:
+1. Chronic Migraine with Visual Aura.
+2. Risk of Medication-Overuse (Rebound) Headache.
+
+CLINICAL INVESTIGATIONS & LAB RESULTS:
+- MRI Brain with MR Angiography (MRA): Normal brain parenchyma and intracranial vessels; no space-occupying lesion or aneurysm.
+- Blood Pressure: 118/76 mmHg | Heart Rate: 70 bpm
+- Fundoscopy: Normal optic discs, no papilledema.
+
+DISCHARGE MEDICATIONS & PRESCRIPTION:
+1. Tab. Sumatriptan 50 mg - 1 tablet orally at very onset of migraine headache (Maximum 2 tablets in 24 hours, max 8 days/month) (Abortive Triptan).
+2. Tab. Naproxen 500 mg + Domperidone 10 mg - 1 tablet orally with Sumatriptan for acute attack nausea and pain.
+3. Tab. Topiramate 25 mg - 1 tablet orally daily at bedtime for 2 weeks, then increase as directed (Daily migraine prophylaxis).
+4. Tab. Riboflavin (Vitamin B2) 400 mg + Magnesium Oxide 400 mg - 1 tablet daily with lunch.
+
+CONTRAINDICATIONS & MEDICATION ALERTS:
+- MEDICATION OVERUSE WARNING: Do NOT take Sumatriptan or painkillers more than 2 days per week (8 days/month), as frequent use causes chronic daily rebound headaches.
+- SEROTONIN SYNDROME & VASOSPASM ALERT: Never combine Sumatriptan with Ergotamines or SSRI/SNRI antidepressants without neurologist clearance.
+- Topiramate requires high fluid intake (2.5 Liters/day) to prevent kidney stones (nephrolithiasis).
+
+DIETARY & LIFESTYLE GUIDANCE:
+- Maintain a daily Headache Trigger Diary.
+- Avoid classic dietary triggers: Aged cheese, dark chocolate, MSG, processed meats (nitrates), red wine, and skipping meals (fasting).
+- Maintain strict sleep-wake schedule (7-8 hours nightly) and limit screen glare.

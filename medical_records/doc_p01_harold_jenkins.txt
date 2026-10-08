@@ -1,0 +1,34 @@
+METROPOLITAN INTERNAL MEDICINE CLINICAL RECORD
+Patient Name: Harold Jenkins | Age: 71 | Sex: Male | UHID: HJ-MED-2026-1001
+Attending Physician: Dr. Sarah Vance, MD
+
+CHIEF COMPLAINTS:
+Routine 6-month chronic disease follow-up for hypertension, hyperlipidemia, and benign prostatic hyperplasia. Reports mild morning knee stiffness and occasional postural lightheadedness when rising rapidly.
+
+PRIMARY DIAGNOSIS:
+1. Essential Hypertension (Moderate, Stage 2).
+2. Primary Hyperlipidemia (Elevated LDL cholesterol).
+3. Benign Prostatic Hyperplasia (BPH) with lower urinary tract symptoms.
+4. Bilateral Knee Osteoarthritis.
+
+CLINICAL INVESTIGATIONS & LAB RESULTS:
+- Blood Pressure: 138/84 mmHg | Pulse Rate: 68 bpm
+- Fasting Blood Sugar: 98 mg/dL | HbA1c: 5.7%
+- Serum Creatinine: 1.0 mg/dL (eGFR 78 mL/min) | Serum Potassium: 4.6 mEq/L
+- Total Cholesterol: 196 mg/dL | LDL: 114 mg/dL | HDL: 44 mg/dL | PSA: 2.4 ng/mL
+
+DISCHARGE MEDICATIONS & PRESCRIPTION:
+1. Tab. Lisinopril 20 mg - 1 tablet orally once daily morning (ACE Inhibitor for BP).
+2. Tab. Atorvastatin 20 mg - 1 tablet orally daily at bedtime (Statin for lipids).
+3. Tab. Tamsulosin 0.4 mg - 1 tablet orally daily 30 minutes after dinner (Alpha-1 blocker for BPH).
+4. Tab. Paracetamol 500 mg - 1 tablet orally every 8 hours as needed for joint pain.
+5. Tab. Cholecalciferol (Vitamin D3) 1000 IU - 1 tablet daily with breakfast.
+
+CONTRAINDICATIONS & MEDICATION ALERTS:
+- STRICTLY AVOID NSAIDs (Ibuprofen, Naproxen) with Lisinopril as they impair renal perfusion and raise blood pressure.
+- ORTHOSTATIC HYPOTENSION ALERT: Lisinopril + Tamsulosin can cause dizziness upon standing. Sit on bed edge before rising.
+
+DIETARY & LIFESTYLE GUIDANCE:
+- Low sodium DASH diet (<2g salt/day).
+- Hydrate with 1.8 Liters water daily; limit evening fluids after 8 PM.
+- Walk 25 minutes daily on flat ground.

@@ -1,0 +1,340 @@
+{
+  "user_accounts": {
+    "puneeth.kvn@gmail.com": {
+      "id": "g_b65d33dc4a",
+      "name": "Puneeth K.V.N.",
+      "email": "puneeth.kvn@gmail.com",
+      "avatar": "https://api.dicebear.com/7.x/initials/svg?seed=Puneeth K.V.N.",
+      "auth_provider": "google",
+      "created_at": 1791480216.8074257,
+      "last_login": 1791480216.8074257
+    },
+    "vivekchokkara4@gmail.com": {
+      "id": "g_4fc7d5ee8c",
+      "name": "ch.vivek",
+      "email": "vivekchokkara4@gmail.com",
+      "avatar": "https://api.dicebear.com/7.x/initials/svg?seed=ch.vivek",
+      "auth_provider": "google",
+      "created_at": 1791480176.0799434,
+      "last_login": 1791480176.0799434
+    },
+    "+919876543210": {
+      "id": "otp_919876543210",
+      "name": "Rahul Sharma",
+      "email": "919876543210@otp.patient.in",
+      "phone": "+919876543210",
+      "role": "PATIENT",
+      "otp_verified": true,
+      "avatar_initial": "R",
+      "auth_provider": "phone_otp",
+      "created_at": 1791481044.411902,
+      "last_login": 1791481044.411902
+    }
+  },
+  "custom_documents": {
+    "doc_p01": {
+      "id": "doc_p01",
+      "title": "Geriatric Care: Hypertension, Hyperlipidemia & BPH",
+      "category": "Internal & Geriatric Medicine",
+      "patient": {
+        "name": "Harold Jenkins",
+        "age": 71,
+        "gender": "Male",
+        "uhid": "HJ-MED-2026-1001",
+        "admission_date": "2026-10-01",
+        "discharge_date": "2026-10-04"
+      },
+      "content": "METROPOLITAN INTERNAL MEDICINE CLINICAL RECORD\nPatient Name: Harold Jenkins | Age: 71 | Sex: Male | UHID: HJ-MED-2026-1001\nAttending Physician: Dr. Sarah Vance, MD\n\nCHIEF COMPLAINTS:\nRoutine 6-month chronic disease follow-up for hypertension, hyperlipidemia, and benign prostatic hyperplasia. Reports mild morning knee stiffness and occasional postural lightheadedness when rising rapidly.\n\nPRIMARY DIAGNOSIS:\n1. Essential Hypertension (Moderate, Stage 2).\n2. Primary Hyperlipidemia (Elevated LDL cholesterol).\n3. Benign Prostatic Hyperplasia (BPH) with lower urinary tract symptoms.\n4. Bilateral Knee Osteoarthritis.\n\nCLINICAL INVESTIGATIONS & LAB RESULTS:\n- Blood Pressure: 138/84 mmHg | Pulse Rate: 68 bpm\n- Fasting Blood Sugar: 98 mg/dL | HbA1c: 5.7%\n- Serum Creatinine: 1.0 mg/dL (eGFR 78 mL/min) | Serum Potassium: 4.6 mEq/L\n- Total Cholesterol: 196 mg/dL | LDL: 114 mg/dL | HDL: 44 mg/dL | PSA: 2.4 ng/mL\n\nDISCHARGE MEDICATIONS & PRESCRIPTION:\n1. Tab. Lisinopril 20 mg - 1 tablet orally once daily morning (ACE Inhibitor for BP).\n2. Tab. Atorvastatin 20 mg - 1 tablet orally daily at bedtime (Statin for lipids).\n3. Tab. Tamsulosin 0.4 mg - 1 tablet orally daily 30 minutes after dinner (Alpha-1 blocker for BPH).\n4. Tab. Paracetamol 500 mg - 1 tablet orally every 8 hours as needed for joint pain.\n5. Tab. Cholecalciferol (Vitamin D3) 1000 IU - 1 tablet daily with breakfast.\n\nCONTRAINDICATIONS & MEDICATION ALERTS:\n- STRICTLY AVOID NSAIDs (Ibuprofen, Naproxen) with Lisinopril as they impair renal perfusion and raise blood pressure.\n- ORTHOSTATIC HYPOTENSION ALERT: Lisinopril + Tamsulosin can cause dizziness upon standing. Sit on bed edge before rising.\n\nDIETARY & LIFESTYLE GUIDANCE:\n- Low sodium DASH diet (<2g salt/day).\n- Hydrate with 1.8 Liters water daily; limit evening fluids after 8 PM.\n- Walk 25 minutes daily on flat ground.",
+      "source": "doc_p01_harold_jenkins.pdf",
+      "pdf_url": "/medical_records/doc_p01_harold_jenkins.pdf",
+      "txt_url": "/medical_records/doc_p01_harold_jenkins.txt",
+      "created_at": 1791477726.3984377,
+      "chunks_indexed": false
+    },
+    "doc_p02": {
+      "id": "doc_p02",
+      "title": "Cardiology: Acute STEMI & Post-PCI LAD Drug-Eluting Stent",
+      "category": "Interventional Cardiology",
+      "patient": {
+        "name": "Rajesh Varma",
+        "age": 59,
+        "gender": "Male",
+        "uhid": "MHI-CARD-2026-1002",
+        "admission_date": "2026-09-20",
+        "discharge_date": "2026-09-24"
+      },
+      "content": "METROPOLITAN HEART INSTITUTE - CARDIOLOGY DISCHARGE SUMMARY\nPatient Name: Rajesh Varma | Age: 59 | Sex: Male | UHID: MHI-CARD-2026-1002\nAttending Cardiologist: Dr. Arvind Deshmukh, MD, DM\n\nCHIEF COMPLAINTS:\nSevere retrosternal crushing chest pain radiating to left arm and jaw with diaphoresis for 3 hours.\n\nPRIMARY DIAGNOSIS:\n1. Acute Anterior Wall ST-Elevation Myocardial Infarction (STEMI).\n2. Single-Vessel Coronary Artery Disease (95% Proximal LAD Occlusion - Post DES Stent).\n3. Primary Dyslipidemia.\n\nCLINICAL INVESTIGATIONS & LAB RESULTS:\n- High-Sensitivity Troponin-I: Peak 4,200 ng/L (Down to 180 ng/L)\n- Total Cholesterol: 245 mg/dL | LDL: 168 mg/dL | HDL: 34 mg/dL\n- Serum Creatinine: 1.0 mg/dL | HbA1c: 5.8%\n- 2D Echocardiogram: Anterior wall hypokinesis, LVEF 46%.\n\nDISCHARGE MEDICATIONS & PRESCRIPTION:\n1. Tab. Aspirin 75 mg - 1 tablet orally once daily after lunch (Antiplatelet).\n2. Tab. Ticagrelor 90 mg - 1 tablet orally twice daily morning and night (Dual Antiplatelet Therapy).\n3. Tab. Atorvastatin 80 mg - 1 tablet orally daily at bedtime (High-intensity statin).\n4. Tab. Metoprolol Succinate ER 25 mg - 1 tablet orally once daily morning (Beta-blocker).\n5. Tab. Ramipril 2.5 mg - 1 tablet orally once daily at bedtime (ACE inhibitor).\n6. Tab. Pantoprazole 40 mg - 1 tablet orally once daily empty stomach morning.\n\nCONTRAINDICATIONS & MEDICATION ALERTS:\n- CRITICAL STENT THROMBOSIS ALERT: Never skip or stop Ticagrelor or Aspirin without cardiologist approval. Premature cessation causes fatal stent clotting.\n- Avoid grapefruit juice (inhibits Atorvastatin and Ticagrelor clearance).\n\nDIETARY & LIFESTYLE GUIDANCE:\n- Strict zero trans-fat Mediterranean cardiac diet.\n- Avoid lifting >5 kg for 4 weeks; light brisk walk 20 mins daily.",
+      "source": "doc_p02_rajesh_varma.pdf",
+      "pdf_url": "/medical_records/doc_p02_rajesh_varma.pdf",
+      "txt_url": "/medical_records/doc_p02_rajesh_varma.txt",
+      "created_at": 1791477726.3984377,
+      "chunks_indexed": false
+    },
+    "doc_p03": {
+      "id": "doc_p03",
+      "title": "Nephrology: Type 2 Diabetes & Stage 3b Chronic Kidney Disease",
+      "category": "Nephrology & Metabolic Care",
+      "patient": {
+        "name": "Ramesh Kumar Sharma",
+        "age": 58,
+        "gender": "Male",
+        "uhid": "MGH-NEPH-2026-1003",
+        "admission_date": "2026-09-28",
+        "discharge_date": "2026-10-04"
+      },
+      "content": "METROPOLITAN GENERAL HOSPITAL - NEPHROLOGY DISCHARGE RECORD\nPatient Name: Ramesh Kumar Sharma | Age: 58 | Sex: Male | UHID: MGH-NEPH-2026-1003\nConsulting Nephrologist: Dr. Sunita Kulkarni, MD, DM\n\nCHIEF COMPLAINTS:\nBilateral pitting leg swelling for 3 weeks, uncontrolled blood sugars (240-280 mg/dL), fatigue, and BP 168/102 mmHg.\n\nPRIMARY DIAGNOSIS:\n1. Type 2 Diabetes Mellitus with Diabetic Nephropathy (Stage 3b CKD).\n2. Secondary Renovascular Hypertension.\n3. Anemia of Chronic Kidney Disease (Hb 9.4 g/dL).\n\nCLINICAL INVESTIGATIONS & LAB RESULTS:\n- Fasting Blood Sugar: 212 mg/dL | Postprandial: 278 mg/dL | HbA1c: 9.2%\n- Serum Creatinine: 2.3 mg/dL (Elevated from 1.4) | eGFR: 34 mL/min/1.73m\u00b2\n- Blood Urea Nitrogen (BUN): 52 mg/dL | Serum Potassium: 5.1 mEq/L (Borderline Hyperkalemia)\n- Urine Albumin-to-Creatinine Ratio (UACR): 380 mg/g.\n\nDISCHARGE MEDICATIONS & PRESCRIPTION:\n1. Inj. Insulin Glargine (Lantus) - 14 Units Subcutaneously at 10:00 PM bedtime daily.\n2. Inj. Insulin Lispro (Humalog) - 6 Units Subcutaneously 15 mins before breakfast and dinner.\n3. Tab. Telmisartan 40 mg - 1 tablet orally once daily after breakfast.\n4. Tab. Torsemide 10 mg - 1 tablet orally once daily morning after food (Diuretic).\n5. Tab. Sodium Bicarbonate 500 mg - 1 tablet orally twice daily with meals.\n6. Tab. Ferrous Ascorbate 100 mg - 1 tablet orally daily after dinner.\n\nCONTRAINDICATIONS & MEDICATION ALERTS:\n- STRICTLY CONTRAINDICATED: NSAIDs (Ibuprofen, Diclofenac, Naproxen) cause acute kidney injury.\n- METFORMIN CONTRAINDICATION: Metformin discontinued due to eGFR <35 lactic acidosis hazard.\n\nDIETARY & LIFESTYLE GUIDANCE:\n- Renal-diabetic diet: Low sodium (<2g/day), low potassium (avoid coconut water, citrus, raw spinach).\n- Fluid restriction: Maximum 1.5 Liters per 24 hours.",
+      "source": "doc_p03_ramesh_kumar_sharma.pdf",
+      "pdf_url": "/medical_records/doc_p03_ramesh_kumar_sharma.pdf",
+      "txt_url": "/medical_records/doc_p03_ramesh_kumar_sharma.txt",
+      "created_at": 1791477726.3984377,
+      "chunks_indexed": false
+    },
+    "doc_p04": {
+      "id": "doc_p04",
+      "title": "Pulmonology: Acute Severe Bronchial Asthma Exacerbation",
+      "category": "Pediatric & Pulmonary Emergency",
+      "patient": {
+        "name": "Aarav Joshi",
+        "age": 14,
+        "gender": "Male",
+        "uhid": "CSH-PULM-2026-1004",
+        "admission_date": "2026-10-05",
+        "discharge_date": "2026-10-07"
+      },
+      "content": "CHILDREN'S SPECIALTY HOSPITAL - PULMONARY SUMMARY\nPatient Name: Aarav Joshi | Age: 14 | Sex: Male | UHID: CSH-PULM-2026-1004\nAttending Physician: Dr. Sanjay Mehra, MD\n\nCHIEF COMPLAINTS:\nSudden shortness of breath, audible wheezing, and nocturnal dry cough triggered by seasonal pollen and dust exposure.\n\nPRIMARY DIAGNOSIS:\n1. Acute Moderate-to-Severe Exacerbation of Bronchial Asthma.\n2. Allergic Rhinitis.\n\nCLINICAL INVESTIGATIONS & LAB RESULTS:\n- SpO2: 91% on room air at triage -> Improved to 98% on treatment\n- Respiratory Rate: 28 breaths/min | Heart Rate: 112 bpm\n- Peak Expiratory Flow Rate (PEFR): Initial 185 L/min -> Post-bronchodilator 340 L/min.\n\nDISCHARGE MEDICATIONS & PRESCRIPTION:\n1. Budesonide Inhaler (Budecort 200 mcg) - 2 puffs twice daily via spacer device (Controller).\n2. Salbutamol Inhaler (Asthalin 100 mcg) - 2 puffs every 4-6 hours as needed for wheezing (Rescue).\n3. Tab. Prednisolone 20 mg - 1 tablet orally once daily morning with breakfast for 5 days.\n4. Tab. Montelukast 10 mg - 1 tablet orally daily at bedtime for 30 days.\n5. Tab. Cetirizine 5 mg - 1 tablet orally daily at bedtime for 7 days.\n\nCONTRAINDICATIONS & MEDICATION ALERTS:\n- INHALER CAUTION: Always rinse mouth and gargle with warm water after using Budecort steroid inhaler to prevent oral thrush.\n- Avoid Beta-blockers and Aspirin/NSAIDs which can trigger bronchospasm.\n\nDIETARY & LIFESTYLE GUIDANCE:\n- Keep rescue Salbutamol inhaler in school bag at all times.\n- Avoid dust mites, cold drinks, incense smoke, and pet dander.",
+      "source": "doc_p04_aarav_joshi.pdf",
+      "pdf_url": "/medical_records/doc_p04_aarav_joshi.pdf",
+      "txt_url": "/medical_records/doc_p04_aarav_joshi.txt",
+      "created_at": 1791477726.3984377,
+      "chunks_indexed": false
+    },
+    "doc_p05": {
+      "id": "doc_p05",
+      "title": "Orthopedics: Post-Op Right Total Knee Arthroplasty (TKA)",
+      "category": "Orthopedic Joint Surgery",
+      "patient": {
+        "name": "Nirmala Devi",
+        "age": 66,
+        "gender": "Female",
+        "uhid": "OJR-ORTH-2026-1005",
+        "admission_date": "2026-10-01",
+        "discharge_date": "2026-10-06"
+      },
+      "content": "ORTHOPEDIC & JOINT RECONSTRUCTION CENTER - DISCHARGE SUMMARY\nPatient Name: Nirmala Devi | Age: 66 | Sex: Female | UHID: OJR-ORTH-2026-1005\nOperative Surgeon: Dr. Vikramaditya Rao, MS (Ortho)\n\nCHIEF COMPLAINTS:\nEnd-stage right knee osteoarthritis with varus deformity; admitted for elective Total Knee Replacement.\n\nPRIMARY DIAGNOSIS:\n1. Severe Grade IV Primary Osteoarthritis of Right Knee (Post Total Knee Arthroplasty).\n2. Post-Operative Venous Thromboembolism (DVT) Prophylaxis State.\n\nCLINICAL INVESTIGATIONS & LAB RESULTS:\n- Post-op Hemoglobin: 10.4 g/dL | Platelets: 260,000 /mcL\n- Bilateral Lower Limb Venous Doppler: Negative for Deep Vein Thrombosis (DVT)\n- Right Knee AP/Lateral Radiograph:Tricompartmental prosthesis in optimal alignment; knee flexion 90 degrees.\n\nDISCHARGE MEDICATIONS & PRESCRIPTION:\n1. Tab. Rivaroxaban 10 mg - 1 tablet orally once daily with lunch for 14 days (Anticoagulant for DVT prevention).\n2. Tab. Tramadol 37.5 mg + Paracetamol 325 mg - 1 tablet orally twice daily after food for pain.\n3. Tab. Paracetamol 650 mg - 1 tablet orally thrice daily.\n4. Tab. Pantoprazole 40 mg - 1 tablet orally once daily morning before breakfast.\n5. Tab. Calcium Carbonate 500 mg + Vitamin D3 - 1 tablet daily with lunch.\n\nCONTRAINDICATIONS & MEDICATION ALERTS:\n- ANTICOAGULANT BLEEDING ALERT: Do not miss Rivaroxaban doses (prevents fatal pulmonary embolism). Avoid concurrent NSAIDs (Diclofenac/Ibuprofen) due to GI bleeding risk.\n\nDIETARY & LIFESTYLE GUIDANCE:\n- Perform hourly ankle pump exercises and quadriceps sets 3 times daily.\n- Walk using 4-pod walker support; never squat or sit cross-legged on floor.",
+      "source": "doc_p05_nirmala_devi.pdf",
+      "pdf_url": "/medical_records/doc_p05_nirmala_devi.pdf",
+      "txt_url": "/medical_records/doc_p05_nirmala_devi.txt",
+      "created_at": 1791477726.3984377,
+      "chunks_indexed": false
+    },
+    "doc_p06": {
+      "id": "doc_p06",
+      "title": "Geriatric Neurology: Orthostatic Hypotension & High Fall Risk",
+      "category": "Geriatric Medicine",
+      "patient": {
+        "name": "Ananth Narayan",
+        "age": 74,
+        "gender": "Male",
+        "uhid": "CCG-GER-2026-1006",
+        "admission_date": "2026-10-06",
+        "discharge_date": "2026-10-07"
+      },
+      "content": "CENTRAL GERIATRIC CLINIC - CONSULTATION SUMMARY\nPatient Name: Ananth Narayan | Age: 74 | Sex: Male | UHID: CCG-GER-2026-1006\nAttending Geriatrician: Dr. Malini Sengupta, MD\n\nCHIEF COMPLAINTS:\nRecurrent morning occipital headaches, postural dizziness upon standing up from bed, and ambulatory BP fluctuations.\n\nPRIMARY DIAGNOSIS:\n1. Stage 2 Essential Hypertension with Postural Orthostatic Hypotension.\n2. Benign Prostatic Hyperplasia (BPH).\n3. Age-Related Mild Cerebral Small Vessel Ischemic Disease.\n\nCLINICAL INVESTIGATIONS & LAB RESULTS:\n- Blood Pressure Sitting: 172/94 mmHg -> Standing (3 min): 138/82 mmHg (34 mmHg systolic drop)\n- Heart Rate: 64 bpm | Serum Creatinine: 1.1 mg/dL | eGFR: 68 mL/min\n- Serum Sodium: 140 mEq/L | Serum Potassium: 4.4 mEq/L | Timed Up-and-Go (TUG): 12.8s.\n\nDISCHARGE MEDICATIONS & PRESCRIPTION:\n1. Tab. Amlodipine 5 mg - 1 tablet orally once daily morning after breakfast.\n2. Tab. Telmisartan 40 mg - 1 tablet orally once daily morning after breakfast.\n3. Tab. Silodosin 8 mg - 1 tablet orally once daily at bedtime after dinner.\n4. Sachet Cholecalciferol 60,000 IU - once weekly with milk for 8 weeks.\n\nCONTRAINDICATIONS & MEDICATION ALERTS:\n- FALL RISK ALERT: Silodosin + Antihypertensives cause significant postural hypotension. Sit at bedside for 60 seconds before standing.\n- Avoid nasal/oral decongestants (Pseudoephedrine) which spike BP and cause acute urinary retention.\n\nDIETARY & LIFESTYLE GUIDANCE:\n- Maintain daily sitting and standing BP log.\n- Install grab bars and nightlights in bathroom corridor to prevent nocturnal falls.",
+      "source": "doc_p06_ananth_narayan.pdf",
+      "pdf_url": "/medical_records/doc_p06_ananth_narayan.pdf",
+      "txt_url": "/medical_records/doc_p06_ananth_narayan.txt",
+      "created_at": 1791477726.3984377,
+      "chunks_indexed": false
+    },
+    "doc_p07": {
+      "id": "doc_p07",
+      "title": "Endocrinology: Graves' Disease (Hyperthyroidism) & Tachycardia",
+      "category": "Endocrinology & Metabolism",
+      "patient": {
+        "name": "Priya Nair",
+        "age": 34,
+        "gender": "Female",
+        "uhid": "END-THYR-2026-1007",
+        "admission_date": "2026-10-02",
+        "discharge_date": "2026-10-05"
+      },
+      "content": "METROPOLITAN ENDOCRINE CENTER - CLINICAL SUMMARY\nPatient Name: Priya Nair | Age: 34 | Sex: Female | UHID: END-THYR-2026-1007\nConsulting Endocrinologist: Dr. Raghavendra Iyer, MD, DM (Endocrinology)\n\nCHIEF COMPLAINTS:\nUnintentional weight loss of 7 kg over 2 months despite increased appetite, resting palpitations, heat intolerance, fine hand tremors, and anxiety.\n\nPRIMARY DIAGNOSIS:\n1. Primary Hyperthyroidism secondary to Graves' Disease.\n2. Thyrotoxic Sinus Tachycardia.\n3. Mild Graves' Ophthalmopathy.\n\nCLINICAL INVESTIGATIONS & LAB RESULTS:\n- Serum TSH: <0.01 mIU/L (Markedly suppressed, Ref: 0.4-4.5)\n- Free T4 (fT4): 3.8 ng/dL (Elevated, Ref: 0.8-1.8) | Free T3 (fT3): 11.2 pg/mL (Elevated)\n- TSH Receptor Antibodies (TRAb): Strongly Positive (8.4 IU/L)\n- Resting Heart Rate: 116 bpm | Blood Pressure: 134/76 mmHg\n- Complete Blood Count: WBC 6,800 /mcL, Absolute Neutrophil Count (ANC) 4,100 /mcL (Normal baseline)\n- Liver Function Test: AST 28 U/L, ALT 31 U/L (Normal).\n\nDISCHARGE MEDICATIONS & PRESCRIPTION:\n1. Tab. Carbimazole (Neo-Mercazole) 10 mg - 2 tablets (20 mg) orally twice daily after meals (Antithyroid drug).\n2. Tab. Propranolol 40 mg - 1 tablet orally twice daily morning and evening (Beta-blocker for tachycardia and tremors).\n3. Carboxymethylcellulose 0.5% Eye Drops - 2 drops in both eyes 4 times daily (Lubricating drops for ophthalmopathy).\n4. Tab. Calcium + Vitamin D3 - 1 tablet daily after lunch (Prevents thyrotoxic bone loss).\n\nCONTRAINDICATIONS & MEDICATION ALERTS:\n- AGRANULOCYTOSIS WARNING (CRITICAL): Carbimazole can rarely cause severe drop in white blood cells (agranulocytosis). Stop Carbimazole IMMEDIATELY and check CBC if you develop fever, sore throat, or mouth ulcers.\n- HEPATOTOXICITY ALERT: Monitor liver enzymes; report yellowing of eyes or dark urine.\n- Do not stop Propranolol abruptly as it may trigger rebound tachycardia or thyroid storm.\n\nDIETARY & LIFESTYLE GUIDANCE:\n- Avoid iodinated contrast dyes, kelp, seaweed, and excess iodine supplements.\n- Strictly avoid caffeine, energy drinks, and smoking (smoking worsens Graves' eye disease).\n- Wear UV-protective sunglasses outdoors and elevate head of bed at night.",
+      "source": "doc_p07_priya_nair.pdf",
+      "pdf_url": "/medical_records/doc_p07_priya_nair.pdf",
+      "txt_url": "/medical_records/doc_p07_priya_nair.txt",
+      "created_at": 1791477726.3984377,
+      "chunks_indexed": false
+    },
+    "doc_p08": {
+      "id": "doc_p08",
+      "title": "Gastroenterology: Bleeding Peptic Ulcer & H. pylori Eradication",
+      "category": "Gastroenterology & Hepatology",
+      "patient": {
+        "name": "Vikramaditya Singh",
+        "age": 45,
+        "gender": "Male",
+        "uhid": "GAS-ULC-2026-1008",
+        "admission_date": "2026-09-29",
+        "discharge_date": "2026-10-03"
+      },
+      "content": "INSTITUTE OF GASTROENTEROLOGY - DISCHARGE RECORD\nPatient Name: Vikramaditya Singh | Age: 45 | Sex: Male | UHID: GAS-ULC-2026-1008\nAttending Gastroenterologist: Dr. Nikhil Chawla, MD, DM (Gastro)\n\nCHIEF COMPLAINTS:\nBurning epigastric pain for 4 weeks, worsened after taking over-the-counter Diclofenac for backache, followed by 2 episodes of dark coffee-ground emesis and melena (black tarry stools).\n\nPRIMARY DIAGNOSIS:\n1. Acute Duodenal Ulcer (Forrest Class IIb) with Resolved Upper Gastrointestinal Bleed.\n2. Helicobacter pylori (H. pylori) Infection (RUT Positive).\n3. NSAID-Induced Erosions & Mild Post-Hemorrhagic Anemia.\n\nCLINICAL INVESTIGATIONS & LAB RESULTS:\n- Upper GI Endoscopy (EGD): 1.2 cm clean-based ulcer in first part of duodenum (D1) with adherent clot treated via endoscopic hemoclip; antral gastritis.\n- Rapid Urease Test (RUT): Positive for H. pylori.\n- Hemoglobin: 10.6 g/dL (Stabilized from 9.8 g/dL) | Urea: 34 mg/dL | Creatinine: 0.9 mg/dL.\n\nDISCHARGE MEDICATIONS & PRESCRIPTION:\n1. Tab. Esomeprazole 40 mg - 1 tablet orally twice daily 30 minutes before breakfast and dinner for 14 days, then once daily for 6 weeks (Proton Pump Inhibitor).\n2. Tab. Clarithromycin 500 mg - 1 tablet orally twice daily with meals for 14 days (Antibiotic).\n3. Cap. Amoxicillin 1000 mg - 1 capsule orally twice daily with meals for 14 days (Antibiotic).\n4. Syp. Sucralfate 10 mL - orally four times daily 1 hour before meals and at bedtime (Mucosal cytoprotective).\n\nCONTRAINDICATIONS & MEDICATION ALERTS:\n- ABSOLUTE CONTRAINDICATION: Strictly avoid all NSAIDs (Diclofenac, Ibuprofen, Aspirin, Naproxen, Piroxicam). Will cause life-threatening recurrent ulcer perforation or bleeding.\n- Complete the full 14-day H. pylori triple therapy antibiotic course to prevent bacterial resistance.\n\nDIETARY & LIFESTYLE GUIDANCE:\n- Bland, soft, non-spicy diet; avoid chili, black pepper, citrus juices, vinegar, and deep-fried foods.\n- Complete abstinence from alcohol, tobacco smoking, and strong coffee.\n- Emergency Signs: Vomiting blood, black tarry stools, or sudden severe abdominal rigidity.",
+      "source": "doc_p08_vikramaditya_singh.pdf",
+      "pdf_url": "/medical_records/doc_p08_vikramaditya_singh.pdf",
+      "txt_url": "/medical_records/doc_p08_vikramaditya_singh.txt",
+      "created_at": 1791477726.3984377,
+      "chunks_indexed": false
+    },
+    "doc_p09": {
+      "id": "doc_p09",
+      "title": "Cardiology: Non-Valvular Atrial Fibrillation & Apixaban Therapy",
+      "category": "Cardiac Electrophysiology",
+      "patient": {
+        "name": "Meera Patel",
+        "age": 62,
+        "gender": "Female",
+        "uhid": "CAR-AFIB-2026-1009",
+        "admission_date": "2026-10-01",
+        "discharge_date": "2026-10-04"
+      },
+      "content": "HEART RHYTHM & ELECTROPHYSIOLOGY CENTER\nPatient Name: Meera Patel | Age: 62 | Sex: Female | UHID: CAR-AFIB-2026-1009\nAttending Electrophysiologist: Dr. R. Patel, MD, DM\n\nCHIEF COMPLAINTS:\nEpisodic fluttering palpitations in chest, mild exertional breathlessness, and easy fatigability over past 10 days.\n\nPRIMARY DIAGNOSIS:\n1. Paroxysmal Non-Valvular Atrial Fibrillation (CHA2DS2-VASc Score: 3 - High Stroke Risk).\n2. Essential Hypertension.\n3. Mild Left Atrial Enlargement.\n\nCLINICAL INVESTIGATIONS & LAB RESULTS:\n- 12-Lead ECG: Irregularly irregular rhythm with absent P waves, ventricular rate 114 bpm -> Controlled to 74 bpm.\n- 2D Echocardiogram: LVEF 58%, Left Atrium 4.2 cm, no valvular stenosis or intracardiac thrombus.\n- Serum TSH: 2.1 mIU/L (Normal) | Serum Creatinine: 0.85 mg/dL | eGFR: 81 mL/min.\n\nDISCHARGE MEDICATIONS & PRESCRIPTION:\n1. Tab. Apixaban (Eliquis) 5 mg - 1 tablet orally twice daily (Every 12 hours, Morning and Night) (Direct Oral Anticoagulant for stroke prevention).\n2. Tab. Bisoprolol 5 mg - 1 tablet orally once daily morning (Beta-blocker for ventricular rate control).\n3. Tab. Telmisartan 40 mg - 1 tablet orally once daily morning (BP control).\n4. Tab. Rosuvastatin 10 mg - 1 tablet orally daily at bedtime.\n\nCONTRAINDICATIONS & MEDICATION ALERTS:\n- STROKE PREVENTION ALERT: Do not skip Apixaban doses. Skipping anticoagulation sharply increases risk of cardioembolic ischemic stroke.\n- BLEEDING RISK: Avoid NSAIDs, Aspirin, or herbal blood thinners (Ginkgo, high-dose fish oil) while taking Apixaban.\n\nDIETARY & LIFESTYLE GUIDANCE:\n- Avoid triggers of atrial fibrillation: Alcohol (\"holiday heart\"), excess caffeine, energy drinks, and sleep deprivation.\n- Use a soft-bristle toothbrush and electric razor to minimize gum or skin bleeding.",
+      "source": "doc_p09_meera_patel.pdf",
+      "pdf_url": "/medical_records/doc_p09_meera_patel.pdf",
+      "txt_url": "/medical_records/doc_p09_meera_patel.txt",
+      "created_at": 1791477726.3984377,
+      "chunks_indexed": false
+    },
+    "doc_p10": {
+      "id": "doc_p10",
+      "title": "Neurology: Chronic Migraine with Visual Aura & Prophylaxis",
+      "category": "Clinical Neurology",
+      "patient": {
+        "name": "Rohan Deshmukh",
+        "age": 29,
+        "gender": "Male",
+        "uhid": "NEU-MIG-2026-1010",
+        "admission_date": "2026-10-05",
+        "discharge_date": "2026-10-06"
+      },
+      "content": "METROPOLITAN NEUROLOGY & HEADACHE CLINIC\nPatient Name: Rohan Deshmukh | Age: 29 | Sex: Male | UHID: NEU-MIG-2026-1010\nConsulting Neurologist: Dr. Ananya Bose, MD, DM (Neurology)\n\nCHIEF COMPLAINTS:\nSevere unilateral throbbing right-sided headaches occurring 10-12 days per month, preceded by 20 minutes of zigzag flickering visual scotoma (aura), photophobia, phonophobia, and nausea.\n\nPRIMARY DIAGNOSIS:\n1. Chronic Migraine with Visual Aura.\n2. Risk of Medication-Overuse (Rebound) Headache.\n\nCLINICAL INVESTIGATIONS & LAB RESULTS:\n- MRI Brain with MR Angiography (MRA): Normal brain parenchyma and intracranial vessels; no space-occupying lesion or aneurysm.\n- Blood Pressure: 118/76 mmHg | Heart Rate: 70 bpm\n- Fundoscopy: Normal optic discs, no papilledema.\n\nDISCHARGE MEDICATIONS & PRESCRIPTION:\n1. Tab. Sumatriptan 50 mg - 1 tablet orally at very onset of migraine headache (Maximum 2 tablets in 24 hours, max 8 days/month) (Abortive Triptan).\n2. Tab. Naproxen 500 mg + Domperidone 10 mg - 1 tablet orally with Sumatriptan for acute attack nausea and pain.\n3. Tab. Topiramate 25 mg - 1 tablet orally daily at bedtime for 2 weeks, then increase as directed (Daily migraine prophylaxis).\n4. Tab. Riboflavin (Vitamin B2) 400 mg + Magnesium Oxide 400 mg - 1 tablet daily with lunch.\n\nCONTRAINDICATIONS & MEDICATION ALERTS:\n- MEDICATION OVERUSE WARNING: Do NOT take Sumatriptan or painkillers more than 2 days per week (8 days/month), as frequent use causes chronic daily rebound headaches.\n- SEROTONIN SYNDROME & VASOSPASM ALERT: Never combine Sumatriptan with Ergotamines or SSRI/SNRI antidepressants without neurologist clearance.\n- Topiramate requires high fluid intake (2.5 Liters/day) to prevent kidney stones (nephrolithiasis).\n\nDIETARY & LIFESTYLE GUIDANCE:\n- Maintain a daily Headache Trigger Diary.\n- Avoid classic dietary triggers: Aged cheese, dark chocolate, MSG, processed meats (nitrates), red wine, and skipping meals (fasting).\n- Maintain strict sleep-wake schedule (7-8 hours nightly) and limit screen glare.",
+      "source": "doc_p10_rohan_deshmukh.pdf",
+      "pdf_url": "/medical_records/doc_p10_rohan_deshmukh.pdf",
+      "txt_url": "/medical_records/doc_p10_rohan_deshmukh.txt",
+      "created_at": 1791477726.3984377,
+      "chunks_indexed": false
+    },
+    "doc_p11": {
+      "id": "doc_p11",
+      "title": "Rheumatology: Seropositive Rheumatoid Arthritis on Methotrexate",
+      "category": "Rheumatology & Immunology",
+      "patient": {
+        "name": "Lakshmi Subramanian",
+        "age": 52,
+        "gender": "Female",
+        "uhid": "RHE-RA-2026-1011",
+        "admission_date": "2026-10-03",
+        "discharge_date": "2026-10-05"
+      },
+      "content": "CENTER FOR RHEUMATOLOGY & AUTOIMMUNE DISEASES\nPatient Name: Lakshmi Subramanian | Age: 52 | Sex: Female | UHID: RHE-RA-2026-1011\nConsulting Rheumatologist: Dr. Karthikeya Murthy, MD, DM (Rheumatology)\n\nCHIEF COMPLAINTS:\nSymmetric swelling, tenderness, and morning stiffness (>90 minutes) in bilateral wrist, metacarpophalangeal (MCP), and proximal interphalangeal (PIP) hand joints for 4 months.\n\nPRIMARY DIAGNOSIS:\n1. Active Seropositive Rheumatoid Arthritis (DAS28-ESR Score: 5.1 - Moderate-to-High Disease Activity).\n2. Secondary Vitamin D Insufficiency.\n\nCLINICAL INVESTIGATIONS & LAB RESULTS:\n- Anti-CCP Antibodies: Strongly Positive (210 U/mL, Ref: <20) | Rheumatoid Factor (RF): Positive (96 IU/mL)\n- Erythrocyte Sedimentation Rate (ESR): 58 mm/hr (Elevated) | C-Reactive Protein (CRP): 24 mg/L (Elevated)\n- CBC: Hb 11.4 g/dL, WBC 7,400, Platelets 310,000 | ALT: 22 U/L | Creatinine: 0.8 mg/dL\n- Chest X-Ray & Mantoux/IGRA: Negative for latent tuberculosis; HBsAg/Anti-HCV Negative.\n\nDISCHARGE MEDICATIONS & PRESCRIPTION:\n1. Tab. Methotrexate (Folitrax) 15 mg - Take ONCE WEEKLY ONLY on SUNDAYS after breakfast (DMARD anchor therapy).\n2. Tab. Folic Acid 5 mg - Take ONCE WEEKLY on TUESDAYS (48 hours after Methotrexate) to prevent mucosal and hematologic side effects.\n3. Tab. Hydroxychloroquine (HCQS) 200 mg - 1 tablet orally once daily with dinner.\n4. Tab. Deflazacort 6 mg - 1 tablet orally once daily morning after breakfast for 4 weeks (Bridging low-dose steroid).\n5. Tab. Calcium + Vitamin D3 - 1 tablet daily after lunch.\n\nCONTRAINDICATIONS & MEDICATION ALERTS:\n- CRITICAL BLACK-BOX DOSING ALERT: Methotrexate MUST BE TAKEN ONCE A WEEK ONLY (Sundays), NEVER DAILY! Accidental daily intake causes fatal bone marrow suppression and liver toxicity.\n- CONTRAINDICATION: Strictly avoid Trimethoprim-Sulfamethoxazole (Bactrim/Septran) antibiotic while on Methotrexate due to severe pancytopenia interaction.\n- Complete alcohol abstinence required to prevent Methotrexate hepatotoxicity.\n\nDIETARY & LIFESTYLE GUIDANCE:\n- Perform warm water hand-soaks in the morning followed by gentle range-of-motion finger exercises.\n- Anti-inflammatory diet rich in omega-3 fatty acids (walnuts, flaxseeds, fish) and leafy greens.\n- Re-check CBC, Liver Function (AST/ALT), and Creatinine every 6 weeks.",
+      "source": "doc_p11_lakshmi_subramanian.pdf",
+      "pdf_url": "/medical_records/doc_p11_lakshmi_subramanian.pdf",
+      "txt_url": "/medical_records/doc_p11_lakshmi_subramanian.txt",
+      "created_at": 1791477726.3984377,
+      "chunks_indexed": false
+    },
+    "doc_p12": {
+      "id": "doc_p12",
+      "title": "Hepatology: Decompensated Cirrhosis / NASH & Ascites Management",
+      "category": "Hepatology & Liver Care",
+      "patient": {
+        "name": "Kabir Khan",
+        "age": 48,
+        "gender": "Male",
+        "uhid": "HEP-CIR-2026-1012",
+        "admission_date": "2026-09-27",
+        "discharge_date": "2026-10-03"
+      },
+      "content": "LIVER & DIGESTIVE DISEASES INSTITUTE - DISCHARGE SUMMARY\nPatient Name: Kabir Khan | Age: 48 | Sex: Male | UHID: HEP-CIR-2026-1012\nConsulting Hepatologist: Dr. Farhan Qureshi, MD, DM (Hepatology)\n\nCHIEF COMPLAINTS:\nProgressive abdominal distension (ascites) over 2 weeks, mild ankle swelling, daytime sleepiness, and history of metabolic syndrome / fatty liver disease.\n\nPRIMARY DIAGNOSIS:\n1. Non-Alcoholic Steatohepatitis (NASH)-Related Liver Cirrhosis (Child-Pugh Class B).\n2. Portal Hypertension with Moderate Ascites & Grade I Esophageal Varices (Non-bleeding).\n3. Early Minimal Hepatic Encephalopathy.\n\nCLINICAL INVESTIGATIONS & LAB RESULTS:\n- Total Bilirubin: 2.4 mg/dL | Direct Bilirubin: 1.3 mg/dL\n- Serum Albumin: 2.9 g/dL (Low, Ref: 3.5-5.0) | INR: 1.45\n- AST: 68 U/L | ALT: 54 U/L | Alkaline Phosphatase: 132 U/L\n- Serum Sodium: 133 mEq/L | Serum Potassium: 4.3 mEq/L | Creatinine: 1.0 mg/dL\n- Ultrasound Abdomen & FibroScan: Nodular liver contour, splenomegaly (14.5 cm), moderate free fluid; Liver Stiffness 24.5 kPa.\n\nDISCHARGE MEDICATIONS & PRESCRIPTION:\n1. Tab. Spironolactone (Aldactone) 100 mg - 1 tablet orally once daily morning after breakfast (Aldosterone antagonist for ascites).\n2. Tab. Furosemide (Lasix) 40 mg - 1 tablet orally once daily morning after breakfast (Maintain 100:40 ratio with Spironolactone).\n3. Syp. Lactulose (Duphalac) 20 mL - orally twice to thrice daily, titrated to achieve 2-3 soft bowel movements per day (Clears gut ammonia to prevent hepatic encephalopathy).\n4. Tab. Rifaximin 550 mg - 1 tablet orally twice daily after meals (Reduces ammonia-producing gut flora).\n5. Tab. Carvedilol 3.125 mg - 1 tablet orally twice daily (Non-selective beta-blocker for portal hypertension / variceal prophylaxis).\n\nCONTRAINDICATIONS & MEDICATION ALERTS:\n- STRICT CONTRAINDICATION: Avoid all NSAIDs ( precipitate hepatorenal syndrome and variceal bleeding), sedatives/benzodiazepines (Alprazolam/Zolpidem precipitate hepatic coma), and high-dose Paracetamol (>2g/day).\n- Do NOT allow constipation: If fewer than 2 bowel movements occur in a day, increase Lactulose dose to prevent ammonia build-up and confusion.\n\nDIETARY & LIFESTYLE GUIDANCE:\n- Strict No-Added-Salt Diet (<2g sodium/day) to prevent fluid re-accumulation in abdomen.\n- High-protein vegetarian/dairy/fish diet (1.2g/kg/day) with a mandatory late-night complex carbohydrate snack (prevents muscle catabolism).\n- Weigh yourself every morning before breakfast; report weight gain >2 kg in 3 days.",
+      "source": "doc_p12_kabir_khan.pdf",
+      "pdf_url": "/medical_records/doc_p12_kabir_khan.pdf",
+      "txt_url": "/medical_records/doc_p12_kabir_khan.txt",
+      "created_at": 1791477726.3984377,
+      "chunks_indexed": false
+    },
+    "doc_p13": {
+      "id": "doc_p13",
+      "title": "Obstetrics: Gestational Diabetes Mellitus (GDM) & Maternal Anemia",
+      "category": "Obstetrics & Maternal-Fetal Care",
+      "patient": {
+        "name": "Sneha Reddy",
+        "age": 27,
+        "gender": "Female",
+        "uhid": "OBS-GDM-2026-1013",
+        "admission_date": "2026-10-04",
+        "discharge_date": "2026-10-06"
+      },
+      "content": "MATERNAL & FETAL MEDICINE CENTER - ANTENATAL SUMMARY\nPatient Name: Sneha Reddy | Age: 27 | Sex: Female | UHID: OBS-GDM-2026-1013\nConsulting Obstetrician: Dr. Vasundhara Rao, MD, FRCOG\n\nCHIEF COMPLAINTS:\nPrimigravida at 28 weeks gestation presenting for evaluation of abnormal 75g Oral Glucose Tolerance Test (OGTT) and mild maternal fatigue. Normal fetal movements perceived.\n\nPRIMARY DIAGNOSIS:\n1. Primigravida at 28 Weeks Gestation with Gestational Diabetes Mellitus (GDM).\n2. Moderate Maternal Iron-Deficiency Anemia in Pregnancy.\n3. Single Live Intrauterine Fetus in Cephalic Presentation.\n\nCLINICAL INVESTIGATIONS & LAB RESULTS:\n- 75g OGTT Results: Fasting: 106 mg/dL (Target <95) | 1-Hour: 194 mg/dL (Target <180) | 2-Hour: 162 mg/dL (Target <153)\n- HbA1c: 6.1% | Hemoglobin: 9.8 g/dL | Serum Ferritin: 14 ng/mL (Low)\n- Blood Pressure: 114/72 mmHg | Urine Dipstick: Protein Negative, Ketones Negative\n- Obstetric Ultrasound & Biometry: Fetal weight 1,180g (65th percentile), Amniotic Fluid Index (AFI) 13 cm, Normal Umbilical Artery Doppler.\n\nDISCHARGE MEDICATIONS & PRESCRIPTION:\n1. Inj. Regular Human Insulin (Actrapid) - 4 Units Subcutaneously 20 minutes before breakfast and 4 Units before dinner (Titrate per glucometer log).\n2. Tab. Metformin 500 mg SR - 1 tablet orally with lunch.\n3. Tab. Ferrous Bisglycinate 100 mg + Folic Acid - 1 tablet orally twice daily with orange/lemon water (Do not take at the same time as calcium).\n4. Tab. Calcium Citrate Malate 500 mg + Vitamin D3 - 1 tablet orally daily after lunch (Keep 2-hour gap from iron tablet).\n\nCONTRAINDICATIONS & MEDICATION ALERTS:\n- PREGNANCY TERATOGENICITY ALERT: Strictly avoid ACE inhibitors, ARBs, Statins, Tetracyclines, Fluoroquinolones, and NSAIDs during pregnancy.\n- IRON-CALCIUM INTERACTION: Never take Iron and Calcium tablets together at the same meal, as calcium blocks intestinal iron absorption by 50%.\n\nDIETARY & LIFESTYLE GUIDANCE:\n- Medical Nutrition Therapy (MNT): Split meals into 3 moderate meals + 3 small protein snacks to prevent post-meal glucose spikes.\n- Perform 4-point home glucometer monitoring (Fasting, and 2 hours post-breakfast, lunch, dinner). Targets: Fasting <95 mg/dL, 2-hr Post-meal <120 mg/dL.\n- Daily Fetal Kick Count: Ensure at least 10 fetal kicks within a 2-hour period after meals; walk 15 minutes after each main meal.",
+      "source": "doc_p13_sneha_reddy.pdf",
+      "pdf_url": "/medical_records/doc_p13_sneha_reddy.pdf",
+      "txt_url": "/medical_records/doc_p13_sneha_reddy.txt",
+      "created_at": 1791477726.3984377,
+      "chunks_indexed": false
+    },
+    "doc_p14": {
+      "id": "doc_p14",
+      "title": "Pulmonology: GOLD Stage III COPD & Chronic Bronchitis",
+      "category": "Thoracic & Pulmonary Medicine",
+      "patient": {
+        "name": "Suresh Babu",
+        "age": 67,
+        "gender": "Male",
+        "uhid": "PUL-COPD-2026-1014",
+        "admission_date": "2026-09-30",
+        "discharge_date": "2026-10-05"
+      },
+      "content": "CHEST & THORACIC MEDICINE INSTITUTE - DISCHARGE SUMMARY\nPatient Name: Suresh Babu | Age: 67 | Sex: Male | UHID: PUL-COPD-2026-1014\nAttending Pulmonologist: Dr. Gautam Chatterjee, MD, DM (Pulmonary Medicine)\n\nCHIEF COMPLAINTS:\nWorsening exertional breathlessness (mMRC Grade 3), productive cough with mucopurulent sputum for 5 days, and wheezing. Former 30-pack-year smoker.\n\nPRIMARY DIAGNOSIS:\n1. Chronic Obstructive Pulmonary Disease (COPD - GOLD Stage III, Group E) with Acute Infective Exacerbation.\n2. Mild Secondary Pulmonary Arterial Hypertension.\n\nCLINICAL INVESTIGATIONS & LAB RESULTS:\n- Spirometry (Post-Bronchodilator): FEV1/FVC Ratio: 0.54 | FEV1: 44% Predicted (Severe airflow limitation)\n- Arterial Blood Gas (ABG): pH 7.38, pCO2 46 mmHg, pO2 68 mmHg, SpO2 93% on room air (Target SpO2: 88-92%)\n- Chest X-Ray: Bilateral hyperinflated lung fields, flattened diaphragms, no lobar consolidation.\n- WBC: 11,800 /mcL | CRP: 18 mg/L | Serum Electrolytes & Renal Function: Normal.\n\nDISCHARGE MEDICATIONS & PRESCRIPTION:\n1. Tiotropium 18 mcg + Formoterol 12 mcg Inhaler (Duova) - 2 puffs once daily every morning via spacer (LAMA + LABA Dual Bronchodilator).\n2. Levosalbutamol + Ipratropium Nebulization / Inhaler (Duolin) - 2 puffs every 6 hours as needed for acute dyspnea.\n3. Tab. Azithromycin 500 mg - 1 tablet orally once daily for 3 more days (Completing 5-day course).\n4. Tab. Acebrophylline 100 mg SR - 1 tablet orally twice daily after meals (Mucolytic & bronchodilator).\n5. Tab. N-Acetylcysteine 600 mg Effervescent - 1 tablet dissolved in half glass water twice daily (Sputum clearance).\n\nCONTRAINDICATIONS & MEDICATION ALERTS:\n- OXYGEN TARGET ALERT: In chronic COPD (CO2 retainer risk), titrate supplemental oxygen to maintain SpO2 strictly between 88% and 92%. Excessive high-flow oxygen can depress respiratory drive and cause CO2 narcosis.\n- CONTRAINDICATION: Avoid non-selective Beta-blockers (Propranolol) and sedating antihistamines/cough suppressants (Codeine).\n\nDIETARY & LIFESTYLE GUIDANCE:\n- Practice Pursed-Lip Breathing and diaphragmatic breathing exercises 3 times daily.\n- Annual Influenza vaccine and Pneumococcal vaccination (PCV20) recommended.\n- Complete avoidance of tobacco smoke, biomass fuel fumes, and cold winter smog.",
+      "source": "doc_p14_suresh_babu.pdf",
+      "pdf_url": "/medical_records/doc_p14_suresh_babu.pdf",
+      "txt_url": "/medical_records/doc_p14_suresh_babu.txt",
+      "created_at": 1791477726.3984377,
+      "chunks_indexed": false
+    },
+    "doc_p15": {
+      "id": "doc_p15",
+      "title": "Infectious Disease: Community-Acquired Pneumonia & Penicillin Allergy",
+      "category": "Internal Medicine & Infectious Disease",
+      "patient": {
+        "name": "Kavita Krishnan",
+        "age": 41,
+        "gender": "Female",
+        "uhid": "INF-CAP-2026-1015",
+        "admission_date": "2026-10-02",
+        "discharge_date": "2026-10-06"
+      },
+      "content": "METROPOLITAN INFECTIOUS DISEASE & INTERNAL MEDICINE UNIT\nPatient Name: Kavita Krishnan | Age: 41 | Sex: Female | UHID: INF-CAP-2026-1015\nAttending Physician: Dr.Siddharth Menon, MD (Internal Medicine)\n\nCHIEF COMPLAINTS:\nHigh-grade fever (102.8\u00b0F) with chills and rigors, right-sided pleuritic chest pain on deep inspiration, and rust-colored productive cough for 4 days.\n\nPRIMARY DIAGNOSIS:\n1. Right Lower Lobe Community-Acquired Pneumonia (CAP - CURB-65 Score: 1).\n2. Documented Severe IgE-Mediated Penicillin / Amoxicillin Anaphylaxis Allergy.\n\nCLINICAL INVESTIGATIONS & LAB RESULTS:\n- Chest X-Ray PA View: Homogeneous air-space consolidation in right lower lobe with air bronchograms; no pleural effusion.\n- Temperature: 98.6\u00b0F at discharge (Afebrile for 48 hours) | SpO2: 97% on room air | BP: 120/78 mmHg\n- Total Leukocyte Count (WBC): 15,600 /mcL at admission -> Down to 8,900 /mcL\n- Serum Procalcitonin: 1.8 ng/mL -> Down to 0.25 ng/mL | CRP: 64 mg/L -> 14 mg/L\n- Sputum Gram Stain & Culture: Streptococcus pneumoniae sensitive to respiratory fluoroquinolones and macrolides.\n\nDISCHARGE MEDICATIONS & PRESCRIPTION:\n1. Tab. Levofloxacin 750 mg - 1 tablet orally once daily morning for 5 more days (Respiratory Fluoroquinolone chosen due to severe Penicillin allergy).\n2. Tab. Ambroxol 30 mg + Guaifenesin - 1 tablet orally thrice daily after food (Expectorant).\n3. Tab. Paracetamol 650 mg - 1 tablet orally every 6-8 hours as needed for fever or pleuritic chest ache.\n4. Cap. Saccharomyces boulardii + Lactic Acid Bacillus Probiotic - 1 capsule twice daily (Prevents antibiotic-associated diarrhea).\n\nCONTRAINDICATIONS & MEDICATION ALERTS:\n- SEVERE ALLERGY CONTRAINDICATION (CRITICAL): Patient has documented ANAPHYLAXIS to Penicillins (Amoxicillin, Augmentin, Piperacillin, Ampicillin) and Cephalosporins. NEVER administer Beta-lactam antibiotics!\n- FLUOROQUINOLONE INTERACTION & CAUTION: Take Levofloxacin at least 2 hours apart from antacids, iron, calcium, or multivitamins (divalent cations block Levofloxacin absorption). Stop immediately if Achilles tendon pain/swelling occurs.\n\nDIETARY & LIFESTYLE GUIDANCE:\n- Drink 2.5 to 3.0 Liters of warm fluids, soups, and oral rehydration daily to thin bronchial secretions.\n- Use Incentive Spirometer 10 breaths every 2 hours while awake to expand right lower lung lobe and prevent atelectasis.\n- Repeat Chest X-Ray in 6 weeks to confirm complete radiological resolution of consolidation.",
+      "source": "doc_p15_kavita_krishnan.pdf",
+      "pdf_url": "/medical_records/doc_p15_kavita_krishnan.pdf",
+      "txt_url": "/medical_records/doc_p15_kavita_krishnan.txt",
+      "created_at": 1791477726.3984377,
+      "chunks_indexed": false
+    },
+    "doc_32a1f1ff": {
+      "id": "doc_32a1f1ff",
+      "title": "Sample_Medical_Document_DoctorInsight.pdf",
+      "category": "Uploaded Medical Record",
+      "patient": {
+        "name": "Rahul Sharma Age: 52 years Gender: Male",
+        "age": 52,
+        "gender": "Male",
+        "uhid": "UHID-BF3D0C"
+      },
+      "content": "SAMPLE MEDICAL REPORT\n For DoctorInsight Testing and Demonstration Only\nPatient Name: Rahul Sharma Age: 52 years Gender: Male\nPatient ID: DEMO-2026-001 Date of Consultation: 08 October 2026\n1. Chief Complaint\nThe patient reports increased tiredness, frequent thirst, and frequent urination for approximately three weeks. He\nalso reports occasional headaches and mild dizziness, particularly in the evening.\n2. Medical History\nThe patient has a history of hypertension for approximately five years. He has been taking medication for blood\npressure control. No previous history of major surgery was reported.\nFamily History: Father had Type 2 Diabetes Mellitus.\nLifestyle: Sedentary lifestyle and frequent consumption of carbohydrate-rich foods. Physical activity is limited.\n3. Vital Signs\nParameter\nResult\nBlood Pressure\n148/92 mmHg\nHeart Rate\n84 bpm\nTemperature\n98.4\u00b0F\nRespiratory Rate\n18/min\nSpO\u25a0\n98%\nWeight\n82 kg\nHeight\n172 cm\nBMI\n27.7 kg/m\u00b2\n4. Laboratory Investigations\nTest\nResult\nReference Range\nFasting Blood Glucose\n142 mg/dL\n70\u201399 mg/dL\nHbA1c\n7.1%\n<5.7%\nTotal Cholesterol\n218 mg/dL\n<200 mg/dL\nLDL Cholesterol\n142 mg/dL\n<100 mg/dL\nHDL Cholesterol\n42 mg/dL\n>40 mg/dL\nTriglycerides\n176 mg/dL\n<150 mg/dL\nHemoglobin\n14.2 g/dL\n13\u201317 g/dL\nCreatinine\n1.0 mg/dL\n0.7\u20131.3 mg/dL\n\n5. Clinical Assessment\nThe laboratory findings show elevated fasting blood glucose and HbA1c levels. The lipid profile also shows\nelevated total cholesterol, LDL cholesterol, and triglycerides. The findings may be consistent with poorly controlled\nblood glucose and dyslipidemia. Blood pressure is also above the commonly recommended range. Further\nevaluation by a qualified healthcare professional is recommended before making a diagnosis or changing\nmedication.\n6. Current Medications\n1. Amlodipine 5 mg once daily.\n2. Paracetamol 500 mg as needed for occasional headache.\nNote: Medication changes should only be made by the treating healthcare professional.\n7. Doctor's Recommendations\n\u007f Monitor blood glucose regularly.\n\u007f Maintain a balanced diet with appropriate carbohydrate intake.\n\u007f Increase physical activity gradually as medically appropriate.\n\u007f Monitor blood pressure at home.\n\u007f Follow up with the physician for diabetes evaluation.\n\u007f Repeat relevant laboratory investigations as advised.\n8. Risk Factors Identified\n\u007f Elevated fasting blood glucose\n\u007f Elevated HbA1c\n\u007f Elevated LDL cholesterol\n\u007f Elevated triglycerides\n\u007f Elevated blood pressure\n\u007f Overweight BMI\n\u007f Sedentary lifestyle\n\u007f Positive family history of diabetes\n9. Follow-Up\nRecommended follow-up: Within 1\u20132 weeks or according to the treating physician's instructions. The patient\nshould seek urgent medical attention if severe symptoms such as chest pain, difficulty breathing, fainting, severe\nweakness, confusion, or other concerning symptoms occur.\nIMPORTANT DISCLAIMER\nThis is a fictional sample medical document created for software testing and demonstration of DoctorInsight. It is\nnot a real patient's medical record and must not be used for diagnosis, treatment, or medical decision-making.",
+      "source": "Sample_Medical_Document_DoctorInsight.pdf",
+      "pdf_url": "/medical_records/doc_32a1f1ff_rahul_sharma_age__52_years_gender__male.pdf",
+      "txt_url": "/medical_records/doc_32a1f1ff_rahul_sharma_age__52_years_gender__male.txt",
+      "created_at": 1791479835.8625722,
+      "chunks_indexed": true,
+      "chunk_count": 2
+    }
+  },
+  "updated_at": 1791481044.411902
+}

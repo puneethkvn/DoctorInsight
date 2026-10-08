@@ -1,0 +1,34 @@
+LIVER & DIGESTIVE DISEASES INSTITUTE - DISCHARGE SUMMARY
+Patient Name: Kabir Khan | Age: 48 | Sex: Male | UHID: HEP-CIR-2026-1012
+Consulting Hepatologist: Dr. Farhan Qureshi, MD, DM (Hepatology)
+
+CHIEF COMPLAINTS:
+Progressive abdominal distension (ascites) over 2 weeks, mild ankle swelling, daytime sleepiness, and history of metabolic syndrome / fatty liver disease.
+
+PRIMARY DIAGNOSIS:
+1. Non-Alcoholic Steatohepatitis (NASH)-Related Liver Cirrhosis (Child-Pugh Class B).
+2. Portal Hypertension with Moderate Ascites & Grade I Esophageal Varices (Non-bleeding).
+3. Early Minimal Hepatic Encephalopathy.
+
+CLINICAL INVESTIGATIONS & LAB RESULTS:
+- Total Bilirubin: 2.4 mg/dL | Direct Bilirubin: 1.3 mg/dL
+- Serum Albumin: 2.9 g/dL (Low, Ref: 3.5-5.0) | INR: 1.45
+- AST: 68 U/L | ALT: 54 U/L | Alkaline Phosphatase: 132 U/L
+- Serum Sodium: 133 mEq/L | Serum Potassium: 4.3 mEq/L | Creatinine: 1.0 mg/dL
+- Ultrasound Abdomen & FibroScan: Nodular liver contour, splenomegaly (14.5 cm), moderate free fluid; Liver Stiffness 24.5 kPa.
+
+DISCHARGE MEDICATIONS & PRESCRIPTION:
+1. Tab. Spironolactone (Aldactone) 100 mg - 1 tablet orally once daily morning after breakfast (Aldosterone antagonist for ascites).
+2. Tab. Furosemide (Lasix) 40 mg - 1 tablet orally once daily morning after breakfast (Maintain 100:40 ratio with Spironolactone).
+3. Syp. Lactulose (Duphalac) 20 mL - orally twice to thrice daily, titrated to achieve 2-3 soft bowel movements per day (Clears gut ammonia to prevent hepatic encephalopathy).
+4. Tab. Rifaximin 550 mg - 1 tablet orally twice daily after meals (Reduces ammonia-producing gut flora).
+5. Tab. Carvedilol 3.125 mg - 1 tablet orally twice daily (Non-selective beta-blocker for portal hypertension / variceal prophylaxis).
+
+CONTRAINDICATIONS & MEDICATION ALERTS:
+- STRICT CONTRAINDICATION: Avoid all NSAIDs ( precipitate hepatorenal syndrome and variceal bleeding), sedatives/benzodiazepines (Alprazolam/Zolpidem precipitate hepatic coma), and high-dose Paracetamol (>2g/day).
+- Do NOT allow constipation: If fewer than 2 bowel movements occur in a day, increase Lactulose dose to prevent ammonia build-up and confusion.
+
+DIETARY & LIFESTYLE GUIDANCE:
+- Strict No-Added-Salt Diet (<2g sodium/day) to prevent fluid re-accumulation in abdomen.
+- High-protein vegetarian/dairy/fish diet (1.2g/kg/day) with a mandatory late-night complex carbohydrate snack (prevents muscle catabolism).
+- Weigh yourself every morning before breakfast; report weight gain >2 kg in 3 days.

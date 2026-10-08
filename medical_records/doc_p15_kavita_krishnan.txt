@@ -1,0 +1,32 @@
+METROPOLITAN INFECTIOUS DISEASE & INTERNAL MEDICINE UNIT
+Patient Name: Kavita Krishnan | Age: 41 | Sex: Female | UHID: INF-CAP-2026-1015
+Attending Physician: Dr.Siddharth Menon, MD (Internal Medicine)
+
+CHIEF COMPLAINTS:
+High-grade fever (102.8°F) with chills and rigors, right-sided pleuritic chest pain on deep inspiration, and rust-colored productive cough for 4 days.
+
+PRIMARY DIAGNOSIS:
+1. Right Lower Lobe Community-Acquired Pneumonia (CAP - CURB-65 Score: 1).
+2. Documented Severe IgE-Mediated Penicillin / Amoxicillin Anaphylaxis Allergy.
+
+CLINICAL INVESTIGATIONS & LAB RESULTS:
+- Chest X-Ray PA View: Homogeneous air-space consolidation in right lower lobe with air bronchograms; no pleural effusion.
+- Temperature: 98.6°F at discharge (Afebrile for 48 hours) | SpO2: 97% on room air | BP: 120/78 mmHg
+- Total Leukocyte Count (WBC): 15,600 /mcL at admission -> Down to 8,900 /mcL
+- Serum Procalcitonin: 1.8 ng/mL -> Down to 0.25 ng/mL | CRP: 64 mg/L -> 14 mg/L
+- Sputum Gram Stain & Culture: Streptococcus pneumoniae sensitive to respiratory fluoroquinolones and macrolides.
+
+DISCHARGE MEDICATIONS & PRESCRIPTION:
+1. Tab. Levofloxacin 750 mg - 1 tablet orally once daily morning for 5 more days (Respiratory Fluoroquinolone chosen due to severe Penicillin allergy).
+2. Tab. Ambroxol 30 mg + Guaifenesin - 1 tablet orally thrice daily after food (Expectorant).
+3. Tab. Paracetamol 650 mg - 1 tablet orally every 6-8 hours as needed for fever or pleuritic chest ache.
+4. Cap. Saccharomyces boulardii + Lactic Acid Bacillus Probiotic - 1 capsule twice daily (Prevents antibiotic-associated diarrhea).
+
+CONTRAINDICATIONS & MEDICATION ALERTS:
+- SEVERE ALLERGY CONTRAINDICATION (CRITICAL): Patient has documented ANAPHYLAXIS to Penicillins (Amoxicillin, Augmentin, Piperacillin, Ampicillin) and Cephalosporins. NEVER administer Beta-lactam antibiotics!
+- FLUOROQUINOLONE INTERACTION & CAUTION: Take Levofloxacin at least 2 hours apart from antacids, iron, calcium, or multivitamins (divalent cations block Levofloxacin absorption). Stop immediately if Achilles tendon pain/swelling occurs.
+
+DIETARY & LIFESTYLE GUIDANCE:
+- Drink 2.5 to 3.0 Liters of warm fluids, soups, and oral rehydration daily to thin bronchial secretions.
+- Use Incentive Spirometer 10 breaths every 2 hours while awake to expand right lower lung lobe and prevent atelectasis.
+- Repeat Chest X-Ray in 6 weeks to confirm complete radiological resolution of consolidation.

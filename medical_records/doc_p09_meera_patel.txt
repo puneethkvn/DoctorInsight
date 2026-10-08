@@ -1,0 +1,30 @@
+HEART RHYTHM & ELECTROPHYSIOLOGY CENTER
+Patient Name: Meera Patel | Age: 62 | Sex: Female | UHID: CAR-AFIB-2026-1009
+Attending Electrophysiologist: Dr. R. Patel, MD, DM
+
+CHIEF COMPLAINTS:
+Episodic fluttering palpitations in chest, mild exertional breathlessness, and easy fatigability over past 10 days.
+
+PRIMARY DIAGNOSIS:
+1. Paroxysmal Non-Valvular Atrial Fibrillation (CHA2DS2-VASc Score: 3 - High Stroke Risk).
+2. Essential Hypertension.
+3. Mild Left Atrial Enlargement.
+
+CLINICAL INVESTIGATIONS & LAB RESULTS:
+- 12-Lead ECG: Irregularly irregular rhythm with absent P waves, ventricular rate 114 bpm -> Controlled to 74 bpm.
+- 2D Echocardiogram: LVEF 58%, Left Atrium 4.2 cm, no valvular stenosis or intracardiac thrombus.
+- Serum TSH: 2.1 mIU/L (Normal) | Serum Creatinine: 0.85 mg/dL | eGFR: 81 mL/min.
+
+DISCHARGE MEDICATIONS & PRESCRIPTION:
+1. Tab. Apixaban (Eliquis) 5 mg - 1 tablet orally twice daily (Every 12 hours, Morning and Night) (Direct Oral Anticoagulant for stroke prevention).
+2. Tab. Bisoprolol 5 mg - 1 tablet orally once daily morning (Beta-blocker for ventricular rate control).
+3. Tab. Telmisartan 40 mg - 1 tablet orally once daily morning (BP control).
+4. Tab. Rosuvastatin 10 mg - 1 tablet orally daily at bedtime.
+
+CONTRAINDICATIONS & MEDICATION ALERTS:
+- STROKE PREVENTION ALERT: Do not skip Apixaban doses. Skipping anticoagulation sharply increases risk of cardioembolic ischemic stroke.
+- BLEEDING RISK: Avoid NSAIDs, Aspirin, or herbal blood thinners (Ginkgo, high-dose fish oil) while taking Apixaban.
+
+DIETARY & LIFESTYLE GUIDANCE:
+- Avoid triggers of atrial fibrillation: Alcohol ("holiday heart"), excess caffeine, energy drinks, and sleep deprivation.
+- Use a soft-bristle toothbrush and electric razor to minimize gum or skin bleeding.

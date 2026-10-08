@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DoctorInsight — Medical Document Intelligence</title>
+  <link rel="stylesheet" href="/static/styles.css?v=20261008_3">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220%22%20%220%22%20width=%22100%22%20height=%22100%22><text y=%22.9em%22 font-size=%2290%22>🩺</text></svg>">
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <style>
+    /* Full-Screen Dedicated Login Page Overlay */
+    #fullLoginPage {
+      position: fixed;
+      inset: 0;
+      background: #f4f4f2;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    .login-card-box {
+      background: #ffffff;
+      border: 1px solid #e5e5e3;
+      border-radius: 1.5rem;
+      width: 100%;
+      max-width: 440px;
+      padding: 2.75rem 2.25rem;
+      box-shadow: 0 20px 45px -15px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .login-brand-row {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.35rem;
+    }
+    .login-brand-text {
+      font-size: 1.65rem;
+      font-weight: 800;
+      color: #09090b;
+      letter-spacing: -0.5px;
+    }
+    .login-rag-badge {
+      background: #facc15;
+      color: #000000;
+      font-weight: 800;
+      font-size: 0.72rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 0.3rem;
+    }
+    .btn-google-signin {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      background: #ffffff;
+      border: 1px solid #dadce0;
+      color: #3c4043;
+      padding: 0.85rem 1.25rem;
+      border-radius: 0.75rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 1px 3px rgba(60,64,67, 0.12);
+      transition: all 0.2s ease;
+      margin: 1.5rem 0 1.25rem;
+    }
+    .btn-google-signin:hover {
+      background: #f8fafc;
+      border-color: #c2c7d0;
+      box-shadow: 0 3px 8px rgba(60,64,67, 0.18);
+    }
+    .login-divider {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      color: #a1a1aa;
+      font-size: 0.78rem;
+      margin-bottom: 1.25rem;
+    }
+    .login-divider::before, .login-divider::after {
+      content: '';
+      flex: 1;
+      border-bottom: 1px solid #e4e4e7;
+    }
+    .login-divider:not(:empty)::before { margin-right: 0.75em; }
+    .login-divider:not(:empty)::after { margin-left: 0.75em; }
+    .login-input-field {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid #d4d4d8;
+      border-radius: 0.6rem;
+      font-size: 0.9rem;
+      margin-bottom: 0.8rem;
+      outline: none;
+    }
+    .login-input-field:focus {
+      border-color: #18181b;
+    }
+    .btn-login-submit {
+      width: 100%;
+      background: #18181b;
+      color: #ffffff;
+      border: none;
+      padding: 0.85rem;
+      border-radius: 0.6rem;
+      font-weight: 700;
+      font-size: 0.92rem;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .btn-login-submit:hover {
+      background: #27272a;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =========================================================
+       DEDICATED FULL-SCREEN LOGIN PAGE (SOLE ADMIN + PHONE OTP)
+       ========================================================= -->
+  <div id="fullLoginPage">
+    <div class="login-card-box" style="max-width: 490px; padding: 2.1rem 2rem;">
+      <div class="login-brand-row">
+        <span class="login-brand-text">DoctorInsight</span>
+        <span class="login-rag-badge">AI RAG</span>
+      </div>
+      <div style="font-size: 0.82rem; color: #71717a; margin-bottom: 0.65rem;">Medical Document Intelligence • Role &amp; OTP Access Control</div>
+
+      <!-- Login Mode Switcher: Patient/Guest (Phone OTP) vs Admin (Puneeth K.V.N. Only) -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem; background: #f4f4f5; padding: 0.3rem; border-radius: 0.75rem; margin-bottom: 1.15rem;">
+        <button type="button" id="tabBtnOtpLogin" onclick="switchLoginTab('otp')" style="padding: 0.55rem 0.5rem; border-radius: 0.55rem; border: none; font-size: 0.78rem; font-weight: 800; cursor: pointer; background: #18181b; color: #ffffff;">
+          📱 Patient / Guest (OTP)
+        </button>
+        <button type="button" id="tabBtnAdminLogin" onclick="switchLoginTab('admin')" style="padding: 0.55rem 0.5rem; border-radius: 0.55rem; border: none; font-size: 0.78rem; font-weight: 800; cursor: pointer; background: transparent; color: #52525b;">
+          🛡️ Admin (Puneeth K.V.N.)
+        </button>
+      </div>
+
+      <!-- =====================================================
+           PANEL 1: PATIENT / GUEST SIGN-IN (PHONE NUMBER + OTP)
+           ===================================================== -->
+      <div id="otpLoginPanel" style="text-align: left;">
+        <div style="background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 0.6rem; padding: 0.6rem 0.8rem; margin-bottom: 0.9rem; font-size: 0.76rem; color: #0369a1; line-height: 1.45;">
+          <strong>🔒 Mandatory OTP Verification:</strong> Only <strong>Puneeth K.V.N.</strong> is Admin. All other users sign in as <strong>Patient</strong> or <strong>Guest</strong> by connecting their mobile phone number and verifying the 6-digit OTP.
+        </div>
+
+        <form onsubmit="verifyLoginOtpAndSignIn(event)">
+          <!-- Select Role: Patient or Guest -->
+          <label style="font-size: 0.74rem; font-weight: 800; color: #3f3f46; display: block; margin-bottom: 0.3rem; text-transform: uppercase;">1. Select Account Role *</label>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-bottom: 0.75rem;">
+            <label id="roleCardPatient" onclick="selectOtpRole('PATIENT')" style="display: flex; align-items: center; gap: 0.45rem; padding: 0.55rem 0.75rem; border: 2px solid #0284c7; background: #f0f9ff; border-radius: 0.55rem; cursor: pointer; font-size: 0.82rem; font-weight: 800; color: #0369a1;">
+              <input type="radio" name="otpRoleRadio" value="PATIENT" checked style="accent-color: #0284c7;">
+              <span>🧑 Patient</span>
+            </label>
+            <label id="roleCardGuest" onclick="selectOtpRole('GUEST')" style="display: flex; align-items: center; gap: 0.45rem; padding: 0.55rem 0.75rem; border: 2px solid #e4e4e7; background: #ffffff; border-radius: 0.55rem; cursor: pointer; font-size: 0.82rem; font-weight: 800; color: #52525b;">
+              <input type="radio" name="otpRoleRadio" value="GUEST" style="accent-color: #18181b;">
+              <span>👤 Guest</span>
+            </label>
+          </div>
+
+          <!-- Full Name -->
+          <label style="font-size: 0.74rem; font-weight: 800; color: #3f3f46; display: block; margin-bottom: 0.25rem; text-transform: uppercase;">2. Full Name *</label>
+          <input type="text" id="otpLoginNameField" class="login-input-field" placeholder="Enter your full name (e.g. Rahul Sharma)" required style="margin-bottom: 0.7rem;">
+
+          <!-- Mobile Phone Number + Send OTP Button -->
+          <label style="font-size: 0.74rem; font-weight: 800; color: #3f3f46; display: block; margin-bottom: 0.25rem; text-transform: uppercase;">3. Mobile Phone Number (Connected for OTP) *</label>
+          <div style="display: flex; gap: 0.45rem; margin-bottom: 0.7rem;">
+            <input type="tel" id="otpLoginPhoneField" class="login-input-field" placeholder="10-digit mobile number (e.g. 9876543210)" required style="margin-bottom: 0; flex: 1;">
+            <button type="button" id="btnSendOtp" onclick="sendLoginOtp()" style="background: #0284c7; color: white; border: none; padding: 0 1rem; border-radius: 0.6rem; font-size: 0.8rem; font-weight: 800; cursor: pointer; white-space: nowrap;">
+              📲 Get OTP
+            </button>
+          </div>
+
+          <!-- Live Connected SMS OTP Dispatch Box (Shown when OTP is generated for the phone number) -->
+          <div id="otpDispatchBanner" style="display: none; background: #fefce8; border: 1px solid #fde047; border-left: 4px solid #eab308; border-radius: 0.55rem; padding: 0.65rem 0.8rem; margin-bottom: 0.75rem; font-size: 0.78rem; color: #713f12;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.2rem;">
+              <strong id="otpBannerPhoneText">📲 SMS OTP Connected to +91...</strong>
+              <button type="button" onclick="autoFillReceivedOtp()" style="background: #18181b; color: #facc15; border: none; padding: 0.18rem 0.55rem; border-radius: 0.35rem; font-size: 0.7rem; font-weight: 800; cursor: pointer;">Auto-Fill OTP</button>
+            </div>
+            <div id="otpBannerCodeText" style="font-size: 0.82rem;">Your 6-digit verification OTP is: <strong style="font-size: 0.98rem; letter-spacing: 2px; background: #fff; padding: 0.1rem 0.4rem; border-radius: 0.25rem; border: 1px solid #eab308;">------</strong></div>
+          </div>
+
+          <!-- Enter 6-Digit OTP -->
+          <label style="font-size: 0.74rem; font-weight: 800; color: #3f3f46; display: block; margin-bottom: 0.25rem; text-transform: uppercase;">4. Enter 6-Digit OTP Received on Phone *</label>
+          <input type="text" id="otpCodeInput" maxlength="6" class="login-input-field" placeholder="Click 'Get OTP' above, then enter 6-digit OTP" required disabled style="letter-spacing: 3px; font-weight: 800; text-align: center; font-size: 1rem; background: #f4f4f5;">
+
+          <div id="otpErrorBox" style="display: none; color: #dc2626; font-size: 0.78rem; font-weight: 700; margin-bottom: 0.65rem; background: #fef2f2; padding: 0.45rem 0.65rem; border-radius: 0.4rem; border: 1px solid #fecaca;"></div>
+
+          <button type="submit" id="btnVerifyOtpSubmit" class="btn-login-submit" style="background: #16a34a;">
+            ✓ Verify OTP &amp; Sign In as Patient / Guest ➔
+          </button>
+        </form>
+      </div>
+
+      <!-- =====================================================
+           PANEL 2: SOLE ADMIN SIGN-IN (PUNEETH K.V.N. ONLY)
+           ===================================================== -->
+      <div id="adminLoginPanel" style="display: none; text-align: left;">
+        <div style="background: #fefce8; border: 1px solid #fde047; border-radius: 0.6rem; padding: 0.65rem 0.8rem; margin-bottom: 0.9rem; font-size: 0.77rem; color: #854d0e; line-height: 1.45;">
+          <strong>🛡️ Restricted Admin Access:</strong> Only <strong>Puneeth K.V.N.</strong> (<code>puneeth.kvn@gmail.com</code>) is authorized as <strong>Admin</strong>. Anyone else attempting Admin login will be redirected to Phone + OTP verification as a Guest or Patient.
+        </div>
+
+        <!-- Google Sign-In Button for Admin -->
+        <button type="button" class="btn-google-signin" onclick="openGoogleAccountSelector()" style="margin: 0.5rem 0 1rem;">
+          <svg style="width: 20px; height: 20px;" viewBox="0 0 24 24">
+            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+          </svg>
+          <span>Sign in as Admin (Puneeth K.V.N.) with Google</span>
+        </button>
+
+        <div class="login-divider">or Admin credentials</div>
+
+        <form onsubmit="submitEmailLoginForm(event)">
+          <input type="text" id="loginNameField" class="login-input-field" value="Puneeth K.V.N." placeholder="Admin Name (Puneeth K.V.N.)" required>
+          <input type="email" id="loginEmailField" class="login-input-field" value="puneeth.kvn@gmail.com" placeholder="Admin Email (puneeth.kvn@gmail.com)" required>
+          <input type="password" id="loginPassField" class="login-input-field" value="admin123" placeholder="Admin Password" required>
+          <button type="submit" class="btn-login-submit">🛡️ Sign In as Admin (Puneeth K.V.N.) ➔</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       TOP SAFETY NOTICE BAR
+       ========================================== -->
+  <div class="safety-notice-bar">
+    <div class="left">
+      <span>ⓘ</span>
+      <span>Clinical Decision-Support: DoctorInsight is an educational AI tool, NOT a replacement for a doctor. Always consult a physician.</span>
+    </div>
+    <a href="javascript:void(0)" onclick="openSafetyModal()">Safety Notice</a>
+  </div>
+
+  <!-- ==========================================
+       APP HEADER
+       ========================================== -->
+  <header class="top-navbar">
+    <div class="brand-wrapper">
+      <button type="button" class="sidebar-toggle-icon" onclick="toggleSidebar()" title="Toggle Sidebar Menu" style="width: 32px; height: 32px; font-size: 0.95rem; border-radius: 0.45rem;">
+        <span>☰</span>
+      </button>
+      <div style="cursor: pointer;" onclick="navigateToTab('tab-dashboard')">
+        <div style="display: flex; align-items: center; gap: 0.45rem;">
+          <span class="brand-title">DoctorInsight</span>
+          <span class="badge-ai-rag">AI RAG</span>
+        </div>
+        <div class="brand-subtitle">Medical Document Intelligence</div>
+      </div>
+    </div>
+
+    <!-- Center Patient Selector Dropdown -->
+    <div style="position: relative;">
+      <button class="patient-selector-btn" onclick="togglePatientDropdown()">
+        <span id="currentPatientLabel">Patient: Harold Jenkins (71y, Male)</span>
+        <span style="font-size: 0.75rem;">⌵</span>
+      </button>
+
+      <div class="dropdown-menu" id="patientDropdownMenu" style="max-height: 420px; overflow-y: auto; min-width: 320px;">
+        <!-- Dynamically populated with all 15 patients -->
+      </div>
+    </div>
+
+    <!-- Right Header Actions -->
+    <div class="header-actions">
+      <button class="btn-demo-data" onclick="openPublicLinksModal()" style="background: #f0fdf4; border-color: #86efac; color: #166534; font-weight: 800;" title="Public & Custom Domain Links">
+        <span>🌐</span> www.doctorinsight.com
+      </button>
+
+      <button class="btn-demo-data" onclick="openDemoDataModal()">
+        <span>📁</span> Demo Data
+      </button>
+      
+      <button class="btn-upload-doc" id="headerUploadBtn" onclick="openUploadModal()">
+        <span class="icon">↑</span> Upload Doc
+      </button>
+
+      <!-- Active Role Pill + Circular User Avatar -->
+      <div style="position: relative; display: flex; align-items: center; gap: 0.45rem;">
+        <span id="headerRoleBadge" onclick="toggleUserDropdown()" style="cursor: pointer; font-size: 0.7rem; font-weight: 800; padding: 0.25rem 0.6rem; border-radius: 999px; background: #fef9c3; color: #854d0e; border: 1px solid #fde047;">
+          🛡️ ADMIN
+        </span>
+        <div class="user-avatar-btn" id="userAvatarBtn" onclick="toggleUserDropdown()" title="Account, Role & OTP Status">
+          <span id="userAvatarLetter">P</span>
+        </div>
+
+        <div class="dropdown-menu" id="userDropdownMenu" style="right: 0; min-width: 275px;">
+          <div style="padding: 0.75rem; border-bottom: 1px solid #f4f4f5; text-align: left;">
+            <div style="display: flex; justify-content: space-between; align-items: center; gap: 0.4rem;">
+              <div style="font-weight: 800; font-size: 0.88rem; color: #18181b;" id="menuUserName">Puneeth K.V.N.</div>
+              <span id="menuUserRoleBadge" style="font-size: 0.65rem; font-weight: 800; padding: 0.12rem 0.45rem; border-radius: 999px; background: #18181b; color: #facc15;">ADMIN</span>
+            </div>
+            <div style="font-size: 0.75rem; color: #71717a; margin-top: 0.15rem;" id="menuUserEmail">puneeth.kvn@gmail.com</div>
+            <div style="font-size: 0.74rem; color: #0369a1; font-weight: 700; margin-top: 0.2rem;" id="menuUserPhone">📱 Admin Master Account</div>
+            <div style="margin-top: 0.35rem; font-size: 0.7rem; color: #16a34a; font-weight: 700; display: flex; align-items: center; gap: 0.3rem;" id="menuOtpStatus">
+              <span>✓</span> Sole Admin Privilege Active
+            </div>
+          </div>
+          <div class="dropdown-item" onclick="showLoginPage(); switchLoginTab('otp');">
+            <span>📱 Sign In as Patient / Guest (Phone OTP)</span>
+          </div>
+          <div class="dropdown-item" onclick="showLoginPage(); switchLoginTab('admin');">
+            <span>🛡️ Admin Sign-In (Puneeth K.V.N.)</span>
+          </div>
+          <div class="dropdown-item" onclick="navigateToTab('tab-profile')">
+            <span>👤 Profile, Roles &amp; OTP Registry</span>
+          </div>
+          <div class="dropdown-item" onclick="handleLogout()" style="color: #dc2626;">
+            <span>🚪 Sign Out</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ==========================================
+       APP MAIN SHELL: SIDEBAR + CONTENT
+       ========================================== -->
+  <div class="app-shell" id="appMainShell">
+    
+    <!-- LEFT SIDEBAR MENU -->
+    <aside class="sidebar" id="appSidebar">
+      <div>
+        <div class="sidebar-header">
+          <span>SIDEBAR MENU</span>
+          <button type="button" class="sidebar-toggle-icon" id="sidebarCollapseBtn" onclick="toggleSidebar()" title="Collapse / Expand Sidebar">
+            <span>◨</span>
+          </button>
+        </div>
+
+        <!-- Group: CLINICAL INTELLIGENCE -->
+        <div class="sidebar-group-title">CLINICAL INTELLIGENCE</div>
+        <nav class="sidebar-nav">
+          <button type="button" class="nav-item active" id="nav-dashboard" onclick="navigateToTab('tab-dashboard')" title="Clinical Dashboard">
+            <span class="left-content">
+              <span class="icon">⊞</span>
+              <span>Dashboard</span>
+            </span>
+          </button>
+
+          <button type="button" class="nav-item" id="nav-demo" onclick="startLiveDemo()" title="Start 6-Step Guided Live Demo">
+            <span class="left-content">
+              <span class="icon">⚡</span>
+              <span>Start Live Demo</span>
+            </span>
+            <span class="badge-demo-black">DEMO</span>
+          </button>
+
+          <button type="button" class="nav-item" id="nav-patients" onclick="navigateToTab('tab-patients')" title="Patient Directory (15 Clinical Cases)">
+            <span class="left-content">
+              <span class="icon">👥</span>
+              <span>Patients</span>
+            </span>
+            <span class="nav-count-pill" id="navBadgePatients">15</span>
+          </button>
+
+          <button type="button" class="nav-item" id="nav-documents" onclick="navigateToTab('tab-documents')" title="Clinical Documents & PDF/TXT Library">
+            <span class="left-content">
+              <span class="icon">📄</span>
+              <span>Documents</span>
+            </span>
+            <span class="nav-count-pill" id="navBadgeDocs">15</span>
+          </button>
+
+          <button type="button" class="nav-item" id="nav-analysis" onclick="navigateToTab('tab-analysis')" title="Structured 8-Card Clinical Analysis">
+            <span class="left-content">
+              <span class="icon">🔬</span>
+              <span>Analysis</span>
+            </span>
+            <span class="nav-count-pill" id="navBadgeAnalysis">8 Cards</span>
+          </button>
+
+          <button type="button" class="nav-item" id="nav-risks" onclick="navigateToTab('tab-risks')" title="Clinical Risk Radar & Contraindications">
+            <span class="left-content">
+              <span class="icon">⚠️</span>
+              <span>Risk Alerts</span>
+            </span>
+            <span class="nav-count-pill" id="navBadgeRisks" style="background: #fee2e2; color: #991b1b;">8</span>
+          </button>
+
+          <button type="button" class="nav-item" id="nav-meds" onclick="navigateToTab('tab-meds')" title="Active Prescriptions & Medication Safety">
+            <span class="left-content">
+              <span class="icon">💊</span>
+              <span>Medications</span>
+            </span>
+            <span class="nav-count-pill" id="navBadgeMeds" style="background: #e0f2fe; color: #0369a1;">8</span>
+          </button>
+
+          <button type="button" class="nav-item" id="nav-ai-chat" onclick="navigateToTab('tab-ai-chat')" title="RAG Grounded AI Clinical Assistant">
+            <span class="left-content">
+              <span class="icon">💬</span>
+              <span>AI Assistant</span>
+            </span>
+            <span class="yellow-dot"></span>
+          </button>
+        </nav>
+
+        <!-- Group: SYSTEM & ACCOUNT -->
+        <div class="sidebar-group-title">SYSTEM &amp; ACCOUNT</div>
+        <nav class="sidebar-nav">
+          <button type="button" class="nav-item" id="nav-profile" onclick="navigateToTab('tab-profile')" title="Clinician Profile & Google Authentication">
+            <span class="left-content">
+              <span class="icon">👤</span>
+              <span>Profile &amp; Security</span>
+            </span>
+          </button>
+
+          <button type="button" class="nav-item" id="nav-settings" onclick="navigateToTab('tab-settings')" title="RAG Engine Settings & AI Configuration">
+            <span class="left-content">
+              <span class="icon">⚙️</span>
+              <span>Settings &amp; AI Config</span>
+            </span>
+          </button>
+        </nav>
+      </div>
+
+      <!-- Floating RAG Engine Status Box -->
+      <div class="rag-engine-status-box" style="cursor: pointer;" onclick="navigateToTab('tab-settings')" title="Click to inspect RAG Engine & Vector Index Settings">
+        <div class="top">
+          <span>✦ RAG Engine Online</span>
+          <span class="pulse-green-dot"></span>
+        </div>
+        <div class="bottom" id="sidebarRagStatusSub">MiniLM Embeddings • 15 Docs</div>
+      </div>
+    </aside>
+
+    <!-- MAIN VIEWPORT -->
+    <main class="main-viewport">
+      
+      <!-- ==========================================
+           TAB 1: DASHBOARD (EXACT SCREENSHOT MATCH)
+           ========================================== -->
+      <section id="tab-dashboard" class="tab-view active">
+        
+        <!-- Black Hero Card -->
+        <div class="hero-dark-card">
+          <div class="hero-pill-badge">
+            <span>⚡</span> AI-Powered Medical Document Intelligence
+          </div>
+          <h1 class="hero-headline">Welcome to DoctorInsight</h1>
+          <p class="hero-desc">
+            AI-powered medical document intelligence for clearer healthcare understanding. Analyze medical records, monitor risk alerts, explain prescriptions, and execute grounded RAG queries.
+          </p>
+
+          <div class="hero-buttons-row">
+            <button class="btn-hero-yellow" onclick="openUploadModal()">
+              <span>↑</span> Upload Document
+            </button>
+            <button class="btn-hero-white" onclick="startLiveDemo()">
+              <span>⚡</span> Start Live Demo
+            </button>
+            <button class="btn-hero-dark" onclick="navigateToTab('tab-ai-chat')">
+              <span>💬</span> Ask DoctorInsight
+            </button>
+            <button class="btn-hero-dark" onclick="openDemoDataModal()">
+              <span>📄</span> 1-Click Load Demo Cases
+            </button>
+          </div>
+        </div>
+
+        <!-- Search / Ask RAG Bar -->
+        <div class="search-rag-card">
+          <span style="font-size: 1.1rem; color: #a1a1aa;">✨</span>
+          <input type="text" id="dashboardRagInput" class="search-rag-input" placeholder="Ask anything across medical records: e.g. 'What is the target HbA1c?' or 'Any drug interactions for Lisinopril?'" onkeydown="if(event.key==='Enter') executeDashboardRagQuery()">
+          <button class="btn-ask-rag" onclick="executeDashboardRagQuery()">Ask RAG</button>
+        </div>
+
+        <!-- 4 Metric Stat Cards -->
+        <div class="metrics-stat-grid">
+          
+          <div class="stat-card">
+            <div class="stat-card-top">
+              <span class="stat-label">TOTAL DOCUMENTS</span>
+              <span class="stat-icon">📄</span>
+            </div>
+            <div class="stat-value" id="statTotalDocs">1</div>
+            <div class="stat-subtext">Processed &amp; vector-indexed</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-card-top">
+              <span class="stat-label">DOCUMENTS ANALYZED</span>
+              <span class="stat-icon">📈</span>
+            </div>
+            <div class="stat-value" id="statAnalyzedDocs">1/1</div>
+            <div class="stat-subtext">Structured 8-card reports</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-card-top">
+              <span class="stat-label">ACTIVE RISK ALERTS</span>
+              <span class="stat-icon" style="color: #f59e0b;">⚠️</span>
+            </div>
+            <div class="stat-value" id="statRiskCount">0</div>
+            <div class="stat-subtext">High urgency flags</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-card-top">
+              <span class="stat-label">MEDICATIONS IDENTIFIED</span>
+              <span class="stat-icon" style="color: #0284c7;">💊</span>
+            </div>
+            <div class="stat-value" id="statMedCount">2</div>
+            <div class="stat-subtext">Active prescriptions tracked</div>
+          </div>
+
+        </div>
+
+        <!-- Lower Section Cards -->
+        <div class="lower-cards-grid">
+          
+          <!-- Latest Document Summary -->
+          <div class="content-box-card">
+            <div class="content-box-header">
+              <div class="content-box-title">
+                <span>📋</span> Latest Document Summary
+              </div>
+              <a class="content-box-link" onclick="navigateToTab('tab-analysis')">View Full 8 Cards ➔</a>
+            </div>
+            <div style="font-size: 0.85rem; color: #52525b; line-height: 1.6;" id="dashSummarySnippet">
+              <div style="font-weight: 700; color: #18181b; margin-bottom: 0.35rem;" id="dashPatientTitle">Harold Jenkins (71y, Male) — Geriatric Care Record</div>
+              <div id="dashDiagnosisPreview">Primary Diagnoses: Essential Hypertension (Stage 2), Hyperlipidemia, Benign Prostatic Hyperplasia, Osteoarthritis.</div>
+              <div style="margin-top: 0.5rem; font-size: 0.78rem; color: #0284c7; font-weight: 600;">Status: Hemodynamically stable, routine 6-month management.</div>
+            </div>
+          </div>
+
+          <!-- Active Risk Radar -->
+          <div class="content-box-card">
+            <div class="content-box-header">
+              <div class="content-box-title">
+                <span>⚠️</span> Active Risk Radar
+              </div>
+              <a class="content-box-link" onclick="navigateToTab('tab-risks')">All Alerts ➔</a>
+            </div>
+            <div style="font-size: 0.85rem; color: #52525b; line-height: 1.5;" id="dashRiskSnippet">
+              <div style="background: #fefce8; border-left: 4px solid #f59e0b; padding: 0.6rem 0.8rem; border-radius: 0.4rem; margin-bottom: 0.5rem;">
+                <strong style="color: #92400e; font-size: 0.82rem;">Postural Hypotension Precaution</strong>
+                <div style="font-size: 0.76rem; color: #78350f;">Combined Lisinopril and Tamsulosin may cause orthostatic lightheadedness upon standing.</div>
+              </div>
+              <div style="font-size: 0.78rem; color: #71717a;">Grounded analysis from active clinical notes.</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ACTIVE PATIENT CLINICAL RECORD & PRESCRIPTIONS LIVE INSPECTOR -->
+        <div class="content-box-card" style="border-left: 4px solid #18181b;">
+          <div class="content-box-header" style="flex-wrap: wrap; gap: 0.5rem;">
+            <div class="content-box-title">
+              <span>🏥</span> Active Patient Clinical Record &amp; Prescriptions
+            </div>
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;" id="dashActiveRecordLinks">
+              <button class="btn-demo-data" onclick="navigateToTab('tab-analysis')">🔬 Full 8-Card Analysis</button>
+              <button class="btn-demo-data" onclick="navigateToTab('tab-documents')">📄 View Full Clinical Notes</button>
+              <button class="btn-ask-rag" onclick="exportClinicalReport()">📥 Export Report</button>
+            </div>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-top: 0.25rem;">
+            <div style="background: #fafafa; padding: 0.9rem; border-radius: 0.6rem; border: 1px solid #f4f4f5;">
+              <div style="font-size: 0.72rem; font-weight: 800; color: #71717a; text-transform: uppercase; margin-bottom: 0.4rem;">🧪 Key Vitals &amp; Lab Parameters</div>
+              <ul id="dashVitalsList" style="padding-left: 1.1rem; font-size: 0.82rem; color: #18181b; line-height: 1.6;"></ul>
+            </div>
+            <div style="background: #fafafa; padding: 0.9rem; border-radius: 0.6rem; border: 1px solid #f4f4f5;">
+              <div style="font-size: 0.72rem; font-weight: 800; color: #71717a; text-transform: uppercase; margin-bottom: 0.4rem;">💊 Active Prescriptions Schedule</div>
+              <div id="dashMedsPreviewList" style="display: flex; flex-direction: column; gap: 0.35rem; font-size: 0.82rem;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ALL 15 PATIENT MEDICAL RECORDS INTERACTIVE TABLE ON DASHBOARD -->
+        <div class="content-box-card">
+          <div class="content-box-header" style="flex-wrap: wrap; gap: 0.5rem;">
+            <div>
+              <div class="content-box-title">
+                <span>📂</span> All 15 Patient Medical Records (Click Any Patient to Load &amp; Analyze)
+              </div>
+              <p style="font-size: 0.78rem; color: #71717a; margin-top: 0.15rem;">Select any patient record below to inspect their clinical summary, lab findings, risks, and PDF/TXT files</p>
+            </div>
+            <button class="btn-ask-rag" onclick="openUploadModal()">+ Add New Patient Record</button>
+          </div>
+          <div style="overflow-x: auto;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.84rem;">
+              <thead>
+                <tr style="border-bottom: 2px solid #e4e4e7; text-align: left; background: #fafafa; color: #52525b;">
+                  <th style="padding: 0.65rem 0.75rem;">#</th>
+                  <th style="padding: 0.65rem 0.75rem;">Patient Name</th>
+                  <th style="padding: 0.65rem 0.75rem;">Age / Sex</th>
+                  <th style="padding: 0.65rem 0.75rem;">UHID</th>
+                  <th style="padding: 0.65rem 0.75rem;">Clinical Department &amp; Primary Condition</th>
+                  <th style="padding: 0.65rem 0.75rem; text-align: right;">Actions &amp; Files</th>
+                </tr>
+              </thead>
+              <tbody id="dashboardPatientsTableBody">
+                <!-- Populated dynamically with all 15 patients -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ==========================================
+           TAB 2: CLINICAL ANALYSIS (FULL 8-CARD STRUCTURE)
+           ========================================== -->
+      <section id="tab-analysis" class="tab-view">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem;">
+          <div>
+            <h2 style="font-size: 1.35rem; font-weight: 800; color: #09090b;">Structured Clinical Analysis (8 Cards)</h2>
+            <p style="font-size: 0.82rem; color: #71717a;" id="analysisDocSubtitle">Verified extraction from active patient medical record</p>
+          </div>
+          <div style="display: flex; gap: 0.5rem;">
+            <button class="btn-demo-data" onclick="speakClinicalSummary()">🔊 Read Aloud</button>
+            <button class="btn-ask-rag" onclick="exportClinicalReport()">📥 Export Report</button>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 1.25rem;">
+          <!-- CARD 1: Primary Diagnoses -->
+          <div class="content-box-card">
+            <div class="content-box-header">
+              <div class="content-box-title"><span>🩺</span> 1. Primary Diagnoses</div>
+            </div>
+            <div id="analysisDiagnosesList" style="display: flex; flex-direction: column; gap: 0.4rem;"></div>
+          </div>
+
+          <!-- CARD 2: Laboratory & Diagnostic Findings -->
+          <div class="content-box-card">
+            <div class="content-box-header">
+              <div class="content-box-title"><span>🧪</span> 2. Laboratory &amp; Diagnostic Findings</div>
+            </div>
+            <ul id="analysisLabsList" style="padding-left: 1.2rem; font-size: 0.85rem; color: #3f3f46; line-height: 1.6;"></ul>
+          </div>
+
+          <!-- CARD 3: Clinical Course & Treatment Assessment -->
+          <div class="content-box-card">
+            <div class="content-box-header">
+              <div class="content-box-title"><span>🏥</span> 3. Clinical Course &amp; Assessment</div>
+            </div>
+            <div id="analysisCourseText" style="font-size: 0.88rem; color: #3f3f46; line-height: 1.6;"></div>
+          </div>
+
+          <!-- CARD 4: High-Priority Risk Radar -->
+          <div class="content-box-card">
+            <div class="content-box-header">
+              <div class="content-box-title"><span>⚠️</span> 4. High-Priority Risk Radar</div>
+            </div>
+            <div id="analysisRisksCardList" style="display: flex; flex-direction: column; gap: 0.5rem;"></div>
+          </div>
+
+          <!-- CARD 5: Medication Safety & Contraindications -->
+          <div class="content-box-card">
+            <div class="content-box-header">
+              <div class="content-box-title"><span>🛡️</span> 5. Medication Contraindications &amp; Warnings</div>
+            </div>
+            <div id="analysisAlertsCardList" style="display: flex; flex-direction: column; gap: 0.5rem;"></div>
+          </div>
+
+          <!-- CARD 6: Lifestyle & Dietary Protocol -->
+          <div class="content-box-card">
+            <div class="content-box-header">
+              <div class="content-box-title"><span>🥗</span> 6. Lifestyle &amp; Dietary Protocol</div>
+            </div>
+            <ul id="analysisLifestyleCardList" style="padding-left: 1.2rem; font-size: 0.85rem; color: #3f3f46; line-height: 1.6;"></ul>
+          </div>
+
+          <!-- CARD 7: Active Prescriptions & Administration Schedule -->
+          <div class="content-box-card" style="grid-column: 1 / -1;">
+            <div class="content-box-header">
+              <div class="content-box-title"><span>💊</span> 7. Active Prescriptions &amp; Administration Schedule</div>
+            </div>
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.88rem;">
+              <thead>
+                <tr style="border-bottom: 2px solid #e4e4e7; text-align: left; background: #fafafa;">
+                  <th style="padding: 0.6rem 0.8rem;">Medicine</th>
+                  <th style="padding: 0.6rem 0.8rem;">Dosage</th>
+                  <th style="padding: 0.6rem 0.8rem;">Schedule</th>
+                  <th style="padding: 0.6rem 0.8rem;">Instructions</th>
+                  <th style="padding: 0.6rem 0.8rem;">Condition</th>
+                </tr>
+              </thead>
+              <tbody id="analysisRxTableBody"></tbody>
+            </table>
+          </div>
+
+          <!-- CARD 8: Patient Care Guidance & Red Flags -->
+          <div class="content-box-card" style="grid-column: 1 / -1; border-left: 4px solid #0284c7;">
+            <div class="content-box-header">
+              <div class="content-box-title"><span>🧭</span> 8. Patient Care Guidance, Red Flags &amp; Follow-Up</div>
+            </div>
+            <div id="analysisGuidanceText" style="font-size: 0.88rem; color: #3f3f46; line-height: 1.6;"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           TAB 3: RISK ALERTS
+           ========================================== -->
+      <section id="tab-risks" class="tab-view">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem;">
+          <div>
+            <h2 style="font-size: 1.35rem; font-weight: 800; color: #09090b;">Clinical Risk Radar &amp; Contraindications</h2>
+            <p id="risksTabPatientSubtitle" style="font-size: 0.82rem; color: #71717a;">Multi-tier HIGH and MEDIUM severity clinical risk stratification</p>
+          </div>
+          <div style="display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap;">
+            <span id="risksCountBadge" style="font-size: 0.78rem; font-weight: 800; background: #fee2e2; color: #991b1b; padding: 0.35rem 0.75rem; border-radius: 999px;">6 Active Risk Alerts</span>
+            <button class="btn-ask-rag" onclick="toggleAddRiskForm()">+ Add Risk Alert</button>
+          </div>
+        </div>
+
+        <!-- Add New Risk Alert Form -->
+        <div id="addRiskFormCard" class="content-box-card" style="display: none; border-left: 4px solid #ef4444; background: #fffafa;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+            <div style="font-weight: 800; font-size: 0.95rem; color: #991b1b;">⚠️ Add Custom Clinical Risk Alert for Active Patient</div>
+            <button class="btn-demo-data" style="padding: 0.2rem 0.5rem; font-size: 0.75rem;" onclick="toggleAddRiskForm()">✕ Close</button>
+          </div>
+          <form onsubmit="submitAddRiskAlert(event)" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.75rem;">
+            <div>
+              <label style="display:block; font-size:0.75rem; font-weight:700; color:#3f3f46; margin-bottom:0.25rem;">Risk Factor Title *</label>
+              <input type="text" id="newRiskFactorInput" required placeholder="e.g., Acute Bleeding / Fall Hazard" style="width:100%; padding:0.5rem 0.65rem; border:1px solid #d4d4d8; border-radius:0.45rem; font-size:0.84rem;">
+            </div>
+            <div>
+              <label style="display:block; font-size:0.75rem; font-weight:700; color:#3f3f46; margin-bottom:0.25rem;">Severity Level *</label>
+              <select id="newRiskSeverityInput" style="width:100%; padding:0.5rem 0.65rem; border:1px solid #d4d4d8; border-radius:0.45rem; font-size:0.84rem; background:white;">
+                <option value="HIGH">HIGH RISK (Critical)</option>
+                <option value="MEDIUM">MEDIUM RISK (Moderate)</option>
+              </select>
+            </div>
+            <div style="grid-column: 1 / -1;">
+              <label style="display:block; font-size:0.75rem; font-weight:700; color:#3f3f46; margin-bottom:0.25rem;">Clinical Details &amp; Pathophysiology *</label>
+              <input type="text" id="newRiskDetailsInput" required placeholder="Describe why this risk is present in the patient..." style="width:100%; padding:0.5rem 0.65rem; border:1px solid #d4d4d8; border-radius:0.45rem; font-size:0.84rem;">
+            </div>
+            <div style="grid-column: 1 / -1; display: flex; gap: 0.6rem; align-items: flex-end; flex-wrap: wrap;">
+              <div style="flex: 1; min-width: 240px;">
+                <label style="display:block; font-size:0.75rem; font-weight:700; color:#3f3f46; margin-bottom:0.25rem;">Recommended Preventative Action *</label>
+                <input type="text" id="newRiskActionInput" required placeholder="e.g., Monitor CBC every 48h and hold NSAIDs" style="width:100%; padding:0.5rem 0.65rem; border:1px solid #d4d4d8; border-radius:0.45rem; font-size:0.84rem;">
+              </div>
+              <button type="submit" class="btn-ask-rag" style="padding: 0.55rem 1.1rem;">💾 Save Risk Alert</button>
+            </div>
+          </form>
+        </div>
+
+        <div id="fullRisksContainer" style="display: flex; flex-direction: column; gap: 0.85rem;"></div>
+      </section>
+
+      <!-- ==========================================
+           TAB 4: MEDICATIONS
+           ========================================== -->
+      <section id="tab-meds" class="tab-view">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem;">
+          <div>
+            <h2 style="font-size: 1.35rem; font-weight: 800; color: #09090b;">Medication Safety, Prescriptions &amp; Interaction Tracker</h2>
+            <p id="medsTabPatientSubtitle" style="font-size: 0.82rem; color: #71717a;">Active dosage schedule, clinical purpose, and contraindication alerts</p>
+          </div>
+          <div style="display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap;">
+            <span id="medsCountBadge" style="font-size: 0.78rem; font-weight: 800; background: #e0f2fe; color: #0369a1; padding: 0.35rem 0.75rem; border-radius: 999px;">Prescriptions &amp; Safety Alerts</span>
+            <button class="btn-ask-rag" onclick="toggleAddMedForm()">+ Add Medication</button>
+          </div>
+        </div>
+
+        <!-- Add New Medication & Alert Form -->
+        <div id="addMedFormCard" class="content-box-card" style="display: none; border-left: 4px solid #0284c7; background: #f8fafc;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+            <div style="font-weight: 800; font-size: 0.95rem; color: #0369a1;">💊 Add New Prescription &amp; Safety Alert for Active Patient</div>
+            <button class="btn-demo-data" style="padding: 0.2rem 0.5rem; font-size: 0.75rem;" onclick="toggleAddMedForm()">✕ Close</button>
+          </div>
+          <form onsubmit="submitAddMedication(event)" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.75rem;">
+            <div>
+              <label style="display:block; font-size:0.75rem; font-weight:700; color:#3f3f46; margin-bottom:0.25rem;">Drug Name *</label>
+              <input type="text" id="newMedNameInput" required placeholder="e.g., Clopidogrel" style="width:100%; padding:0.5rem 0.65rem; border:1px solid #d4d4d8; border-radius:0.45rem; font-size:0.84rem;">
+            </div>
+            <div>
+              <label style="display:block; font-size:0.75rem; font-weight:700; color:#3f3f46; margin-bottom:0.25rem;">Dosage *</label>
+              <input type="text" id="newMedDosageInput" required placeholder="e.g., 75 mg" style="width:100%; padding:0.5rem 0.65rem; border:1px solid #d4d4d8; border-radius:0.45rem; font-size:0.84rem;">
+            </div>
+            <div>
+              <label style="display:block; font-size:0.75rem; font-weight:700; color:#3f3f46; margin-bottom:0.25rem;">Frequency *</label>
+              <input type="text" id="newMedFreqInput" required placeholder="e.g., Once Daily (Morning)" style="width:100%; padding:0.5rem 0.65rem; border:1px solid #d4d4d8; border-radius:0.45rem; font-size:0.84rem;">
+            </div>
+            <div>
+              <label style="display:block; font-size:0.75rem; font-weight:700; color:#3f3f46; margin-bottom:0.25rem;">Clinical Purpose *</label>
+              <input type="text" id="newMedPurposeInput" required placeholder="e.g., Antiplatelet / Thrombosis Prevention" style="width:100%; padding:0.5rem 0.65rem; border:1px solid #d4d4d8; border-radius:0.45rem; font-size:0.84rem;">
+            </div>
+            <div style="grid-column: 1 / -1;">
+              <label style="display:block; font-size:0.75rem; font-weight:700; color:#3f3f46; margin-bottom:0.25rem;">Administration Instructions *</label>
+              <input type="text" id="newMedInstructionsInput" required placeholder="e.g., Take with food; do not discontinue without cardiology approval" style="width:100%; padding:0.5rem 0.65rem; border:1px solid #d4d4d8; border-radius:0.45rem; font-size:0.84rem;">
+            </div>
+            <div style="grid-column: 1 / -1; display: flex; gap: 0.6rem; align-items: flex-end; flex-wrap: wrap;">
+              <div style="flex: 1; min-width: 240px;">
+                <label style="display:block; font-size:0.75rem; font-weight:700; color:#991b1b; margin-bottom:0.25rem;">Safety Warning / Drug Interaction Alert (Optional)</label>
+                <input type="text" id="newMedAlertInput" placeholder="e.g., Avoid concurrent Omeprazole or NSAIDs due to bleeding risk" style="width:100%; padding:0.5rem 0.65rem; border:1px solid #fca5a5; border-radius:0.45rem; font-size:0.84rem;">
+              </div>
+              <button type="submit" class="btn-ask-rag" style="padding: 0.55rem 1.1rem;">💾 Save Medication</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Section 1: Active Prescriptions & Dosage Schedule -->
+        <div class="content-box-card">
+          <div class="content-box-header" style="margin-bottom: 0.75rem;">
+            <div class="content-box-title"><span>💊</span> Active Prescriptions &amp; Clinical Dosage Regimen</div>
+            <span id="fullMedsRxCount" style="font-size: 0.75rem; font-weight: 700; color: #0284c7;">Active Regimen</span>
+          </div>
+          <div id="fullMedsRxContainer" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0.85rem;"></div>
+        </div>
+
+        <!-- Section 2: Medication Safety & Contraindication Alerts -->
+        <div class="content-box-card">
+          <div class="content-box-header" style="margin-bottom: 0.75rem;">
+            <div class="content-box-title"><span>⚠️</span> Medication Contraindications, Drug Interactions &amp; Safety Alerts</div>
+            <span id="fullMedsAlertsCount" style="font-size: 0.75rem; font-weight: 700; color: #dc2626;">Safety Radar</span>
+          </div>
+          <div id="fullMedsContainer" style="display: flex; flex-direction: column; gap: 0.85rem;"></div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           TAB 5: AI ASSISTANT CHAT
+           ========================================== -->
+      <section id="tab-ai-chat" class="tab-view">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
+          <div>
+            <h2 style="font-size: 1.35rem; font-weight: 800; color: #09090b;">AI Clinical Assistant (RAG Grounded)</h2>
+            <p id="aiChatPatientBanner" style="font-size: 0.82rem; color: #0284c7; font-weight: 700;">Active Patient Context: Loading record...</p>
+          </div>
+          <div style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
+            <button class="btn-demo-data" style="font-size: 0.74rem;" onclick="askSuggestedRagQuestion('Give me a complete clinical summary of this patient.')">📋 Full Summary</button>
+            <button class="btn-demo-data" style="font-size: 0.74rem;" onclick="askSuggestedRagQuestion('What are the primary diagnoses and key lab findings?')">🩺 Diagnoses &amp; Labs</button>
+            <button class="btn-demo-data" style="font-size: 0.74rem;" onclick="askSuggestedRagQuestion('What medications are prescribed and when should they be taken?')">💊 Prescriptions</button>
+            <button class="btn-demo-data" style="font-size: 0.74rem;" onclick="askSuggestedRagQuestion('What are the clinical risks and medication contraindications?')">⚠️ Risks &amp; Alerts</button>
+            <button class="btn-demo-data" style="font-size: 0.74rem;" onclick="askSuggestedRagQuestion('What diet advice, follow-up, and emergency red flags are listed?')">🥗 Diet &amp; Red Flags</button>
+          </div>
+        </div>
+        <div style="background: white; border: 1px solid var(--border-subtle); border-radius: 1rem; overflow: hidden; display: flex; flex-direction: column; height: 560px;">
+          <div id="chatStreamBox" style="flex: 1; padding: 1.25rem; overflow-y: auto; display: flex; flex-direction: column; gap: 1rem; background: #fafafa;">
+            <div class="chat-msg assistant">
+              👋 Hello! I am your <strong>DoctorInsight Clinical AI Assistant</strong>. Select any quick clinical question above or type a question below to search the active patient's medical record with grounded citations.
+            </div>
+          </div>
+          <div style="padding: 0.75rem 1.25rem; background: white; border-top: 1px solid #e4e4e7; display: flex; gap: 0.6rem;">
+            <button class="btn-demo-data" onclick="toggleDictation()" id="chatMicBtn" title="Voice Input">🎤</button>
+            <input type="text" id="chatAssistantInput" class="search-rag-input" style="border: 1px solid #d4d4d8; border-radius: 9999px; padding: 0.6rem 1rem;" placeholder="Ask anything about diagnoses, labs, medications, risks, or follow-up..." onkeydown="if(event.key==='Enter') sendAssistantChatMessage()">
+            <button class="btn-ask-rag" onclick="sendAssistantChatMessage()">Send ➔</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           TAB 6: PATIENTS DIRECTORY
+           ========================================== -->
+      <section id="tab-patients" class="tab-view">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 0.75rem;">
+          <div>
+            <h2 style="font-size: 1.35rem; font-weight: 800; color: #09090b;">Patient Directory (15 Clinical Cases)</h2>
+            <p style="font-size: 0.82rem; color: #71717a;">Click any patient card or action button to inspect 8-card analysis, risk alerts, medications, or ask the AI Assistant</p>
+          </div>
+          <div style="display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap;">
+            <input type="text" id="patientDirectorySearchInput" oninput="filterPatientDirectory()" placeholder="🔍 Search patient name, UHID, diagnosis, or risk..." style="padding: 0.45rem 0.85rem; border: 1px solid #d4d4d8; border-radius: 999px; font-size: 0.8rem; min-width: 260px;">
+            <span id="patientsActiveBadge" style="font-size: 0.8rem; font-weight: 700; background: #f4f4f5; color: #18181b; padding: 0.35rem 0.75rem; border-radius: 999px;">15 Patients Active</span>
+            <button class="btn-ask-rag" onclick="openUploadModal()">+ Add New Patient</button>
+          </div>
+        </div>
+        <div id="patientsDirectoryGrid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: 1rem;">
+          <!-- Dynamically populated with all patients -->
+        </div>
+      </section>
+
+      <!-- ==========================================
+           TAB 7: DOCUMENTS
+           ========================================== -->
+      <section id="tab-documents" class="tab-view">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem;">
+          <div>
+            <h2 style="font-size: 1.35rem; font-weight: 800; color: #09090b;">Clinical Documents &amp; Raw Notes</h2>
+            <p style="font-size: 0.82rem; color: #71717a;" id="tabDocActiveHeader">Full indexed source text used for vector retrieval</p>
+          </div>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;" id="tabDocActionButtons">
+            <button class="btn-demo-data" onclick="openUploadModal()">📄 Upload / Add Record</button>
+            <button class="btn-ask-rag" onclick="exportClinicalReport()">📥 Download Report</button>
+          </div>
+        </div>
+        <div class="content-box-card">
+          <pre id="tabDocumentPre" style="white-space: pre-wrap; font-family: inherit; font-size: 0.85rem; line-height: 1.6; color: #3f3f46; background: #fafafa; padding: 1.25rem; border-radius: 0.5rem; max-height: 440px; overflow-y: auto;"></pre>
+        </div>
+
+        <div class="content-box-card">
+          <div class="content-box-header">
+            <div class="content-box-title"><span>📚</span> Saved Medical Record Files Library (.PDF &amp; .TXT)</div>
+          </div>
+          <div id="documentsLibraryGrid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0.85rem;">
+            <!-- Populated dynamically with all PDF and TXT files -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           TAB 8: PROFILE & SECURITY
+           ========================================== -->
+      <section id="tab-profile" class="tab-view">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem;">
+          <div>
+            <h2 style="font-size: 1.35rem; font-weight: 800; color: #09090b;">Role Access Control, Profile &amp; Phone OTP Security</h2>
+            <p style="font-size: 0.82rem; color: #71717a;">Only <strong>Puneeth K.V.N.</strong> is Admin • All other users are authenticated as <strong>Patient</strong> or <strong>Guest</strong> via Mobile Phone OTP</p>
+          </div>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <button class="btn-ask-rag" onclick="showLoginPage(); switchLoginTab('otp');">📱 Sign In Patient / Guest (Phone OTP)</button>
+            <button class="btn-demo-data" onclick="showLoginPage(); switchLoginTab('admin');">🛡️ Admin Login (Puneeth K.V.N.)</button>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.25rem;">
+          <div class="content-box-card" style="border-left: 4px solid #18181b;">
+            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem;">
+              <div style="width: 58px; height: 58px; border-radius: 50%; background: #18181b; color: white; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 800;" id="profileAvatarBig">P</div>
+              <div>
+                <div style="display: flex; align-items: center; gap: 0.45rem; flex-wrap: wrap;">
+                  <h3 style="font-size: 1.15rem; font-weight: 800; color: #09090b;" id="profileBigName">Puneeth K.V.N.</h3>
+                  <span id="profileRolePill" style="font-size: 0.68rem; font-weight: 800; padding: 0.15rem 0.55rem; border-radius: 999px; background: #18181b; color: #facc15;">SOLE ADMIN</span>
+                </div>
+                <p style="font-size: 0.84rem; color: #71717a;" id="profileBigEmail">puneeth.kvn@gmail.com</p>
+                <div style="font-size: 0.74rem; color: #16a34a; font-weight: 700; margin-top: 0.25rem;" id="profileSessionStatusText">● Verified Admin Session Active</div>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; background: #fafafa; padding: 0.85rem; border-radius: 0.6rem; border: 1px solid #f4f4f5; margin-bottom: 1rem; font-size: 0.8rem;">
+              <div><strong style="color:#71717a;">Assigned Role:</strong><br><span style="font-weight:800; color:#18181b;" id="profileRoleValue">ADMIN (Puneeth K.V.N. Only)</span></div>
+              <div><strong style="color:#71717a;">Connected Phone:</strong><br><span style="font-weight:800; color:#0284c7;" id="profilePhoneValue">Admin Master Account</span></div>
+              <div><strong style="color:#71717a;">OTP Verification:</strong><br><span style="font-weight:800; color:#16a34a;" id="profileOtpStatusValue">✓ Verified</span></div>
+              <div><strong style="color:#71717a;">Access Level:</strong><br><span style="font-weight:800; color:#18181b;" id="profileAccessValue">Full Admin Read &amp; Write</span></div>
+            </div>
+            <div style="border-top: 1px solid #f4f4f5; padding-top: 1rem; display: flex; gap: 0.6rem; flex-wrap: wrap;">
+              <button class="btn-ask-rag" onclick="showLoginPage(); switchLoginTab('otp');">📱 Add / Switch Patient or Guest via OTP</button>
+              <button class="btn-demo-data" style="color: #dc2626; border-color: #fca5a5;" onclick="handleLogout()">🚪 Sign Out</button>
+            </div>
+          </div>
+
+          <div class="content-box-card">
+            <div class="content-box-header">
+              <div class="content-box-title"><span>🔐</span> Role Policy &amp; Phone OTP Access Registry</div>
+            </div>
+            <div style="font-size: 0.8rem; color: #3f3f46; background: #fefce8; border: 1px solid #fef08a; padding: 0.65rem 0.8rem; border-radius: 0.5rem; margin-bottom: 0.85rem; line-height: 1.5;">
+              • <strong>Sole Admin:</strong> Only <strong>Puneeth K.V.N.</strong> holds <code>ADMIN</code> privileges.<br>
+              • <strong>Guest &amp; Patient Access:</strong> Every other person signing in must enter their <strong>Mobile Phone Number</strong>, receive a <strong>6-digit OTP</strong> connected to that number, and verify the OTP to enter as <code>PATIENT</code> or <code>GUEST</code>.
+            </div>
+            <div style="overflow-x: auto;">
+              <table style="width: 100%; border-collapse: collapse; font-size: 0.78rem; text-align: left;">
+                <thead>
+                  <tr style="border-bottom: 2px solid #e4e4e7; color: #71717a;">
+                    <th style="padding: 0.45rem;">Name</th>
+                    <th style="padding: 0.45rem;">Role</th>
+                    <th style="padding: 0.45rem;">Connected Phone</th>
+                    <th style="padding: 0.45rem;">OTP Status</th>
+                  </tr>
+                </thead>
+                <tbody id="authUsersTableBody">
+                  <!-- Populated dynamically from /api/auth/users -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           TAB 9: SETTINGS & AI CONFIG
+           ========================================== -->
+      <section id="tab-settings" class="tab-view">
+        <div>
+          <h2 style="font-size: 1.35rem; font-weight: 800; color: #09090b;">Settings &amp; AI RAG Configuration</h2>
+          <p style="font-size: 0.82rem; color: #71717a;">Configure the vector embedding pipeline, Gemini LLM key, and sidebar interface options</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.25rem;">
+          <div class="content-box-card">
+            <div class="content-box-header">
+              <div class="content-box-title"><span>⚙️</span> RAG Vector Pipeline &amp; LLM Configuration</div>
+            </div>
+            <div style="margin-bottom: 0.9rem;">
+              <label style="font-size: 0.8rem; font-weight: 700; display: block; margin-bottom: 0.3rem; color: #3f3f46;">Vector Embedding Model</label>
+              <input type="text" class="search-rag-input" value="sentence-transformers/all-MiniLM-L6-v2 (384-d Dense Vectors)" readonly style="border: 1px solid #e4e4e7; width: 100%; border-radius: 0.45rem; padding: 0.55rem 0.75rem; background: #fafafa; font-size: 0.84rem;">
+            </div>
+            <div style="margin-bottom: 0.9rem;">
+              <label style="font-size: 0.8rem; font-weight: 700; display: block; margin-bottom: 0.3rem; color: #3f3f46;">Vector Similarity Index</label>
+              <input type="text" class="search-rag-input" value="FAISS IndexFlatIP (Cosine Similarity + Section-Aware Chunking)" readonly style="border: 1px solid #e4e4e7; width: 100%; border-radius: 0.45rem; padding: 0.55rem 0.75rem; background: #fafafa; font-size: 0.84rem;">
+            </div>
+            <div style="margin-bottom: 1rem;">
+              <label style="font-size: 0.8rem; font-weight: 700; display: block; margin-bottom: 0.3rem; color: #3f3f46;">Gemini API Key (Optional — Hybrid Grounded Mode Active by Default)</label>
+              <input type="password" id="settingsGeminiKey" class="search-rag-input" placeholder="Enter Google Gemini API key (AIza...)" style="border: 1px solid #d4d4d8; width: 100%; border-radius: 0.45rem; padding: 0.55rem 0.75rem; font-size: 0.84rem;">
+            </div>
+            <div style="display: flex; gap: 0.6rem; flex-wrap: wrap;">
+              <button class="btn-ask-rag" onclick="saveGeminiSettings()">💾 Save AI Settings</button>
+              <button class="btn-demo-data" onclick="loadAllPatientsDirectory(); loadPatientRecord(currentPatient.id, currentPatient.name); showToast('Re-verified all 15 patient records & vector chunks!');">🔄 Refresh &amp; Verify 15 Patient Records</button>
+            </div>
+          </div>
+
+          <div class="content-box-card">
+            <div class="content-box-header">
+              <div class="content-box-title"><span>🧭</span> Quick Sidebar Navigation Shortcuts</div>
+            </div>
+            <p style="font-size: 0.82rem; color: #52525b; margin-bottom: 0.85rem;">Jump directly to any module or toggle the collapsible sidebar rail:</p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+              <button class="btn-demo-data" onclick="toggleSidebar()">◨ Toggle Sidebar Rail</button>
+              <button class="btn-demo-data" onclick="navigateToTab('tab-dashboard')">⊞ Open Dashboard</button>
+              <button class="btn-demo-data" onclick="navigateToTab('tab-patients')">👥 Patient Directory (15)</button>
+              <button class="btn-demo-data" onclick="navigateToTab('tab-analysis')">🔬 8-Card Analysis</button>
+              <button class="btn-demo-data" onclick="navigateToTab('tab-risks')">⚠️ Risk Alerts Radar</button>
+              <button class="btn-demo-data" onclick="navigateToTab('tab-meds')">💊 Medications &amp; Rx</button>
+              <button class="btn-demo-data" onclick="navigateToTab('tab-ai-chat')">💬 AI Clinical Assistant</button>
+              <button class="btn-demo-data" onclick="navigateToTab('tab-documents')">📄 Clinical Documents</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ==========================================
+       MODAL 1: GOOGLE ACCOUNT SELECTOR
+       ========================================== -->
+  <div class="modal-overlay" id="googleAuthModal" style="z-index: 10001;">
+    <div class="modal-window">
+      <svg style="width: 38px; height: 38px; margin: 0 auto 0.5rem;" viewBox="0 0 24 24">
+        <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+        <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+        <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+        <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+      </svg>
+      <h3 style="font-size: 1.2rem; font-weight: 800; color: #09090b; margin-bottom: 0.25rem;">Select Account</h3>
+      <p style="font-size: 0.78rem; color: #71717a; margin-bottom: 1rem;">Only <strong>Puneeth K.V.N.</strong> is Admin. Other accounts require Phone + OTP verification as Patient or Guest.</p>
+
+      <div style="display: flex; flex-direction: column; gap: 0.6rem; text-align: left;">
+        <div onclick="completeAdminLogin('Puneeth K.V.N.', 'puneeth.kvn@gmail.com')" style="display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; padding: 0.75rem; border: 2px solid #18181b; border-radius: 0.6rem; cursor: pointer; background: #fefce8;">
+          <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <div style="width: 36px; height: 36px; border-radius: 50%; background: #18181b; color: #facc15; display: flex; align-items: center; justify-content: center; font-weight: 800;">P</div>
+            <div>
+              <div style="font-weight: 800; font-size: 0.88rem; color: #18181b;">Puneeth K.V.N.</div>
+              <div style="font-size: 0.74rem; color: #71717a;">puneeth.kvn@gmail.com</div>
+            </div>
+          </div>
+          <span style="font-size: 0.66rem; font-weight: 800; background: #18181b; color: #facc15; padding: 0.2rem 0.5rem; border-radius: 999px;">🛡️ SOLE ADMIN</span>
+        </div>
+
+        <div onclick="redirectToOtpVerification('Rahul Sharma', 'PATIENT')" style="display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; padding: 0.75rem; border: 1px solid #e4e4e7; border-radius: 0.6rem; cursor: pointer; background: white;">
+          <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <div style="width: 36px; height: 36px; border-radius: 50%; background: #0284c7; color: white; display: flex; align-items: center; justify-content: center; font-weight: 800;">R</div>
+            <div>
+              <div style="font-weight: 700; font-size: 0.86rem; color: #18181b;">Sign in as Patient (Phone + OTP)</div>
+              <div style="font-size: 0.73rem; color: #0284c7;">Requires mobile number + 6-digit OTP</div>
+            </div>
+          </div>
+          <span style="font-size: 0.66rem; font-weight: 800; background: #e0f2fe; color: #0369a1; padding: 0.2rem 0.5rem; border-radius: 999px;">🧑 PATIENT</span>
+        </div>
+
+        <div onclick="redirectToOtpVerification('Guest Visitor', 'GUEST')" style="display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; padding: 0.75rem; border: 1px dashed #cbd5e1; border-radius: 0.6rem; cursor: pointer; background: white;">
+          <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <div style="width: 36px; height: 36px; border-radius: 50%; background: #f4f4f5; color: #52525b; display: flex; align-items: center; justify-content: center; font-weight: 800;">G</div>
+            <div>
+              <div style="font-weight: 700; font-size: 0.86rem; color: #18181b;">Sign in as Guest (Phone + OTP)</div>
+              <div style="font-size: 0.73rem; color: #71717a;">Requires mobile number + 6-digit OTP</div>
+            </div>
+          </div>
+          <span style="font-size: 0.66rem; font-weight: 800; background: #f4f4f5; color: #52525b; padding: 0.2rem 0.5rem; border-radius: 999px;">👤 GUEST</span>
+        </div>
+      </div>
+
+      <button class="btn-demo-data" style="width: 100%; margin-top: 1.25rem; justify-content: center;" onclick="closeGoogleAuthModal()">Cancel</button>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       MODAL 2: UPLOAD DOCUMENT OR ADD NEW PATIENT
+       ========================================== -->
+  <div class="modal-overlay" id="uploadDocModal">
+    <div class="modal-window" style="max-width: 540px; text-align: left;">
+      <h3 style="font-size: 1.2rem; font-weight: 800; color: #09090b; margin-bottom: 0.25rem;">Upload Document or Add New Patient</h3>
+      <p style="font-size: 0.8rem; color: #71717a; margin-bottom: 1rem;">Upload a PDF/TXT file or enter a new patient's clinical record directly</p>
+
+      <!-- Option A: File Upload -->
+      <div style="border: 2px dashed #d4d4d8; border-radius: 0.75rem; padding: 1.1rem; cursor: pointer; background: #fafafa; text-align: center; margin-bottom: 1rem;" onclick="document.getElementById('fileUploadInput').click()">
+        <div style="font-size: 1.5rem; margin-bottom: 0.2rem;">📄</div>
+        <div style="font-weight: 700; font-size: 0.86rem; color: #18181b;">Click to upload PDF or TXT medical record</div>
+        <div style="font-size: 0.73rem; color: #71717a;">Automatically extracts patient details, labs, risks &amp; prescriptions</div>
+        <input type="file" id="fileUploadInput" accept=".pdf,.txt,.md" style="display: none;" onchange="handleFileUpload(event)">
+      </div>
+
+      <div style="text-align: center; font-size: 0.72rem; font-weight: 700; color: #a1a1aa; text-transform: uppercase; margin-bottom: 0.75rem;">— OR CREATE NEW PATIENT RECORD —</div>
+
+      <!-- Option B: Direct Patient Entry Form -->
+      <form onsubmit="submitNewPatientRecord(event)" style="display: flex; flex-direction: column; gap: 0.65rem;">
+        <div style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 0.5rem;">
+          <div>
+            <label style="font-size: 0.75rem; font-weight: 700; color: #3f3f46;">Patient Name</label>
+            <input type="text" id="newPatientName" class="login-input" placeholder="e.g. Arjun Mehta" required style="padding: 0.45rem 0.65rem; font-size: 0.82rem;">
+          </div>
+          <div>
+            <label style="font-size: 0.75rem; font-weight: 700; color: #3f3f46;">Age</label>
+            <input type="number" id="newPatientAge" class="login-input" placeholder="54" required style="padding: 0.45rem 0.65rem; font-size: 0.82rem;">
+          </div>
+          <div>
+            <label style="font-size: 0.75rem; font-weight: 700; color: #3f3f46;">Gender</label>
+            <select id="newPatientGender" class="login-input" style="padding: 0.45rem 0.5rem; font-size: 0.82rem;">
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <label style="font-size: 0.75rem; font-weight: 700; color: #3f3f46;">Primary Condition / Record Title</label>
+          <input type="text" id="newPatientTitle" class="login-input" placeholder="e.g. Cardiology: Hypertension &amp; Atrial Fibrillation" required style="padding: 0.45rem 0.65rem; font-size: 0.82rem;">
+        </div>
+        <div>
+          <label style="font-size: 0.75rem; font-weight: 700; color: #3f3f46;">Clinical Notes, Labs &amp; Prescriptions</label>
+          <textarea id="newPatientContent" class="login-input" rows="4" placeholder="PRIMARY DIAGNOSIS: ...&#10;KEY LABORATORY &amp; VITALS: BP: 150/92 mmHg, HbA1c: 7.8%&#10;DISCHARGE MEDICATIONS:&#10;1. Tab. Telmisartan 40 mg - 1 tablet once daily" required style="padding: 0.5rem 0.65rem; font-size: 0.82rem; font-family: inherit;"></textarea>
+        </div>
+        <div style="display: flex; gap: 0.6rem; margin-top: 0.35rem;">
+          <button type="submit" class="btn-ask-rag" style="flex: 1; justify-content: center; padding: 0.65rem;">Save &amp; Analyze Patient</button>
+          <button type="button" class="btn-demo-data" onclick="closeUploadModal()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       MODAL 3: PATIENT CASES SELECTOR
+       ========================================== -->
+  <div class="modal-overlay" id="demoDataModal">
+    <div class="modal-window" style="max-width: 520px;">
+      <h3 style="font-size: 1.25rem; font-weight: 800; color: #09090b; margin-bottom: 0.35rem;">Select Patient Medical Record</h3>
+      <p style="font-size: 0.82rem; color: #71717a; margin-bottom: 1rem;">Choose any patient record to run full RAG clinical analysis:</p>
+
+      <div id="demoCasesModalList" style="display: flex; flex-direction: column; gap: 0.45rem; text-align: left; max-height: 360px; overflow-y: auto; padding-right: 0.25rem;">
+        <!-- Dynamically populated with all patients -->
+      </div>
+
+      <button class="btn-demo-data" style="width: 100%; margin-top: 1.25rem; justify-content: center;" onclick="closeDemoDataModal()">Close</button>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       MODAL 4: PUBLIC & CUSTOM DOMAIN LINKS (www.doctorinsight.com)
+       ========================================== -->
+  <div class="modal-overlay" id="publicLinksModal">
+    <div class="modal-window" style="max-width: 560px; text-align: left;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+        <h3 style="font-size: 1.2rem; font-weight: 800; color: #09090b;">🌐 Public &amp; Custom Domain Access Links</h3>
+        <span style="font-size: 0.68rem; font-weight: 800; background: #dcfce7; color: #166534; padding: 0.2rem 0.55rem; border-radius: 999px;">● PUBLIC LIVE</span>
+      </div>
+      <p style="font-size: 0.8rem; color: #71717a; margin-bottom: 1rem;">Access DoctorInsight via custom domain, public HTTPS internet tunnel, or LAN/Wi-Fi:</p>
+
+      <div id="publicLinksContainer" style="display: flex; flex-direction: column; gap: 0.65rem;">
+        <!-- Populated dynamically via /api/network-info -->
+      </div>
+
+      <button class="btn-demo-data" style="width: 100%; margin-top: 1.15rem; justify-content: center;" onclick="closePublicLinksModal()">Close</button>
+    </div>
+  </div>
+
+  <!-- Smooth Toast Notification -->
+  <div id="toastNotification" style="position: fixed; bottom: 24px; right: 24px; background: #18181b; color: white; padding: 0.75rem 1.25rem; border-radius: 0.6rem; font-size: 0.85rem; font-weight: 600; box-shadow: 0 10px 25px rgba(0,0,0,0.2); display: none; z-index: 20000; border-left: 4px solid #facc15;"></div>
+
+  <script src="/static/app.js?v=20261008_5"></script>
+</body>
+</html>

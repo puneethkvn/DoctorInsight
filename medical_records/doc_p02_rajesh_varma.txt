@@ -1,0 +1,33 @@
+METROPOLITAN HEART INSTITUTE - CARDIOLOGY DISCHARGE SUMMARY
+Patient Name: Rajesh Varma | Age: 59 | Sex: Male | UHID: MHI-CARD-2026-1002
+Attending Cardiologist: Dr. Arvind Deshmukh, MD, DM
+
+CHIEF COMPLAINTS:
+Severe retrosternal crushing chest pain radiating to left arm and jaw with diaphoresis for 3 hours.
+
+PRIMARY DIAGNOSIS:
+1. Acute Anterior Wall ST-Elevation Myocardial Infarction (STEMI).
+2. Single-Vessel Coronary Artery Disease (95% Proximal LAD Occlusion - Post DES Stent).
+3. Primary Dyslipidemia.
+
+CLINICAL INVESTIGATIONS & LAB RESULTS:
+- High-Sensitivity Troponin-I: Peak 4,200 ng/L (Down to 180 ng/L)
+- Total Cholesterol: 245 mg/dL | LDL: 168 mg/dL | HDL: 34 mg/dL
+- Serum Creatinine: 1.0 mg/dL | HbA1c: 5.8%
+- 2D Echocardiogram: Anterior wall hypokinesis, LVEF 46%.
+
+DISCHARGE MEDICATIONS & PRESCRIPTION:
+1. Tab. Aspirin 75 mg - 1 tablet orally once daily after lunch (Antiplatelet).
+2. Tab. Ticagrelor 90 mg - 1 tablet orally twice daily morning and night (Dual Antiplatelet Therapy).
+3. Tab. Atorvastatin 80 mg - 1 tablet orally daily at bedtime (High-intensity statin).
+4. Tab. Metoprolol Succinate ER 25 mg - 1 tablet orally once daily morning (Beta-blocker).
+5. Tab. Ramipril 2.5 mg - 1 tablet orally once daily at bedtime (ACE inhibitor).
+6. Tab. Pantoprazole 40 mg - 1 tablet orally once daily empty stomach morning.
+
+CONTRAINDICATIONS & MEDICATION ALERTS:
+- CRITICAL STENT THROMBOSIS ALERT: Never skip or stop Ticagrelor or Aspirin without cardiologist approval. Premature cessation causes fatal stent clotting.
+- Avoid grapefruit juice (inhibits Atorvastatin and Ticagrelor clearance).
+
+DIETARY & LIFESTYLE GUIDANCE:
+- Strict zero trans-fat Mediterranean cardiac diet.
+- Avoid lifting >5 kg for 4 weeks; light brisk walk 20 mins daily.

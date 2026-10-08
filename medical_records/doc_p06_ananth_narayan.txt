@@ -1,0 +1,30 @@
+CENTRAL GERIATRIC CLINIC - CONSULTATION SUMMARY
+Patient Name: Ananth Narayan | Age: 74 | Sex: Male | UHID: CCG-GER-2026-1006
+Attending Geriatrician: Dr. Malini Sengupta, MD
+
+CHIEF COMPLAINTS:
+Recurrent morning occipital headaches, postural dizziness upon standing up from bed, and ambulatory BP fluctuations.
+
+PRIMARY DIAGNOSIS:
+1. Stage 2 Essential Hypertension with Postural Orthostatic Hypotension.
+2. Benign Prostatic Hyperplasia (BPH).
+3. Age-Related Mild Cerebral Small Vessel Ischemic Disease.
+
+CLINICAL INVESTIGATIONS & LAB RESULTS:
+- Blood Pressure Sitting: 172/94 mmHg -> Standing (3 min): 138/82 mmHg (34 mmHg systolic drop)
+- Heart Rate: 64 bpm | Serum Creatinine: 1.1 mg/dL | eGFR: 68 mL/min
+- Serum Sodium: 140 mEq/L | Serum Potassium: 4.4 mEq/L | Timed Up-and-Go (TUG): 12.8s.
+
+DISCHARGE MEDICATIONS & PRESCRIPTION:
+1. Tab. Amlodipine 5 mg - 1 tablet orally once daily morning after breakfast.
+2. Tab. Telmisartan 40 mg - 1 tablet orally once daily morning after breakfast.
+3. Tab. Silodosin 8 mg - 1 tablet orally once daily at bedtime after dinner.
+4. Sachet Cholecalciferol 60,000 IU - once weekly with milk for 8 weeks.
+
+CONTRAINDICATIONS & MEDICATION ALERTS:
+- FALL RISK ALERT: Silodosin + Antihypertensives cause significant postural hypotension. Sit at bedside for 60 seconds before standing.
+- Avoid nasal/oral decongestants (Pseudoephedrine) which spike BP and cause acute urinary retention.
+
+DIETARY & LIFESTYLE GUIDANCE:
+- Maintain daily sitting and standing BP log.
+- Install grab bars and nightlights in bathroom corridor to prevent nocturnal falls.

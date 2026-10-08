@@ -1,0 +1,30 @@
+CHILDREN'S SPECIALTY HOSPITAL - PULMONARY SUMMARY
+Patient Name: Aarav Joshi | Age: 14 | Sex: Male | UHID: CSH-PULM-2026-1004
+Attending Physician: Dr. Sanjay Mehra, MD
+
+CHIEF COMPLAINTS:
+Sudden shortness of breath, audible wheezing, and nocturnal dry cough triggered by seasonal pollen and dust exposure.
+
+PRIMARY DIAGNOSIS:
+1. Acute Moderate-to-Severe Exacerbation of Bronchial Asthma.
+2. Allergic Rhinitis.
+
+CLINICAL INVESTIGATIONS & LAB RESULTS:
+- SpO2: 91% on room air at triage -> Improved to 98% on treatment
+- Respiratory Rate: 28 breaths/min | Heart Rate: 112 bpm
+- Peak Expiratory Flow Rate (PEFR): Initial 185 L/min -> Post-bronchodilator 340 L/min.
+
+DISCHARGE MEDICATIONS & PRESCRIPTION:
+1. Budesonide Inhaler (Budecort 200 mcg) - 2 puffs twice daily via spacer device (Controller).
+2. Salbutamol Inhaler (Asthalin 100 mcg) - 2 puffs every 4-6 hours as needed for wheezing (Rescue).
+3. Tab. Prednisolone 20 mg - 1 tablet orally once daily morning with breakfast for 5 days.
+4. Tab. Montelukast 10 mg - 1 tablet orally daily at bedtime for 30 days.
+5. Tab. Cetirizine 5 mg - 1 tablet orally daily at bedtime for 7 days.
+
+CONTRAINDICATIONS & MEDICATION ALERTS:
+- INHALER CAUTION: Always rinse mouth and gargle with warm water after using Budecort steroid inhaler to prevent oral thrush.
+- Avoid Beta-blockers and Aspirin/NSAIDs which can trigger bronchospasm.
+
+DIETARY & LIFESTYLE GUIDANCE:
+- Keep rescue Salbutamol inhaler in school bag at all times.
+- Avoid dust mites, cold drinks, incense smoke, and pet dander.

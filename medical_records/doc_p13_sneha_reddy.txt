@@ -1,0 +1,32 @@
+MATERNAL & FETAL MEDICINE CENTER - ANTENATAL SUMMARY
+Patient Name: Sneha Reddy | Age: 27 | Sex: Female | UHID: OBS-GDM-2026-1013
+Consulting Obstetrician: Dr. Vasundhara Rao, MD, FRCOG
+
+CHIEF COMPLAINTS:
+Primigravida at 28 weeks gestation presenting for evaluation of abnormal 75g Oral Glucose Tolerance Test (OGTT) and mild maternal fatigue. Normal fetal movements perceived.
+
+PRIMARY DIAGNOSIS:
+1. Primigravida at 28 Weeks Gestation with Gestational Diabetes Mellitus (GDM).
+2. Moderate Maternal Iron-Deficiency Anemia in Pregnancy.
+3. Single Live Intrauterine Fetus in Cephalic Presentation.
+
+CLINICAL INVESTIGATIONS & LAB RESULTS:
+- 75g OGTT Results: Fasting: 106 mg/dL (Target <95) | 1-Hour: 194 mg/dL (Target <180) | 2-Hour: 162 mg/dL (Target <153)
+- HbA1c: 6.1% | Hemoglobin: 9.8 g/dL | Serum Ferritin: 14 ng/mL (Low)
+- Blood Pressure: 114/72 mmHg | Urine Dipstick: Protein Negative, Ketones Negative
+- Obstetric Ultrasound & Biometry: Fetal weight 1,180g (65th percentile), Amniotic Fluid Index (AFI) 13 cm, Normal Umbilical Artery Doppler.
+
+DISCHARGE MEDICATIONS & PRESCRIPTION:
+1. Inj. Regular Human Insulin (Actrapid) - 4 Units Subcutaneously 20 minutes before breakfast and 4 Units before dinner (Titrate per glucometer log).
+2. Tab. Metformin 500 mg SR - 1 tablet orally with lunch.
+3. Tab. Ferrous Bisglycinate 100 mg + Folic Acid - 1 tablet orally twice daily with orange/lemon water (Do not take at the same time as calcium).
+4. Tab. Calcium Citrate Malate 500 mg + Vitamin D3 - 1 tablet orally daily after lunch (Keep 2-hour gap from iron tablet).
+
+CONTRAINDICATIONS & MEDICATION ALERTS:
+- PREGNANCY TERATOGENICITY ALERT: Strictly avoid ACE inhibitors, ARBs, Statins, Tetracyclines, Fluoroquinolones, and NSAIDs during pregnancy.
+- IRON-CALCIUM INTERACTION: Never take Iron and Calcium tablets together at the same meal, as calcium blocks intestinal iron absorption by 50%.
+
+DIETARY & LIFESTYLE GUIDANCE:
+- Medical Nutrition Therapy (MNT): Split meals into 3 moderate meals + 3 small protein snacks to prevent post-meal glucose spikes.
+- Perform 4-point home glucometer monitoring (Fasting, and 2 hours post-breakfast, lunch, dinner). Targets: Fasting <95 mg/dL, 2-hr Post-meal <120 mg/dL.
+- Daily Fetal Kick Count: Ensure at least 10 fetal kicks within a 2-hour period after meals; walk 15 minutes after each main meal.

@@ -1,0 +1,48 @@
+METROPOLITAN HEART INSTITUTE
+CARDIOLOGY CLINICAL DISCHARGE RECORD
+
+PATIENT DETAILS:
+Patient Name: Rajesh Varma | Age: 59 | Gender: Male
+UHID: MHI-CARD-2026-9041 | Admission Date: 2026-09-20 | Discharge Date: 2026-09-24
+Attending Cardiologist: Dr. Arvind Deshmukh, MD, DM (Cardiology)
+
+CHIEF COMPLAINTS & PRESENTATION:
+Patient presented with retrosternal crushing chest pain radiating to left shoulder and jaw, accompanied by diaphoresis and shortness of breath (NYHA Class III) for 3 hours.
+
+PRIMARY DIAGNOSIS:
+1. Acute ST-Elevation Myocardial Infarction (Anterior STEMI).
+2. Coronary Artery Disease (Single Vessel Disease - 95% proximal LAD occlusion).
+3. Primary Dyslipidemia.
+
+HOSPITAL INTERVENTION:
+Emergency Primary Percutaneous Coronary Intervention (PCI) with Drug-Eluting Stent (DES, 3.0 x 24 mm) deployed to Proximal Left Anterior Descending (LAD) coronary artery under fluoroscopic guidance. TIMI III flow achieved successfully. Femoral arterial sheath removed without hematoma.
+
+CRITICAL LAB RESULTS & INVESTIGATIONS:
+- High-Sensitivity Troponin-I: Peak 4,200 ng/L (Post-procedure down to 180 ng/L)
+- CK-MB: 88 IU/L (Elevated)
+- Total Cholesterol: 245 mg/dL | LDL: 168 mg/dL | HDL: 34 mg/dL | Triglycerides: 215 mg/dL
+- HbA1c: 5.8% (Non-diabetic range)
+- Serum Creatinine: 1.0 mg/dL (Normal renal clearance)
+- 2D Echocardiogram: Anterior wall hypokinesis, Left Ventricular Ejection Fraction (LVEF): 46%.
+
+DISCHARGE PRESCRIPTION & MEDICATION REGIMEN:
+1. Tab. Aspirin 75 mg - 1 tablet orally once daily after lunch (Antiplatelet).
+2. Tab. Ticagrelor 90 mg - 1 tablet orally twice daily (Morning and Night) - DUAL ANTIPLATELET THERAPY (DAPT).
+3. Tab. Atorvastatin 80 mg - 1 tablet orally daily at bedtime (High-intensity lipid lowering).
+4. Tab. Metoprolol Succinate ER 25 mg - 1 tablet orally once daily morning (Beta-blocker for cardioprotection).
+5. Tab. Ramipril 2.5 mg - 1 tablet orally once daily at bedtime (ACE inhibitor for ventricular remodeling).
+6. Tab. Pantoprazole 40 mg - 1 tablet orally once daily 30 minutes before breakfast (Gastric protection).
+
+CRITICAL MEDICATION ALERTS & CONTRAINDICATIONS:
+- ABSOLUTELY ESSENTIAL: Do NOT miss or discontinue Ticagrelor or Aspirin without direct cardiology authorization. Stopping DAPT prematurely carries a severe risk of acute stent thrombosis and fatal re-infarction.
+- BLEEDING PRECAUTIONS: Avoid NSAIDs (Ibuprofen, Naproxen). For mild headaches/pain, use Paracetamol only.
+- Watch for red-flag bleeding: Black tarry stools, dark urine, or persistent unprovoked nosebleeds.
+
+PATIENT RECOVERY & LIFESTYLE GUIDANCE:
+- Cardiac Rehabilitation: 20-30 minutes light flat-surface walking daily. Strictly avoid heavy weight lifting (>5 kg) for 4 weeks.
+- Dietary Plan: Mediterranean cardiac diet. Eliminate trans fats, reduce saturated fats, low sodium (<2 g/day).
+- Strictly avoid grapefruit juice (interferes with statin and antiplatelet metabolism).
+- Emergency Red Flags: Immediate ER visit if recurrence of retrosternal heaviness, cold sweats, or sudden fainting.
+
+FOLLOW-UP SCHEDULE:
+Review in Cardiology OPD in 3 weeks with fasting lipid profile and resting 12-lead ECG.

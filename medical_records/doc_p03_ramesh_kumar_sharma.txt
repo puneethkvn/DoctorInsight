@@ -1,0 +1,33 @@
+METROPOLITAN GENERAL HOSPITAL - NEPHROLOGY DISCHARGE RECORD
+Patient Name: Ramesh Kumar Sharma | Age: 58 | Sex: Male | UHID: MGH-NEPH-2026-1003
+Consulting Nephrologist: Dr. Sunita Kulkarni, MD, DM
+
+CHIEF COMPLAINTS:
+Bilateral pitting leg swelling for 3 weeks, uncontrolled blood sugars (240-280 mg/dL), fatigue, and BP 168/102 mmHg.
+
+PRIMARY DIAGNOSIS:
+1. Type 2 Diabetes Mellitus with Diabetic Nephropathy (Stage 3b CKD).
+2. Secondary Renovascular Hypertension.
+3. Anemia of Chronic Kidney Disease (Hb 9.4 g/dL).
+
+CLINICAL INVESTIGATIONS & LAB RESULTS:
+- Fasting Blood Sugar: 212 mg/dL | Postprandial: 278 mg/dL | HbA1c: 9.2%
+- Serum Creatinine: 2.3 mg/dL (Elevated from 1.4) | eGFR: 34 mL/min/1.73m²
+- Blood Urea Nitrogen (BUN): 52 mg/dL | Serum Potassium: 5.1 mEq/L (Borderline Hyperkalemia)
+- Urine Albumin-to-Creatinine Ratio (UACR): 380 mg/g.
+
+DISCHARGE MEDICATIONS & PRESCRIPTION:
+1. Inj. Insulin Glargine (Lantus) - 14 Units Subcutaneously at 10:00 PM bedtime daily.
+2. Inj. Insulin Lispro (Humalog) - 6 Units Subcutaneously 15 mins before breakfast and dinner.
+3. Tab. Telmisartan 40 mg - 1 tablet orally once daily after breakfast.
+4. Tab. Torsemide 10 mg - 1 tablet orally once daily morning after food (Diuretic).
+5. Tab. Sodium Bicarbonate 500 mg - 1 tablet orally twice daily with meals.
+6. Tab. Ferrous Ascorbate 100 mg - 1 tablet orally daily after dinner.
+
+CONTRAINDICATIONS & MEDICATION ALERTS:
+- STRICTLY CONTRAINDICATED: NSAIDs (Ibuprofen, Diclofenac, Naproxen) cause acute kidney injury.
+- METFORMIN CONTRAINDICATION: Metformin discontinued due to eGFR <35 lactic acidosis hazard.
+
+DIETARY & LIFESTYLE GUIDANCE:
+- Renal-diabetic diet: Low sodium (<2g/day), low potassium (avoid coconut water, citrus, raw spinach).
+- Fluid restriction: Maximum 1.5 Liters per 24 hours.

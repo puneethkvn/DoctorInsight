@@ -1,0 +1,33 @@
+CENTER FOR RHEUMATOLOGY & AUTOIMMUNE DISEASES
+Patient Name: Lakshmi Subramanian | Age: 52 | Sex: Female | UHID: RHE-RA-2026-1011
+Consulting Rheumatologist: Dr. Karthikeya Murthy, MD, DM (Rheumatology)
+
+CHIEF COMPLAINTS:
+Symmetric swelling, tenderness, and morning stiffness (>90 minutes) in bilateral wrist, metacarpophalangeal (MCP), and proximal interphalangeal (PIP) hand joints for 4 months.
+
+PRIMARY DIAGNOSIS:
+1. Active Seropositive Rheumatoid Arthritis (DAS28-ESR Score: 5.1 - Moderate-to-High Disease Activity).
+2. Secondary Vitamin D Insufficiency.
+
+CLINICAL INVESTIGATIONS & LAB RESULTS:
+- Anti-CCP Antibodies: Strongly Positive (210 U/mL, Ref: <20) | Rheumatoid Factor (RF): Positive (96 IU/mL)
+- Erythrocyte Sedimentation Rate (ESR): 58 mm/hr (Elevated) | C-Reactive Protein (CRP): 24 mg/L (Elevated)
+- CBC: Hb 11.4 g/dL, WBC 7,400, Platelets 310,000 | ALT: 22 U/L | Creatinine: 0.8 mg/dL
+- Chest X-Ray & Mantoux/IGRA: Negative for latent tuberculosis; HBsAg/Anti-HCV Negative.
+
+DISCHARGE MEDICATIONS & PRESCRIPTION:
+1. Tab. Methotrexate (Folitrax) 15 mg - Take ONCE WEEKLY ONLY on SUNDAYS after breakfast (DMARD anchor therapy).
+2. Tab. Folic Acid 5 mg - Take ONCE WEEKLY on TUESDAYS (48 hours after Methotrexate) to prevent mucosal and hematologic side effects.
+3. Tab. Hydroxychloroquine (HCQS) 200 mg - 1 tablet orally once daily with dinner.
+4. Tab. Deflazacort 6 mg - 1 tablet orally once daily morning after breakfast for 4 weeks (Bridging low-dose steroid).
+5. Tab. Calcium + Vitamin D3 - 1 tablet daily after lunch.
+
+CONTRAINDICATIONS & MEDICATION ALERTS:
+- CRITICAL BLACK-BOX DOSING ALERT: Methotrexate MUST BE TAKEN ONCE A WEEK ONLY (Sundays), NEVER DAILY! Accidental daily intake causes fatal bone marrow suppression and liver toxicity.
+- CONTRAINDICATION: Strictly avoid Trimethoprim-Sulfamethoxazole (Bactrim/Septran) antibiotic while on Methotrexate due to severe pancytopenia interaction.
+- Complete alcohol abstinence required to prevent Methotrexate hepatotoxicity.
+
+DIETARY & LIFESTYLE GUIDANCE:
+- Perform warm water hand-soaks in the morning followed by gentle range-of-motion finger exercises.
+- Anti-inflammatory diet rich in omega-3 fatty acids (walnuts, flaxseeds, fish) and leafy greens.
+- Re-check CBC, Liver Function (AST/ALT), and Creatinine every 6 weeks.

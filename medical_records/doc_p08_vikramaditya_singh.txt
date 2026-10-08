@@ -1,0 +1,31 @@
+INSTITUTE OF GASTROENTEROLOGY - DISCHARGE RECORD
+Patient Name: Vikramaditya Singh | Age: 45 | Sex: Male | UHID: GAS-ULC-2026-1008
+Attending Gastroenterologist: Dr. Nikhil Chawla, MD, DM (Gastro)
+
+CHIEF COMPLAINTS:
+Burning epigastric pain for 4 weeks, worsened after taking over-the-counter Diclofenac for backache, followed by 2 episodes of dark coffee-ground emesis and melena (black tarry stools).
+
+PRIMARY DIAGNOSIS:
+1. Acute Duodenal Ulcer (Forrest Class IIb) with Resolved Upper Gastrointestinal Bleed.
+2. Helicobacter pylori (H. pylori) Infection (RUT Positive).
+3. NSAID-Induced Erosions & Mild Post-Hemorrhagic Anemia.
+
+CLINICAL INVESTIGATIONS & LAB RESULTS:
+- Upper GI Endoscopy (EGD): 1.2 cm clean-based ulcer in first part of duodenum (D1) with adherent clot treated via endoscopic hemoclip; antral gastritis.
+- Rapid Urease Test (RUT): Positive for H. pylori.
+- Hemoglobin: 10.6 g/dL (Stabilized from 9.8 g/dL) | Urea: 34 mg/dL | Creatinine: 0.9 mg/dL.
+
+DISCHARGE MEDICATIONS & PRESCRIPTION:
+1. Tab. Esomeprazole 40 mg - 1 tablet orally twice daily 30 minutes before breakfast and dinner for 14 days, then once daily for 6 weeks (Proton Pump Inhibitor).
+2. Tab. Clarithromycin 500 mg - 1 tablet orally twice daily with meals for 14 days (Antibiotic).
+3. Cap. Amoxicillin 1000 mg - 1 capsule orally twice daily with meals for 14 days (Antibiotic).
+4. Syp. Sucralfate 10 mL - orally four times daily 1 hour before meals and at bedtime (Mucosal cytoprotective).
+
+CONTRAINDICATIONS & MEDICATION ALERTS:
+- ABSOLUTE CONTRAINDICATION: Strictly avoid all NSAIDs (Diclofenac, Ibuprofen, Aspirin, Naproxen, Piroxicam). Will cause life-threatening recurrent ulcer perforation or bleeding.
+- Complete the full 14-day H. pylori triple therapy antibiotic course to prevent bacterial resistance.
+
+DIETARY & LIFESTYLE GUIDANCE:
+- Bland, soft, non-spicy diet; avoid chili, black pepper, citrus juices, vinegar, and deep-fried foods.
+- Complete abstinence from alcohol, tobacco smoking, and strong coffee.
+- Emergency Signs: Vomiting blood, black tarry stools, or sudden severe abdominal rigidity.
