@@ -218,10 +218,10 @@ function renderDashboardPatientsTable() {
 // ==========================================
 // SOLE ADMIN (PUNEETH K.V.N.) + PHONE OTP AUTHENTICATION
 // ==========================================
+// DIRECT PATIENT & ADMIN AUTHENTICATION (NO OTP)
+// ==========================================
 
-let selectedOtpRole = "PATIENT";
-let lastDispatchedOtpCode = "";
-let lastDispatchedPhone = "";
+let selectedOtpRole = "ADMIN";
 
 function isPuneethAdmin(name, email) {
   const n = (name || "").trim().toLowerCase().replace(/\./g, "").replace(/\s+/g, "");
@@ -236,6 +236,7 @@ function initAuthSession() {
 
   if (isLoginPath) {
     loginPage.style.display = "flex";
+    selectOtpRole("PATIENT");
     loadAuthUsersRegistry();
     return;
   }
@@ -247,14 +248,8 @@ function initAuthSession() {
         parsed.role = "ADMIN";
         parsed.name = "Puneeth K.V.N.";
         parsed.email = "puneeth.kvn@gmail.com";
-        parsed.otp_verified = true;
-      } else if (!parsed.otp_verified || !parsed.phone) {
-        localStorage.removeItem("DOCTORINSIGHT_AUTH_V3");
-        loginPage.style.display = "flex";
-        switchLoginTab("otp");
-        return;
       } else if (parsed.role !== "ADMIN" && parsed.role !== "PATIENT") {
-        parsed.role = "ADMIN";
+        parsed.role = "PATIENT";
       }
       currentUser = parsed;
       updateUserInterface(currentUser);
@@ -270,9 +265,7 @@ function initAuthSession() {
   currentUser = {
     name: "Puneeth K.V.N.",
     email: "puneeth.kvn@gmail.com",
-    phone: "Admin Master Account",
     role: "ADMIN",
-    otp_verified: true,
     avatar_initial: "P",
     provider: "admin_google",
     timestamp: Date.now()
@@ -283,37 +276,6 @@ function initAuthSession() {
   loadAuthUsersRegistry();
 }
 
-function switchLoginTab(mode) {
-  const otpPanel = document.getElementById("otpLoginPanel");
-  const adminPanel = document.getElementById("adminLoginPanel");
-  const btnOtp = document.getElementById("tabBtnOtpLogin");
-  const btnAdmin = document.getElementById("tabBtnAdminLogin");
-
-  if (mode === "admin") {
-    if (otpPanel) otpPanel.style.display = "none";
-    if (adminPanel) adminPanel.style.display = "block";
-    if (btnAdmin) {
-      btnAdmin.style.background = "#18181b";
-      btnAdmin.style.color = "#facc15";
-    }
-    if (btnOtp) {
-      btnOtp.style.background = "transparent";
-      btnOtp.style.color = "#52525b";
-    }
-  } else {
-    if (otpPanel) otpPanel.style.display = "block";
-    if (adminPanel) adminPanel.style.display = "none";
-    if (btnOtp) {
-      btnOtp.style.background = "#18181b";
-      btnOtp.style.color = "#ffffff";
-    }
-    if (btnAdmin) {
-      btnAdmin.style.background = "transparent";
-      btnAdmin.style.color = "#52525b";
-    }
-  }
-}
-
 function selectOtpRole(role) {
   selectedOtpRole = role === "ADMIN" ? "ADMIN" : "PATIENT";
   const cardP = document.getElementById("roleCardPatient");
@@ -321,173 +283,33 @@ function selectOtpRole(role) {
   const radios = document.getElementsByName("otpRoleRadio");
   radios.forEach(r => { r.checked = (r.value === selectedOtpRole); });
 
+  const nameField = document.getElementById("loginNameField");
+  const emailField = document.getElementById("loginEmailField");
+  const submitBtn = document.getElementById("btnLoginSubmitMain");
+
   if (selectedOtpRole === "PATIENT") {
     if (cardP) { cardP.style.borderColor = "#0284c7"; cardP.style.background = "#f0f9ff"; cardP.style.color = "#0369a1"; }
     if (cardA) { cardA.style.borderColor = "#e4e4e7"; cardA.style.background = "#ffffff"; cardA.style.color = "#52525b"; }
+    if (nameField && isPuneethAdmin(nameField.value, emailField?.value)) {
+      nameField.value = "Rahul Sharma";
+    }
+    if (emailField && emailField.value.trim().toLowerCase() === "puneeth.kvn@gmail.com") {
+      emailField.value = "rahul.sharma@gmail.com";
+    }
+    if (submitBtn) {
+      submitBtn.textContent = "🧑 Sign In as Patient ➔";
+      submitBtn.style.background = "#0284c7";
+    }
   } else {
     if (cardA) { cardA.style.borderColor = "#18181b"; cardA.style.background = "#fefce8"; cardA.style.color = "#854d0e"; }
     if (cardP) { cardP.style.borderColor = "#e4e4e7"; cardP.style.background = "#ffffff"; cardP.style.color = "#52525b"; }
-    const nameField = document.getElementById("otpLoginNameField");
-    if (nameField && !nameField.value.trim()) {
-      nameField.value = "Puneeth K.V.N.";
+    if (nameField) nameField.value = "Puneeth K.V.N.";
+    if (emailField) emailField.value = "puneeth.kvn@gmail.com";
+    if (submitBtn) {
+      submitBtn.textContent = "🛡️ Sign In as Admin (Puneeth K.V.N.) ➔";
+      submitBtn.style.background = "#18181b";
     }
   }
-}
-
-async function sendLoginOtp() {
-  const nameInput = document.getElementById("otpLoginNameField");
-  const phoneInput = document.getElementById("otpLoginPhoneField");
-  const errorBox = document.getElementById("otpErrorBox");
-  const banner = document.getElementById("otpDispatchBanner");
-  const otpInput = document.getElementById("otpCodeInput");
-
-  if (errorBox) errorBox.style.display = "none";
-
-  const name = (nameInput?.value || "").trim();
-  const phone = (phoneInput?.value || "").trim();
-
-  if (!name) {
-    if (errorBox) {
-      errorBox.textContent = "Please enter your Full Name before requesting an OTP.";
-      errorBox.style.display = "block";
-    }
-    nameInput?.focus();
-    return;
-  }
-
-  if (!phone || phone.replace(/\D/g, "").length < 10) {
-    if (errorBox) {
-      errorBox.textContent = "Please enter a valid 10-digit mobile phone number to receive your OTP.";
-      errorBox.style.display = "block";
-    }
-    phoneInput?.focus();
-    return;
-  }
-
-  try {
-    const res = await fetch("/api/auth/send-otp", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        name: name,
-        phone: phone,
-        role: selectedOtpRole
-      })
-    });
-
-    const data = await res.json();
-    if (!res.ok) {
-      throw new Error(data.detail || "Could not send OTP to phone number.");
-    }
-
-    lastDispatchedOtpCode = data.otp_code;
-    lastDispatchedPhone = data.phone;
-
-    if (banner) {
-      banner.style.display = "block";
-      document.getElementById("otpBannerPhoneText").textContent = `📲 SMS OTP Connected to ${data.phone} (${data.role})`;
-      document.getElementById("otpBannerCodeText").innerHTML =
-        `Your 6-digit verification OTP is: <strong style="font-size: 1rem; letter-spacing: 2px; background: #fff; padding: 0.12rem 0.45rem; border-radius: 0.25rem; border: 1px solid #eab308;">${data.otp_code}</strong>`;
-    }
-
-    if (otpInput) {
-      otpInput.disabled = false;
-      otpInput.style.background = "#ffffff";
-      otpInput.placeholder = "Enter 6-digit OTP (e.g. " + data.otp_code + ")";
-      otpInput.focus();
-    }
-
-    showToast(`📲 OTP ${data.otp_code} sent to ${data.phone} for ${data.role} login!`);
-  } catch (err) {
-    if (errorBox) {
-      errorBox.textContent = err.message;
-      errorBox.style.display = "block";
-    }
-  }
-}
-
-function autoFillReceivedOtp() {
-  const otpInput = document.getElementById("otpCodeInput");
-  if (otpInput && lastDispatchedOtpCode) {
-    otpInput.disabled = false;
-    otpInput.style.background = "#ffffff";
-    otpInput.value = lastDispatchedOtpCode;
-    showToast("✓ 6-digit OTP auto-filled from connected phone SMS!");
-  }
-}
-
-async function verifyLoginOtpAndSignIn(event) {
-  event.preventDefault();
-  const name = (document.getElementById("otpLoginNameField")?.value || "").trim();
-  const phone = (document.getElementById("otpLoginPhoneField")?.value || "").trim();
-  const otp = (document.getElementById("otpCodeInput")?.value || "").trim();
-  const errorBox = document.getElementById("otpErrorBox");
-
-  if (errorBox) errorBox.style.display = "none";
-
-  if (!otp || otp.length !== 6) {
-    if (errorBox) {
-      errorBox.textContent = "Please click 'Get OTP' and enter the valid 6-digit OTP sent to your phone number.";
-      errorBox.style.display = "block";
-    }
-    return;
-  }
-
-  try {
-    const res = await fetch("/api/auth/verify-otp", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        name: name,
-        phone: phone,
-        otp: otp,
-        role: selectedOtpRole
-      })
-    });
-
-    const data = await res.json();
-    if (!res.ok) {
-      throw new Error(data.detail || "Invalid OTP code.");
-    }
-
-    currentUser = data.user;
-    localStorage.setItem("DOCTORINSIGHT_AUTH_V3", JSON.stringify(currentUser));
-    updateUserInterface(currentUser);
-    await loadAuthUsersRegistry();
-
-    // Reset OTP inputs
-    document.getElementById("otpCodeInput").value = "";
-    document.getElementById("otpDispatchBanner").style.display = "none";
-
-    // Hide login page and enter dashboard
-    document.getElementById("fullLoginPage").style.display = "none";
-    if (window.location.pathname.includes("/login")) {
-      window.history.pushState({}, "", "/dashboard");
-    }
-
-    showToast(`✓ Verified Phone OTP! Signed in as ${currentUser.role}: ${currentUser.name} (${currentUser.phone})`);
-  } catch (err) {
-    if (errorBox) {
-      errorBox.textContent = err.message;
-      errorBox.style.display = "block";
-    }
-  }
-}
-
-function redirectToOtpVerification(suggestedName, role) {
-  closeGoogleAuthModal();
-  document.getElementById("fullLoginPage").style.display = "flex";
-  switchLoginTab("otp");
-  selectOtpRole(role || "PATIENT");
-  const nameField = document.getElementById("otpLoginNameField");
-  if (nameField) {
-    nameField.value = suggestedName || "";
-  }
-  const phoneField = document.getElementById("otpLoginPhoneField");
-  if (phoneField) {
-    setTimeout(() => phoneField.focus(), 80);
-  }
-  showToast(`Only Puneeth K.V.N. is Admin. Please enter your phone number & verify OTP to sign in as ${role}.`);
 }
 
 function showLoginPage() {
@@ -503,37 +325,35 @@ function closeGoogleAuthModal() {
   document.getElementById("googleAuthModal").style.display = "none";
 }
 
-async function completeAdminLogin(name, email) {
+async function completeDirectLogin(name, email, role) {
   closeGoogleAuthModal();
-
-  if (!isPuneethAdmin(name, email)) {
-    redirectToOtpVerification(name, "PATIENT");
-    return;
-  }
+  const cleanName = (name || "User").trim();
+  const cleanEmail = (email || `${cleanName.toLowerCase().replace(/\s+/g, ".")}@doctorinsight.com`).trim().toLowerCase();
+  const finalRole = (role === "ADMIN" || isPuneethAdmin(cleanName, cleanEmail)) ? "ADMIN" : "PATIENT";
 
   try {
     const res = await fetch("/api/auth/google", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name: "Puneeth K.V.N.", email: "puneeth.kvn@gmail.com" })
+      body: JSON.stringify({
+        name: cleanName,
+        email: cleanEmail,
+        role: finalRole
+      })
     });
     const data = await res.json();
     currentUser = data.user || {
-      name: "Puneeth K.V.N.",
-      email: "puneeth.kvn@gmail.com",
-      phone: "Admin Master Account",
-      role: "ADMIN",
-      otp_verified: true,
-      avatar_initial: "P"
+      name: cleanName,
+      email: cleanEmail,
+      role: finalRole,
+      avatar_initial: cleanName[0].toUpperCase()
     };
   } catch (err) {
     currentUser = {
-      name: "Puneeth K.V.N.",
-      email: "puneeth.kvn@gmail.com",
-      phone: "Admin Master Account",
-      role: "ADMIN",
-      otp_verified: true,
-      avatar_initial: "P"
+      name: cleanName,
+      email: cleanEmail,
+      role: finalRole,
+      avatar_initial: cleanName[0].toUpperCase()
     };
   }
 
@@ -545,26 +365,19 @@ async function completeAdminLogin(name, email) {
   if (window.location.pathname.includes("/login")) {
     window.history.pushState({}, "", "/dashboard");
   }
-  showToast("🛡️ Signed in as Sole Admin: Puneeth K.V.N.");
+  showToast(`✓ Signed in as ${currentUser.role}: ${currentUser.name}`);
 }
 
-async function completeAccountLogin(name, email) {
-  if (isPuneethAdmin(name, email)) {
-    await completeAdminLogin(name, email);
-  } else {
-    redirectToOtpVerification(name, "PATIENT");
-  }
+async function completeAdminLogin(name, email) {
+  await completeDirectLogin(name || "Puneeth K.V.N.", email || "puneeth.kvn@gmail.com", "ADMIN");
 }
 
-function submitEmailLoginForm(event) {
+async function submitEmailLoginForm(event) {
   event.preventDefault();
-  const name = document.getElementById("loginNameField").value.trim() || "User";
-  const email = document.getElementById("loginEmailField").value.trim();
-  if (!isPuneethAdmin(name, email)) {
-    redirectToOtpVerification(name, "PATIENT");
-    return;
-  }
-  completeAdminLogin("Puneeth K.V.N.", "puneeth.kvn@gmail.com");
+  const name = document.getElementById("loginNameField")?.value.trim() || "User";
+  const email = document.getElementById("loginEmailField")?.value.trim() || "user@doctorinsight.com";
+  const role = isPuneethAdmin(name, email) ? "ADMIN" : selectedOtpRole;
+  await completeDirectLogin(name, email, role);
 }
 
 function updateUserInterface(user) {
@@ -572,7 +385,6 @@ function updateUserInterface(user) {
   const isAdmin = user.role === "ADMIN" || isPuneethAdmin(user.name, user.email);
   const role = isAdmin ? "ADMIN" : "PATIENT";
   const initial = (user.name || "P")[0].toUpperCase();
-  const phoneDisplay = user.phone || (isAdmin ? "Admin Master Account" : "Phone OTP Verified");
 
   if (document.getElementById("userAvatarLetter")) {
     document.getElementById("userAvatarLetter").textContent = initial;
@@ -582,9 +394,6 @@ function updateUserInterface(user) {
   }
   if (document.getElementById("menuUserEmail")) {
     document.getElementById("menuUserEmail").textContent = user.email || "";
-  }
-  if (document.getElementById("menuUserPhone")) {
-    document.getElementById("menuUserPhone").textContent = `📱 ${phoneDisplay}`;
   }
 
   // Header Role Badge
@@ -596,7 +405,7 @@ function updateUserInterface(user) {
       headerBadge.style.color = "#854d0e";
       headerBadge.style.borderColor = "#fde047";
     } else {
-      headerBadge.textContent = `🧑 PATIENT (${user.phone || "OTP ✓"})`;
+      headerBadge.textContent = `🧑 PATIENT (${user.name || "Patient"})`;
       headerBadge.style.background = "#e0f2fe";
       headerBadge.style.color = "#0369a1";
       headerBadge.style.borderColor = "#bae6fd";
@@ -607,14 +416,14 @@ function updateUserInterface(user) {
   const menuRoleBadge = document.getElementById("menuUserRoleBadge");
   if (menuRoleBadge) {
     menuRoleBadge.textContent = role;
-    menuRoleBadge.style.background = isAdmin ? "#18181b" : (role === "PATIENT" ? "#0284c7" : "#52525b");
+    menuRoleBadge.style.background = isAdmin ? "#18181b" : "#0284c7";
     menuRoleBadge.style.color = isAdmin ? "#facc15" : "#ffffff";
   }
   const menuOtpStatus = document.getElementById("menuOtpStatus");
   if (menuOtpStatus) {
     menuOtpStatus.innerHTML = isAdmin
-      ? `<span>🛡️</span> Sole Admin Privilege Active`
-      : `<span>✓</span> Phone OTP Verified (${user.phone || ""})`;
+      ? `<span>🛡️</span> Admin Session Active`
+      : `<span>✓</span> Patient Session Active`;
   }
 
   // Profile & Security Tab
@@ -625,32 +434,30 @@ function updateUserInterface(user) {
   }
   if (document.getElementById("profileRolePill")) {
     const pill = document.getElementById("profileRolePill");
-    pill.textContent = isAdmin ? "SOLE ADMIN" : `${role} (OTP VERIFIED)`;
-    pill.style.background = isAdmin ? "#18181b" : (role === "PATIENT" ? "#0284c7" : "#52525b");
+    pill.textContent = isAdmin ? "ADMIN" : "PATIENT";
+    pill.style.background = isAdmin ? "#18181b" : "#0284c7";
     pill.style.color = isAdmin ? "#facc15" : "#ffffff";
   }
   if (document.getElementById("profileSessionStatusText")) {
     document.getElementById("profileSessionStatusText").textContent = isAdmin
-      ? "● Sole Admin Session Active (Puneeth K.V.N.)"
-      : `● OTP-Verified ${role} Session Active (${user.phone || ""})`;
+      ? `● Admin Session Active (${user.name || "Puneeth K.V.N."})`
+      : `● Patient Session Active (${user.name || "Patient"})`;
   }
   if (document.getElementById("profileRoleValue")) {
     document.getElementById("profileRoleValue").textContent = isAdmin
-      ? "ADMIN (Puneeth K.V.N. Only)"
-      : `${role} (Phone OTP Authenticated)`;
+      ? "ADMIN"
+      : "PATIENT";
   }
   if (document.getElementById("profilePhoneValue")) {
-    document.getElementById("profilePhoneValue").textContent = phoneDisplay;
+    document.getElementById("profilePhoneValue").textContent = user.email || "DoctorInsight Auth";
   }
   if (document.getElementById("profileOtpStatusValue")) {
-    document.getElementById("profileOtpStatusValue").textContent = isAdmin
-      ? "✓ Admin Master Verified"
-      : `✓ 6-Digit OTP Verified (${user.phone || ""})`;
+    document.getElementById("profileOtpStatusValue").textContent = "✓ Active";
   }
   if (document.getElementById("profileAccessValue")) {
     document.getElementById("profileAccessValue").textContent = isAdmin
       ? "Full Admin Read & Write"
-      : `${role} Clinical View & AI Assistant`;
+      : "Patient Clinical View & AI Assistant";
   }
 }
 
@@ -666,13 +473,13 @@ async function loadAuthUsersRegistry() {
       const isA = u.role === "ADMIN";
       const badgeStyle = isA
         ? "background:#18181b;color:#facc15;"
-        : (u.role === "PATIENT" ? "background:#e0f2fe;color:#0369a1;" : "background:#f4f4f5;color:#52525b;");
+        : "background:#e0f2fe;color:#0369a1;";
       return `
         <tr style="border-bottom: 1px solid #f4f4f5;">
           <td style="padding: 0.5rem 0.45rem; font-weight: 800; color: #09090b;">${u.name || "User"}</td>
           <td style="padding: 0.5rem 0.45rem;"><span style="font-size:0.65rem;font-weight:800;padding:0.12rem 0.45rem;border-radius:999px;${badgeStyle}">${u.role}</span></td>
-          <td style="padding: 0.5rem 0.45rem; font-family: monospace; font-size: 0.75rem; color: #0284c7;">${u.phone || "--"}</td>
-          <td style="padding: 0.5rem 0.45rem; color: #16a34a; font-weight: 700; font-size: 0.74rem;">✓ ${isA ? "Sole Admin" : "OTP Verified"}</td>
+          <td style="padding: 0.5rem 0.45rem; font-size: 0.75rem; color: #0284c7;">${u.email || "--"}</td>
+          <td style="padding: 0.5rem 0.45rem; color: #16a34a; font-weight: 700; font-size: 0.74rem;">✓ Active</td>
         </tr>
       `;
     }).join("");
@@ -686,7 +493,7 @@ function handleLogout() {
   currentUser = null;
   closeUserDropdown();
   document.getElementById("fullLoginPage").style.display = "flex";
-  switchLoginTab("otp");
+  selectOtpRole("PATIENT");
 }
 
 function toggleUserDropdown() {

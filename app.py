@@ -357,44 +357,26 @@ def verify_phone_otp(payload: VerifyOtpRequest):
 
 @app.post("/api/auth/google")
 def google_auth(payload: GoogleAuthRequest):
-    """Logs in Admin (Puneeth K.V.N.) or OTP-verified Admin or Patient."""
+    """Logs in Admin (Puneeth K.V.N.) or Patient directly without requiring Phone or OTP."""
     email = payload.email.lower().strip()
-    name = (payload.name or "").strip()
+    name = (payload.name or "User").strip()
     if not email:
         raise HTTPException(status_code=400, detail="Invalid email address.")
 
-    if not is_puneeth_admin(name, email):
-        # Non-admin users MUST have a verified phone + OTP to sign in as Admin or Patient
-        clean_phone = normalize_phone(payload.phone or "")
-        otp_record = OTP_STORE.get(clean_phone) if clean_phone else None
-        if not otp_record or not payload.otp or payload.otp.strip() != otp_record.get("otp"):
-            raise HTTPException(
-                status_code=403,
-                detail="Please enter your Phone Number and verify OTP to sign in as Admin or Patient."
-            )
-        assigned_role = (payload.role or otp_record.get("role") or "PATIENT").upper()
-        if assigned_role not in ("PATIENT", "ADMIN"):
-            assigned_role = "PATIENT"
-        phone_val = clean_phone
-        otp_verified = True
-    else:
+    if is_puneeth_admin(name, email) or (payload.role or "").upper() == "ADMIN":
         assigned_role = "ADMIN"
-        name = "Puneeth K.V.N."
-        email = "puneeth.kvn@gmail.com"
-        phone_val = payload.phone or "+919999999999"
-        otp_verified = True
+    else:
+        assigned_role = "PATIENT"
 
     user_id = payload.sub or f"usr_{uuid.uuid4().hex[:10]}"
     account = {
         "id": user_id,
         "name": name,
         "email": email,
-        "phone": phone_val,
         "role": assigned_role,
-        "otp_verified": otp_verified,
         "avatar_initial": name[0].upper(),
         "avatar": payload.avatar or f"https://api.dicebear.com/7.x/initials/svg?seed={name}",
-        "auth_provider": "admin_google" if assigned_role == "ADMIN" else "google_otp",
+        "auth_provider": "google",
         "created_at": time.time(),
         "last_login": time.time()
     }
@@ -411,25 +393,19 @@ def google_auth(payload: GoogleAuthRequest):
 
 @app.post("/api/auth/email")
 def email_auth(payload: EmailAuthRequest):
-    """Admin email sign-in for Puneeth K.V.N.; others require Phone + OTP."""
+    """Direct email sign-in for Admin or Patient without phone or OTP."""
     email = payload.email.lower().strip()
-    name = (payload.name or "").strip()
-    if not is_puneeth_admin(name, email):
-        raise HTTPException(
-            status_code=403,
-            detail="Please use the Patient / Admin Phone Number + OTP form to sign in."
-        )
+    name = (payload.name or "User").strip()
+    assigned_role = "ADMIN" if (is_puneeth_admin(name, email) or (payload.role or "").upper() == "ADMIN") else "PATIENT"
 
-    user_id = "admin_puneeth_kvn"
+    user_id = f"usr_{uuid.uuid4().hex[:10]}"
     account = {
         "id": user_id,
-        "name": "Puneeth K.V.N.",
-        "email": "puneeth.kvn@gmail.com",
-        "phone": "+919999999999",
-        "role": "ADMIN",
-        "otp_verified": True,
-        "avatar_initial": "P",
-        "auth_provider": "admin_credentials",
+        "name": name,
+        "email": email,
+        "role": assigned_role,
+        "avatar_initial": name[0].upper(),
+        "auth_provider": "credentials",
         "created_at": time.time(),
         "last_login": time.time()
     }
@@ -440,7 +416,7 @@ def email_auth(payload: EmailAuthRequest):
         "success": True,
         "token": f"token_{user_id}_{int(time.time())}",
         "user": account,
-        "message": "Welcome back, Admin Puneeth K.V.N.!"
+        "message": f"Welcome, {name} ({assigned_role})!"
     }
 
 
