@@ -1,13 +1,15 @@
 {
   "user_accounts": {
     "puneeth.kvn@gmail.com": {
-      "id": "g_b65d33dc4a",
+      "id": "usr_6dd0139c16",
       "name": "Puneeth K.V.N.",
       "email": "puneeth.kvn@gmail.com",
+      "role": "ADMIN",
+      "avatar_initial": "P",
       "avatar": "https://api.dicebear.com/7.x/initials/svg?seed=Puneeth K.V.N.",
       "auth_provider": "google",
-      "created_at": 1791480216.8074257,
-      "last_login": 1791480216.8074257
+      "created_at": 1791485994.6652768,
+      "last_login": 1791485994.6652768
     },
     "vivekchokkara4@gmail.com": {
       "id": "g_4fc7d5ee8c",
@@ -20,15 +22,26 @@
     },
     "+919876543210": {
       "id": "otp_919876543210",
-      "name": "Rahul Sharma",
+      "name": "Puneeth K.V.N.",
       "email": "919876543210@otp.patient.in",
       "phone": "+919876543210",
-      "role": "PATIENT",
+      "role": "ADMIN",
       "otp_verified": true,
-      "avatar_initial": "R",
+      "avatar_initial": "P",
       "auth_provider": "phone_otp",
-      "created_at": 1791481044.411902,
-      "last_login": 1791481044.411902
+      "created_at": 1791485214.591302,
+      "last_login": 1791485214.591302
+    },
+    "rahul.sharma@gmail.com": {
+      "id": "usr_59b9f58301",
+      "name": "Rahul Sharma",
+      "email": "rahul.sharma@gmail.com",
+      "role": "PATIENT",
+      "avatar_initial": "R",
+      "avatar": "https://api.dicebear.com/7.x/initials/svg?seed=Rahul Sharma",
+      "auth_provider": "google",
+      "created_at": 1791485994.6125968,
+      "last_login": 1791485994.6125968
     }
   },
   "custom_documents": {
@@ -336,5 +349,5 @@
       "chunk_count": 2
     }
   },
-  "updated_at": 1791481044.411902
+  "updated_at": 1791485994.6652768
 }
