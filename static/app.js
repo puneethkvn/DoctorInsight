@@ -243,20 +243,18 @@ function initAuthSession() {
   if (savedUser) {
     try {
       const parsed = JSON.parse(savedUser);
-      // Enforce strict rule: Only Puneeth K.V.N. can be ADMIN; others must be OTP-verified PATIENT or GUEST
       if (isPuneethAdmin(parsed.name, parsed.email)) {
         parsed.role = "ADMIN";
         parsed.name = "Puneeth K.V.N.";
         parsed.email = "puneeth.kvn@gmail.com";
         parsed.otp_verified = true;
       } else if (!parsed.otp_verified || !parsed.phone) {
-        // Non-admin without verified OTP must verify OTP
         localStorage.removeItem("DOCTORINSIGHT_AUTH_V3");
         loginPage.style.display = "flex";
         switchLoginTab("otp");
         return;
-      } else if (parsed.role !== "GUEST" && parsed.role !== "PATIENT") {
-        parsed.role = "PATIENT";
+      } else if (parsed.role !== "ADMIN" && parsed.role !== "PATIENT") {
+        parsed.role = "ADMIN";
       }
       currentUser = parsed;
       updateUserInterface(currentUser);
@@ -268,7 +266,7 @@ function initAuthSession() {
     }
   }
 
-  // Default initial session on /dashboard is Sole Admin Puneeth K.V.N.
+  // Default initial session on /dashboard is Admin Puneeth K.V.N.
   currentUser = {
     name: "Puneeth K.V.N.",
     email: "puneeth.kvn@gmail.com",
@@ -317,18 +315,22 @@ function switchLoginTab(mode) {
 }
 
 function selectOtpRole(role) {
-  selectedOtpRole = role === "GUEST" ? "GUEST" : "PATIENT";
+  selectedOtpRole = role === "ADMIN" ? "ADMIN" : "PATIENT";
   const cardP = document.getElementById("roleCardPatient");
-  const cardG = document.getElementById("roleCardGuest");
+  const cardA = document.getElementById("roleCardAdmin");
   const radios = document.getElementsByName("otpRoleRadio");
   radios.forEach(r => { r.checked = (r.value === selectedOtpRole); });
 
   if (selectedOtpRole === "PATIENT") {
     if (cardP) { cardP.style.borderColor = "#0284c7"; cardP.style.background = "#f0f9ff"; cardP.style.color = "#0369a1"; }
-    if (cardG) { cardG.style.borderColor = "#e4e4e7"; cardG.style.background = "#ffffff"; cardG.style.color = "#52525b"; }
+    if (cardA) { cardA.style.borderColor = "#e4e4e7"; cardA.style.background = "#ffffff"; cardA.style.color = "#52525b"; }
   } else {
-    if (cardG) { cardG.style.borderColor = "#18181b"; cardG.style.background = "#f4f4f5"; cardG.style.color = "#18181b"; }
+    if (cardA) { cardA.style.borderColor = "#18181b"; cardA.style.background = "#fefce8"; cardA.style.color = "#854d0e"; }
     if (cardP) { cardP.style.borderColor = "#e4e4e7"; cardP.style.background = "#ffffff"; cardP.style.color = "#52525b"; }
+    const nameField = document.getElementById("otpLoginNameField");
+    if (nameField && !nameField.value.trim()) {
+      nameField.value = "Puneeth K.V.N.";
+    }
   }
 }
 
@@ -567,10 +569,10 @@ function submitEmailLoginForm(event) {
 
 function updateUserInterface(user) {
   if (!user) return;
-  const isAdmin = isPuneethAdmin(user.name, user.email) && user.role === "ADMIN";
-  const role = isAdmin ? "ADMIN" : (user.role === "GUEST" ? "GUEST" : "PATIENT");
+  const isAdmin = user.role === "ADMIN" || isPuneethAdmin(user.name, user.email);
+  const role = isAdmin ? "ADMIN" : "PATIENT";
   const initial = (user.name || "P")[0].toUpperCase();
-  const phoneDisplay = isAdmin ? "Admin Master Account" : (user.phone || "Phone OTP Verified");
+  const phoneDisplay = user.phone || (isAdmin ? "Admin Master Account" : "Phone OTP Verified");
 
   if (document.getElementById("userAvatarLetter")) {
     document.getElementById("userAvatarLetter").textContent = initial;
@@ -589,20 +591,15 @@ function updateUserInterface(user) {
   const headerBadge = document.getElementById("headerRoleBadge");
   if (headerBadge) {
     if (isAdmin) {
-      headerBadge.textContent = "🛡️ ADMIN (Puneeth K.V.N.)";
+      headerBadge.textContent = `🛡️ ADMIN (${user.name || "Puneeth K.V.N."})`;
       headerBadge.style.background = "#fef9c3";
       headerBadge.style.color = "#854d0e";
       headerBadge.style.borderColor = "#fde047";
-    } else if (role === "PATIENT") {
+    } else {
       headerBadge.textContent = `🧑 PATIENT (${user.phone || "OTP ✓"})`;
       headerBadge.style.background = "#e0f2fe";
       headerBadge.style.color = "#0369a1";
       headerBadge.style.borderColor = "#bae6fd";
-    } else {
-      headerBadge.textContent = `👤 GUEST (${user.phone || "OTP ✓"})`;
-      headerBadge.style.background = "#f4f4f5";
-      headerBadge.style.color = "#3f3f46";
-      headerBadge.style.borderColor = "#d4d4d8";
     }
   }
 

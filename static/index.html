@@ -130,10 +130,10 @@
       </div>
       <div style="font-size: 0.82rem; color: #71717a; margin-bottom: 0.65rem;">Medical Document Intelligence • Role &amp; OTP Access Control</div>
 
-      <!-- Login Mode Switcher: Patient/Guest (Phone OTP) vs Admin (Puneeth K.V.N. Only) -->
+      <!-- Login Mode Switcher: Patient/Admin (Phone OTP) vs Admin (Puneeth K.V.N. Only) -->
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem; background: #f4f4f5; padding: 0.3rem; border-radius: 0.75rem; margin-bottom: 1.15rem;">
         <button type="button" id="tabBtnOtpLogin" onclick="switchLoginTab('otp')" style="padding: 0.55rem 0.5rem; border-radius: 0.55rem; border: none; font-size: 0.78rem; font-weight: 800; cursor: pointer; background: #18181b; color: #ffffff;">
-          📱 Patient / Guest (OTP)
+          📱 Patient / Admin (OTP)
         </button>
         <button type="button" id="tabBtnAdminLogin" onclick="switchLoginTab('admin')" style="padding: 0.55rem 0.5rem; border-radius: 0.55rem; border: none; font-size: 0.78rem; font-weight: 800; cursor: pointer; background: transparent; color: #52525b;">
           🛡️ Admin (Puneeth K.V.N.)
@@ -141,30 +141,30 @@
       </div>
 
       <!-- =====================================================
-           PANEL 1: PATIENT / GUEST SIGN-IN (PHONE NUMBER + OTP)
+           PANEL 1: PATIENT / ADMIN SIGN-IN (PHONE NUMBER + OTP)
            ===================================================== -->
       <div id="otpLoginPanel" style="text-align: left;">
         <div style="background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 0.6rem; padding: 0.6rem 0.8rem; margin-bottom: 0.9rem; font-size: 0.76rem; color: #0369a1; line-height: 1.45;">
-          <strong>🔒 Mandatory OTP Verification:</strong> Only <strong>Puneeth K.V.N.</strong> is Admin. All other users sign in as <strong>Patient</strong> or <strong>Guest</strong> by connecting their mobile phone number and verifying the 6-digit OTP.
+          <strong>🔒 Mandatory OTP Verification:</strong> Connect your mobile phone number and verify the 6-digit OTP to sign in as <strong>Patient</strong> or <strong>Admin</strong> (<strong>Puneeth K.V.N.</strong>).
         </div>
 
         <form onsubmit="verifyLoginOtpAndSignIn(event)">
-          <!-- Select Role: Patient or Guest -->
+          <!-- Select Role: Patient or Admin -->
           <label style="font-size: 0.74rem; font-weight: 800; color: #3f3f46; display: block; margin-bottom: 0.3rem; text-transform: uppercase;">1. Select Account Role *</label>
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-bottom: 0.75rem;">
             <label id="roleCardPatient" onclick="selectOtpRole('PATIENT')" style="display: flex; align-items: center; gap: 0.45rem; padding: 0.55rem 0.75rem; border: 2px solid #0284c7; background: #f0f9ff; border-radius: 0.55rem; cursor: pointer; font-size: 0.82rem; font-weight: 800; color: #0369a1;">
               <input type="radio" name="otpRoleRadio" value="PATIENT" checked style="accent-color: #0284c7;">
               <span>🧑 Patient</span>
             </label>
-            <label id="roleCardGuest" onclick="selectOtpRole('GUEST')" style="display: flex; align-items: center; gap: 0.45rem; padding: 0.55rem 0.75rem; border: 2px solid #e4e4e7; background: #ffffff; border-radius: 0.55rem; cursor: pointer; font-size: 0.82rem; font-weight: 800; color: #52525b;">
-              <input type="radio" name="otpRoleRadio" value="GUEST" style="accent-color: #18181b;">
-              <span>👤 Guest</span>
+            <label id="roleCardAdmin" onclick="selectOtpRole('ADMIN')" style="display: flex; align-items: center; gap: 0.45rem; padding: 0.55rem 0.75rem; border: 2px solid #e4e4e7; background: #ffffff; border-radius: 0.55rem; cursor: pointer; font-size: 0.82rem; font-weight: 800; color: #52525b;">
+              <input type="radio" name="otpRoleRadio" value="ADMIN" style="accent-color: #18181b;">
+              <span>🛡️ Admin</span>
             </label>
           </div>
 
           <!-- Full Name -->
           <label style="font-size: 0.74rem; font-weight: 800; color: #3f3f46; display: block; margin-bottom: 0.25rem; text-transform: uppercase;">2. Full Name *</label>
-          <input type="text" id="otpLoginNameField" class="login-input-field" placeholder="Enter your full name (e.g. Rahul Sharma)" required style="margin-bottom: 0.7rem;">
+          <input type="text" id="otpLoginNameField" class="login-input-field" placeholder="Enter your full name (e.g. Rahul Sharma / Puneeth K.V.N.)" required style="margin-bottom: 0.7rem;">
 
           <!-- Mobile Phone Number + Send OTP Button -->
           <label style="font-size: 0.74rem; font-weight: 800; color: #3f3f46; display: block; margin-bottom: 0.25rem; text-transform: uppercase;">3. Mobile Phone Number (Connected for OTP) *</label>
@@ -191,7 +191,7 @@
           <div id="otpErrorBox" style="display: none; color: #dc2626; font-size: 0.78rem; font-weight: 700; margin-bottom: 0.65rem; background: #fef2f2; padding: 0.45rem 0.65rem; border-radius: 0.4rem; border: 1px solid #fecaca;"></div>
 
           <button type="submit" id="btnVerifyOtpSubmit" class="btn-login-submit" style="background: #16a34a;">
-            ✓ Verify OTP &amp; Sign In as Patient / Guest ➔
+            ✓ Verify OTP &amp; Sign In as Patient / Admin ➔
           </button>
         </form>
       </div>
@@ -201,7 +201,7 @@
            ===================================================== -->
       <div id="adminLoginPanel" style="display: none; text-align: left;">
         <div style="background: #fefce8; border: 1px solid #fde047; border-radius: 0.6rem; padding: 0.65rem 0.8rem; margin-bottom: 0.9rem; font-size: 0.77rem; color: #854d0e; line-height: 1.45;">
-          <strong>🛡️ Restricted Admin Access:</strong> Only <strong>Puneeth K.V.N.</strong> (<code>puneeth.kvn@gmail.com</code>) is authorized as <strong>Admin</strong>. Anyone else attempting Admin login will be redirected to Phone + OTP verification as a Guest or Patient.
+          <strong>🛡️ Admin Access:</strong> <strong>Puneeth K.V.N.</strong> (<code>puneeth.kvn@gmail.com</code>) is authorized as <strong>Admin</strong>. You can also verify via Phone + OTP as <strong>Admin</strong> or <strong>Patient</strong>.
         </div>
 
         <!-- Google Sign-In Button for Admin -->
@@ -303,7 +303,7 @@
             </div>
           </div>
           <div class="dropdown-item" onclick="showLoginPage(); switchLoginTab('otp');">
-            <span>📱 Sign In as Patient / Guest (Phone OTP)</span>
+            <span>📱 Sign In as Patient / Admin (Phone OTP)</span>
           </div>
           <div class="dropdown-item" onclick="showLoginPage(); switchLoginTab('admin');">
             <span>🛡️ Admin Sign-In (Puneeth K.V.N.)</span>
@@ -906,10 +906,10 @@
         <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem;">
           <div>
             <h2 style="font-size: 1.35rem; font-weight: 800; color: #09090b;">Role Access Control, Profile &amp; Phone OTP Security</h2>
-            <p style="font-size: 0.82rem; color: #71717a;">Only <strong>Puneeth K.V.N.</strong> is Admin • All other users are authenticated as <strong>Patient</strong> or <strong>Guest</strong> via Mobile Phone OTP</p>
+            <p style="font-size: 0.82rem; color: #71717a;"><strong>Puneeth K.V.N.</strong> is Admin • Users are authenticated as <strong>Patient</strong> or <strong>Admin</strong> via Mobile Phone OTP</p>
           </div>
           <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-            <button class="btn-ask-rag" onclick="showLoginPage(); switchLoginTab('otp');">📱 Sign In Patient / Guest (Phone OTP)</button>
+            <button class="btn-ask-rag" onclick="showLoginPage(); switchLoginTab('otp');">📱 Sign In Patient / Admin (Phone OTP)</button>
             <button class="btn-demo-data" onclick="showLoginPage(); switchLoginTab('admin');">🛡️ Admin Login (Puneeth K.V.N.)</button>
           </div>
         </div>
@@ -921,20 +921,20 @@
               <div>
                 <div style="display: flex; align-items: center; gap: 0.45rem; flex-wrap: wrap;">
                   <h3 style="font-size: 1.15rem; font-weight: 800; color: #09090b;" id="profileBigName">Puneeth K.V.N.</h3>
-                  <span id="profileRolePill" style="font-size: 0.68rem; font-weight: 800; padding: 0.15rem 0.55rem; border-radius: 999px; background: #18181b; color: #facc15;">SOLE ADMIN</span>
+                  <span id="profileRolePill" style="font-size: 0.68rem; font-weight: 800; padding: 0.15rem 0.55rem; border-radius: 999px; background: #18181b; color: #facc15;">ADMIN</span>
                 </div>
                 <p style="font-size: 0.84rem; color: #71717a;" id="profileBigEmail">puneeth.kvn@gmail.com</p>
                 <div style="font-size: 0.74rem; color: #16a34a; font-weight: 700; margin-top: 0.25rem;" id="profileSessionStatusText">● Verified Admin Session Active</div>
               </div>
             </div>
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; background: #fafafa; padding: 0.85rem; border-radius: 0.6rem; border: 1px solid #f4f4f5; margin-bottom: 1rem; font-size: 0.8rem;">
-              <div><strong style="color:#71717a;">Assigned Role:</strong><br><span style="font-weight:800; color:#18181b;" id="profileRoleValue">ADMIN (Puneeth K.V.N. Only)</span></div>
+              <div><strong style="color:#71717a;">Assigned Role:</strong><br><span style="font-weight:800; color:#18181b;" id="profileRoleValue">ADMIN (Puneeth K.V.N.)</span></div>
               <div><strong style="color:#71717a;">Connected Phone:</strong><br><span style="font-weight:800; color:#0284c7;" id="profilePhoneValue">Admin Master Account</span></div>
               <div><strong style="color:#71717a;">OTP Verification:</strong><br><span style="font-weight:800; color:#16a34a;" id="profileOtpStatusValue">✓ Verified</span></div>
               <div><strong style="color:#71717a;">Access Level:</strong><br><span style="font-weight:800; color:#18181b;" id="profileAccessValue">Full Admin Read &amp; Write</span></div>
             </div>
             <div style="border-top: 1px solid #f4f4f5; padding-top: 1rem; display: flex; gap: 0.6rem; flex-wrap: wrap;">
-              <button class="btn-ask-rag" onclick="showLoginPage(); switchLoginTab('otp');">📱 Add / Switch Patient or Guest via OTP</button>
+              <button class="btn-ask-rag" onclick="showLoginPage(); switchLoginTab('otp');">📱 Add / Switch Patient or Admin via OTP</button>
               <button class="btn-demo-data" style="color: #dc2626; border-color: #fca5a5;" onclick="handleLogout()">🚪 Sign Out</button>
             </div>
           </div>
@@ -944,8 +944,8 @@
               <div class="content-box-title"><span>🔐</span> Role Policy &amp; Phone OTP Access Registry</div>
             </div>
             <div style="font-size: 0.8rem; color: #3f3f46; background: #fefce8; border: 1px solid #fef08a; padding: 0.65rem 0.8rem; border-radius: 0.5rem; margin-bottom: 0.85rem; line-height: 1.5;">
-              • <strong>Sole Admin:</strong> Only <strong>Puneeth K.V.N.</strong> holds <code>ADMIN</code> privileges.<br>
-              • <strong>Guest &amp; Patient Access:</strong> Every other person signing in must enter their <strong>Mobile Phone Number</strong>, receive a <strong>6-digit OTP</strong> connected to that number, and verify the OTP to enter as <code>PATIENT</code> or <code>GUEST</code>.
+              • <strong>Admin Access:</strong> <strong>Puneeth K.V.N.</strong> holds <code>ADMIN</code> privileges.<br>
+              • <strong>Admin &amp; Patient OTP Access:</strong> Users signing in enter their <strong>Mobile Phone Number</strong>, receive a <strong>6-digit OTP</strong> connected to that number, and verify the OTP to enter as <code>PATIENT</code> or <code>ADMIN</code>.
             </div>
             <div style="overflow-x: auto;">
               <table style="width: 100%; border-collapse: collapse; font-size: 0.78rem; text-align: left;">
@@ -1032,7 +1032,7 @@
         <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
       </svg>
       <h3 style="font-size: 1.2rem; font-weight: 800; color: #09090b; margin-bottom: 0.25rem;">Select Account</h3>
-      <p style="font-size: 0.78rem; color: #71717a; margin-bottom: 1rem;">Only <strong>Puneeth K.V.N.</strong> is Admin. Other accounts require Phone + OTP verification as Patient or Guest.</p>
+      <p style="font-size: 0.78rem; color: #71717a; margin-bottom: 1rem;">Sign in as <strong>Admin</strong> (<strong>Puneeth K.V.N.</strong>) or verify Phone + OTP as <strong>Patient</strong> or <strong>Admin</strong>.</p>
 
       <div style="display: flex; flex-direction: column; gap: 0.6rem; text-align: left;">
         <div onclick="completeAdminLogin('Puneeth K.V.N.', 'puneeth.kvn@gmail.com')" style="display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; padding: 0.75rem; border: 2px solid #18181b; border-radius: 0.6rem; cursor: pointer; background: #fefce8;">
@@ -1043,7 +1043,7 @@
               <div style="font-size: 0.74rem; color: #71717a;">puneeth.kvn@gmail.com</div>
             </div>
           </div>
-          <span style="font-size: 0.66rem; font-weight: 800; background: #18181b; color: #facc15; padding: 0.2rem 0.5rem; border-radius: 999px;">🛡️ SOLE ADMIN</span>
+          <span style="font-size: 0.66rem; font-weight: 800; background: #18181b; color: #facc15; padding: 0.2rem 0.5rem; border-radius: 999px;">🛡️ ADMIN</span>
         </div>
 
         <div onclick="redirectToOtpVerification('Rahul Sharma', 'PATIENT')" style="display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; padding: 0.75rem; border: 1px solid #e4e4e7; border-radius: 0.6rem; cursor: pointer; background: white;">
@@ -1057,15 +1057,15 @@
           <span style="font-size: 0.66rem; font-weight: 800; background: #e0f2fe; color: #0369a1; padding: 0.2rem 0.5rem; border-radius: 999px;">🧑 PATIENT</span>
         </div>
 
-        <div onclick="redirectToOtpVerification('Guest Visitor', 'GUEST')" style="display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; padding: 0.75rem; border: 1px dashed #cbd5e1; border-radius: 0.6rem; cursor: pointer; background: white;">
+        <div onclick="redirectToOtpVerification('Puneeth K.V.N.', 'ADMIN')" style="display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; padding: 0.75rem; border: 1px dashed #18181b; border-radius: 0.6rem; cursor: pointer; background: #fefce8;">
           <div style="display: flex; align-items: center; gap: 0.75rem;">
-            <div style="width: 36px; height: 36px; border-radius: 50%; background: #f4f4f5; color: #52525b; display: flex; align-items: center; justify-content: center; font-weight: 800;">G</div>
+            <div style="width: 36px; height: 36px; border-radius: 50%; background: #18181b; color: #facc15; display: flex; align-items: center; justify-content: center; font-weight: 800;">A</div>
             <div>
-              <div style="font-weight: 700; font-size: 0.86rem; color: #18181b;">Sign in as Guest (Phone + OTP)</div>
+              <div style="font-weight: 700; font-size: 0.86rem; color: #18181b;">Sign in as Admin (Phone + OTP)</div>
               <div style="font-size: 0.73rem; color: #71717a;">Requires mobile number + 6-digit OTP</div>
             </div>
           </div>
-          <span style="font-size: 0.66rem; font-weight: 800; background: #f4f4f5; color: #52525b; padding: 0.2rem 0.5rem; border-radius: 999px;">👤 GUEST</span>
+          <span style="font-size: 0.66rem; font-weight: 800; background: #18181b; color: #facc15; padding: 0.2rem 0.5rem; border-radius: 999px;">🛡️ ADMIN</span>
         </div>
       </div>
 
@@ -1164,6 +1164,6 @@
   <!-- Smooth Toast Notification -->
   <div id="toastNotification" style="position: fixed; bottom: 24px; right: 24px; background: #18181b; color: white; padding: 0.75rem 1.25rem; border-radius: 0.6rem; font-size: 0.85rem; font-weight: 600; box-shadow: 0 10px 25px rgba(0,0,0,0.2); display: none; z-index: 20000; border-left: 4px solid #facc15;"></div>
 
-  <script src="/static/app.js?v=20261008_5"></script>
+  <script src="/static/app.js?v=20261009_1"></script>
 </body>
 </html>

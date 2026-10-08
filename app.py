@@ -134,14 +134,14 @@ class EmailAuthRequest(BaseModel):
 class SendOtpRequest(BaseModel):
     name: str
     phone: str
-    role: str = "PATIENT"  # PATIENT or GUEST
+    role: str = "PATIENT"  # PATIENT or ADMIN
     email: Optional[str] = None
 
 class VerifyOtpRequest(BaseModel):
     name: str
     phone: str
     otp: str
-    role: str = "PATIENT"  # PATIENT or GUEST
+    role: str = "PATIENT"  # PATIENT or ADMIN
     email: Optional[str] = None
 
 class TextUploadRequest(BaseModel):
@@ -250,12 +250,12 @@ def health_check():
 
 
 # ==========================================
-# Authentication: Sole Admin (Puneeth K.V.N.) + Phone OTP for Guest/Patient
+# Authentication: Admin (Puneeth K.V.N.) + Phone OTP for Admin/Patient
 # ==========================================
 
 @app.post("/api/auth/send-otp")
 def send_phone_otp(payload: SendOtpRequest):
-    """Generates and dispatches a 6-digit OTP bound to the user's phone number for Guest or Patient sign-in."""
+    """Generates and dispatches a 6-digit OTP bound to the user's phone number for Admin or Patient sign-in."""
     import random
     clean_phone = normalize_phone(payload.phone)
     if not clean_phone:
@@ -269,7 +269,7 @@ def send_phone_otp(payload: SendOtpRequest):
         raise HTTPException(status_code=400, detail="Please enter your full name.")
 
     role = (payload.role or "PATIENT").strip().upper()
-    if role not in ("PATIENT", "GUEST"):
+    if role not in ("PATIENT", "ADMIN"):
         role = "PATIENT"
 
     otp_code = f"{random.randint(100000, 999999)}"
@@ -297,7 +297,7 @@ def send_phone_otp(payload: SendOtpRequest):
 
 @app.post("/api/auth/verify-otp")
 def verify_phone_otp(payload: VerifyOtpRequest):
-    """Verifies the 6-digit OTP connected to the phone number and signs the user in as Guest or Patient."""
+    """Verifies the 6-digit OTP connected to the phone number and signs the user in as Admin or Patient."""
     clean_phone = normalize_phone(payload.phone)
     if not clean_phone:
         raise HTTPException(status_code=400, detail="Invalid phone number format.")
@@ -319,18 +319,17 @@ def verify_phone_otp(payload: VerifyOtpRequest):
     if entered_otp != record["otp"]:
         raise HTTPException(
             status_code=401,
-            detail="Invalid OTP code! Only users who receive and enter the correct OTP for their phone number can sign in as Guest or Patient."
+            detail="Invalid OTP code! Only users who receive and enter the correct OTP for their phone number can sign in as Admin or Patient."
         )
 
     record["verified"] = True
     name = (payload.name or record["name"] or "Verified User").strip()
     email = (payload.email or record["email"] or f"{clean_phone.replace('+', '')}@otp.user").strip().lower()
 
-    # Enforce strict rule: Only Puneeth K.V.N. can ever be ADMIN; all OTP sign-ins are PATIENT or GUEST
     requested_role = (payload.role or record["role"] or "PATIENT").strip().upper()
-    if requested_role not in ("PATIENT", "GUEST"):
+    if requested_role not in ("PATIENT", "ADMIN"):
         requested_role = "PATIENT"
-    final_role = "ADMIN" if is_puneeth_admin(name, email) else requested_role
+    final_role = "ADMIN" if (is_puneeth_admin(name, email) or requested_role == "ADMIN") else "PATIENT"
 
     user_id = f"otp_{clean_phone.replace('+', '')}"
     account = {
@@ -358,23 +357,23 @@ def verify_phone_otp(payload: VerifyOtpRequest):
 
 @app.post("/api/auth/google")
 def google_auth(payload: GoogleAuthRequest):
-    """Logs in Admin (Puneeth K.V.N. ONLY). All other users must verify Phone + OTP as Guest or Patient."""
+    """Logs in Admin (Puneeth K.V.N.) or OTP-verified Admin or Patient."""
     email = payload.email.lower().strip()
     name = (payload.name or "").strip()
     if not email:
         raise HTTPException(status_code=400, detail="Invalid email address.")
 
     if not is_puneeth_admin(name, email):
-        # Non-admin users MUST have a verified phone + OTP to sign in as Guest or Patient
+        # Non-admin users MUST have a verified phone + OTP to sign in as Admin or Patient
         clean_phone = normalize_phone(payload.phone or "")
         otp_record = OTP_STORE.get(clean_phone) if clean_phone else None
         if not otp_record or not payload.otp or payload.otp.strip() != otp_record.get("otp"):
             raise HTTPException(
                 status_code=403,
-                detail="Only Puneeth K.V.N. is Admin. Guests and Patients must enter their Phone Number and verify OTP to sign in."
+                detail="Please enter your Phone Number and verify OTP to sign in as Admin or Patient."
             )
         assigned_role = (payload.role or otp_record.get("role") or "PATIENT").upper()
-        if assigned_role not in ("PATIENT", "GUEST"):
+        if assigned_role not in ("PATIENT", "ADMIN"):
             assigned_role = "PATIENT"
         phone_val = clean_phone
         otp_verified = True
@@ -412,13 +411,13 @@ def google_auth(payload: GoogleAuthRequest):
 
 @app.post("/api/auth/email")
 def email_auth(payload: EmailAuthRequest):
-    """Admin email sign-in for Puneeth K.V.N. only; others require Phone + OTP."""
+    """Admin email sign-in for Puneeth K.V.N.; others require Phone + OTP."""
     email = payload.email.lower().strip()
     name = (payload.name or "").strip()
     if not is_puneeth_admin(name, email):
         raise HTTPException(
             status_code=403,
-            detail="Only Puneeth K.V.N. is Admin. Please use the Patient / Guest Phone Number + OTP form to sign in."
+            detail="Please use the Patient / Admin Phone Number + OTP form to sign in."
         )
 
     user_id = "admin_puneeth_kvn"
@@ -447,8 +446,8 @@ def email_auth(payload: EmailAuthRequest):
 
 @app.get("/api/auth/users")
 def list_authenticated_users():
-    """Returns all registered/verified users and their roles (ADMIN, PATIENT, GUEST)."""
-    # Ensure Puneeth K.V.N. is always listed as sole ADMIN
+    """Returns all registered/verified users and their roles (ADMIN, PATIENT)."""
+    # Ensure Puneeth K.V.N. is always listed as ADMIN
     admin_entry = {
         "id": "admin_puneeth_kvn",
         "name": "Puneeth K.V.N.",
@@ -462,10 +461,9 @@ def list_authenticated_users():
     for k, acc in USER_ACCOUNTS.items():
         if is_puneeth_admin(acc.get("name"), acc.get("email")):
             continue
-        # Ensure non-Puneeth accounts never have ADMIN role
         acc_copy = dict(acc)
-        if acc_copy.get("role") == "ADMIN":
-            acc_copy["role"] = "PATIENT"
+        if acc_copy.get("role") == "GUEST":
+            acc_copy["role"] = "ADMIN"
         users_list.append(acc_copy)
     return {"users": users_list, "total": len(users_list)}
 
